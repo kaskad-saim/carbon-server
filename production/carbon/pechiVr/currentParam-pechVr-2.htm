@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Current</title>
+	<link rel="stylesheet" href="http://Techsite4/kaskad/css/pechVr-currentParam.css">
+</head>
+<#Refresh Content=60>
+
+	<body>
+		<div class="current-param">
+			<h1 class="current-param__title">
+				<span class="current-param__title-span">Карбон</span>
+				Печь Карбонизации №2
+			</h1>
+			<div class="current-param__box">
+				<span class="current-param__date">
+					<#Date>
+				</span>
+				<span class="current-param__time">
+					<#Time>
+				</span>
+			</div>
+			<h2 class="current-param__subtitle">
+				Режим работы печи:
+				<span class="current-param__subtitle-span"></span>
+			</h2>
+		</div>
+		<div class="tables">
+			<table class="table">
+				<caption class="table__title">Текущие параметры температуры
+				</caption>
+				<thead class="table__thead">
+					<tr class="table__tr">
+						<th class="table__th table__left">Наименование параметра</th>
+						<th class="table__th ">Значения &#176C</th>
+						<th class="table__th ">Рекомендуемые, &#176C</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr class="table__tr">
+						<td class="table__td table__left">В топке</td>
+						<td class="table__td table__right temper-topka">
+							<#PasspValue PasspType=1 PasspID=49 Precision=0>
+						</td>
+						<td class="table__td table__right">
+							не более 1000
+						</td>
+					</tr>
+					<tr class="table__tr">
+						<td class="table__td table__left">На 1-ой скользящей</td>
+						<td class="table__td table__right temper-1-skolz">
+							<#PasspValue PasspType=1 PasspID=55 Precision=0>
+						</td>
+						<td class="table__td table__right">
+							550-700
+						</td>
+					</tr>
+					<tr class="table__tr">
+						<td class="table__td table__left">На 2-ой скользящей</td>
+						<td class="table__td table__right temper-2-skolz">
+							<#PasspValue PasspType=1 PasspID=56 Precision=0>
+						</td>
+						<td class="table__td table__right">
+							не более 700
+						</td>
+					</tr>
+					<tr class="table__tr">
+						<td class="table__td table__left">На 3-ей скользящей</td>
+						<td class="table__td table__right temper-3-skolz">
+							<#PasspValue PasspType=1 PasspID=57 Precision=0>
+						</td>
+						<td class="table__td table__right">
+							не более 400 - установившейся режим
+							не более 750 - выход режим
+						</td>
+					</tr>
+					<tr class="table__tr">
+						<td class="table__td table__left">Вверху камеры загрузки</td>
+						<td class="table__td table__right temper-verh-kamer-zagruz">
+							<#PasspValue PasspType=1 PasspID=203 Precision=0>
+						</td>
+						<td class="table__td table__right">
+							не более 1000
+						</td>
+					</tr>
+					<tr class="table__tr">
+						<td class="table__td table__left">Внизу камеры загрузки</td>
+						<td class="table__td table__right temper-vniz-kamer-zagruz">
+							<#PasspValue PasspType=1 PasspID=58 Precision=0>
+						</td>
+						<td class="table__td table__right">
+							1000-1100
+						</td>
+					</tr>
+					<tr class="table__tr">
+						<td class="table__td table__left">Гранул после холод-ка</td>
+						<td class="table__td table__right temper-granul-holod">
+							<#PasspValue PasspType=1 PasspID=65 Precision=0>
+						</td>
+						<td class="table__td table__right">
+							не более 70
+						</td>
+					</tr>
+					<tr class="table__tr">
+						<td class="table__td table__left">На входе печи дожига</td>
+						<td class="table__td table__right temper-vhod-pech-dozhig">
+							<#PasspValue PasspType=1 PasspID=59 Precision=0>
+						</td>
+						<td class="table__td table__right">
+							не более 1200
+						</td>
+					</tr>
+					<tr class="table__tr">
+						<td class="table__td table__left">На выходе печи дожига</td>
+						<td class="table__td table__right temper-vihod-pech-dozhig">
+							<#PasspValue PasspType=1 PasspID=60 Precision=0>
+						</td>
+						<td class="table__td table__right">
+							1100-1200
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			<table class="table">
+				<caption class="table__title">Текущие параметры давление/разрежение
+				</caption>
+				<thead class="table__thead">
+					<tr class="table__tr">
+						<th class="table__th table__left">Наименование параметра</th>
+						<th class="table__th ">Значения</th>
+						<th class="table__th ">Рекомендуемые</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr class="table__tr">
+						<td class="table__td table__left">В топке печи, кгс/м2</td>
+						<td class="table__td table__right davl-topka">
+							<#PasspValue PasspType=1 PasspID=70 Precision=1>
+						</td>
+						<td class="table__td table__right">
+							-(1.0-3.0)
+						</td>
+					</tr>
+					<tr class="table__tr">
+						<td class="table__td table__left"> Низ загрузочной камеры, кгс/м2</td>
+						<td class="table__td table__right razr-niz-zagr-kam">
+							<#PasspValue PasspType=1 PasspID=71 Precision=1>
+						</td>
+						<td class="table__td table__right">
+							-(3.0-5.0)
+						</td>
+					</tr>
+				</tbody>
+			</table>
+
+			<table class="table">
+				<caption class="table__title">Текущие параметры (горелка)
+				</caption>
+				<thead class="table__thead">
+					<tr class="table__tr">
+						<th class="table__th table__left">Наименование параметра</th>
+						<th class="table__th ">Значение</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr class="table__tr">
+						<td class="table__td table__left">Тек. мощность горелки, %</td>
+						<td class="table__td table__right">
+							<#PasspValue PasspType=11 PasspID=2 Precision=1>
+						</td>
+					</tr>
+					<tr class="table__tr">
+						<td class="table__td table__left">Задание температуры регулятора, &#176C</td>
+						<td class="table__td table__right">
+							<#PasspValue PasspType=1 PasspID=76 Precision=0>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+
+			<table class="table">
+				<caption class="table__title">Текущие параметры (Скруббер)
+				</caption>
+				<thead class="table__thead">
+					<tr class="table__tr">
+						<th class="table__th table__left ">Наименование параметра</th>
+						<th class="table__th ">Значение</th>
+						<th class="table__th ">Рекомендуемые</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr class="table__tr">
+						<td class="table__td table__left">Температура газов до скруббера, &#176C</td>
+						<td class="table__td table__right temper-do-skruber">
+							<#PasspValue PasspType=1 PasspID=62 Precision=0>
+						</td>
+						<td class="table__td table__right">
+							не более 400
+						</td>
+					</tr>
+					<tr class="table__tr">
+						<td class="table__td table__left">Температура газов после скруббера, &#176C</td>
+						<td class="table__td table__right temper-posle-skruber">
+							<#PasspValue PasspType=1 PasspID=63 Precision=0>
+						</td>
+						<td class="table__td table__right">
+							не более 100
+						</td>
+					</tr>
+
+					<tr class="table__tr">
+						<td class="table__td table__left">Температура воды в ванне скруббера, &#176C</td>
+						<td class="table__td table__right temper-vody-vanna-skruber">
+							<#PasspValue PasspType=1 PasspID=64 Precision=0>
+						</td>
+						<td class="table__td table__right">
+							70-90
+						</td>
+					</tr>
+					<tr class="table__tr">
+						<td class="table__td table__left">Давление газов после скруббера, кгс/м2</td>
+						<td class="table__td table__right davl-gaz-posle-skruber">
+							<#PasspValue PasspType=1 PasspID=74 Precision=1>
+						</td>
+						<td class="table__td table__right">
+							не более 20
+						</td>
+					</tr>
+					<tr class="table__tr">
+						<td class="table__td table__left">Уровень воды в ванне скруббера, мм</td>
+						<td class="table__td table__right">
+							<#PasspValue PasspType=1 PasspID=83 Precision=0>
+						</td>
+						<td class="table__td table__right">
+
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			<table class="table">
+				<caption class="table__title">Текущие параметры (Котел-утилизатор)
+				</caption>
+				<thead class="table__thead">
+					<tr class="table__tr">
+						<th class="table__th table__left">Наименование параметра</th>
+						<th class="table__th ">Значения</th>
+						<th class="table__th ">Рекомендуемые</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr class="table__tr">
+						<td class="table__td table__left">Температура дымовых газов котла-утилизат., &#176C</td>
+						<td class="table__td table__right temper-gazov-kotel-utiliz">
+							<#PasspValue PasspType=1 PasspID=61 Precision=1>
+						</td>
+						<td class="table__td table__right">
+							не более 1100
+						</td>
+					</tr>
+					<tr class="table__tr">
+						<td class="table__td table__left">Уровень воды в барабане котла, мм</td>
+						<td class="table__td table__right">
+							<#PasspValue PasspType=1 PasspID=82 Precision=0>
+						</td>
+						<td class="table__td table__right">
+
+						</td>
+					</tr>
+					<tr class="table__tr">
+						<td class="table__td table__left">Расход пара от котла, т/ч</td>
+						<td class="table__td table__right">
+							<#PasspValue PasspType=1 PasspID=69 Precision=0>
+						</td>
+						<td class="table__td table__right">
+
+						</td>
+					</tr>
+					<tr class="table__tr">
+						<td class="table__td table__left">Разрежение в пространстве котла, кгс/м2</td>
+						<td class="table__td table__right razr-kotel-utiliz">
+							<#PasspValue PasspType=1 PasspID=72 Precision=1>
+						</td>
+						<td class="table__td table__right">
+							-(3.0-12.0)
+						</td>
+					</tr>
+					<tr class="table__tr">
+						<td class="table__td table__left">Давление пара в барабане котла, кгс/см2</td>
+						<td class="table__td table__right">
+							<#PasspValue PasspType=1 PasspID=73 Precision=1>
+						</td>
+						<td class="table__td table__right">
+
+						</td>
+					</tr>
+					<tr class="table__tr">
+						<td class="table__td table__left">Уровень воды в емкости ХВО, мм</td>
+						<td class="table__td table__right">
+							<#PasspValue PasspType=1 PasspID=84 Precision=0>
+						</td>
+						<td class="table__td table__right">
+
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+
+		<script src="../js/pechVr-currentParam.js"></script>
+	</body>
+
+</html>

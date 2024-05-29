@@ -1,0 +1,390 @@
+body::-webkit-scrollbar {
+	width: 5px;
+	height: 5px;
+	/* ширина scrollbar */
+}
+
+body::-webkit-scrollbar-track {
+	background-color: #dfdcdc;
+	/* цвет дорожки */
+}
+
+body::-webkit-scrollbar-thumb {
+	background-color: green;
+	/* цвет плашки */
+	border-radius: 20px;
+	/* закругления плашки */
+}
+
+.mnemo {
+	position: relative;
+	width: 1616px;
+	margin: 0 auto;
+}
+
+.mnemo__title {
+	display: flex;
+	flex-direction: column;
+	margin-bottom: 0;
+	text-align: center;
+	font-size: 32px;
+	line-height: 32px;
+	font-weight: 600;
+	color: green;
+}
+
+.current-param__title-span {
+	font-size: 22px;
+	line-height: 30px;
+	font-weight: 600;
+	color: black;
+}
+
+.mnemo__img {
+	width: 1616px;
+	opacity: 0.8;
+}
+
+.mnemo__gif {
+	position: absolute;
+	top: 46%;
+	left: 33%;
+	z-index: 1;
+}
+
+.mnemo__gif-1 {
+	top: 52%;
+	left: 12.3%;
+}
+
+.mnemo__gif-2 {
+	top: 6%;
+	left: 96.4%;
+}
+
+.mnemo__gif-2 img {
+	width: 20px;
+	height: 90px;
+}
+
+.mnemo__gif-3 {
+	top: 64%;
+	left: 87.4%;
+}
+
+.mnemo__gif-3 img {
+	width: 87px;
+	height: 70px;
+}
+
+.mnemo__gif-4 {
+	top: 71%;
+	left: 11%;
+}
+
+.mnemo__gif-4 img {
+	width: 44px;
+	height: 35px
+}
+
+.mnemo__gif-5 {
+	top: 18%;
+	left: 18%;
+}
+
+.mnemo__gif-5 img {
+	transform: rotate(-65deg);
+}
+
+.mnemo__gif-6 {
+	top: 11.4%;
+	left: 21.7%;
+}
+
+.mnemo__gif-6 img,
+.mnemo__gif-8 img {
+	transform: rotate(-63deg);
+}
+
+.mnemo__gif-7 {
+	top: 70.5%;
+	left: 72.5%;
+}
+
+.mnemo__gif-8 {
+	top: 11.1%;
+	left: 28.4%;
+}
+
+.mnemo__gif-9 {
+	top: 7.3%;
+	left: 16%;
+}
+
+.mnemo__gif-9 img {
+	width: 45px;
+}
+
+.mnemo__param {
+	margin: 0;
+	position: absolute;
+	z-index: 1;
+}
+
+.mnemo__param-text {
+	font-size: 18px;
+	line-height: 18px;
+	color: red;
+	font-weight: 600;
+}
+
+.mnemo__param-naimenov {
+	font-size: 18px;
+	line-height: 18px;
+	color: red;
+	font-weight: 600;
+}
+
+.mnemo__param-descr {
+	position: absolute;
+	z-index: 1;
+	font-size: 12px;
+	font-family: Verdana, Geneva, Tahoma, sans-serif;
+
+	line-height: 14px;
+	color: rgb(10, 59, 10);
+	font-weight: 600;
+	text-align: center;
+}
+
+.kamera-smeshenia {
+	top: 47%;
+	left: 19%;
+}
+
+.kamera-smeshenia-text {
+	text-align: center;
+	top: 38%;
+	left: 18.5%;
+}
+
+.gaz-text {
+	text-align: left;
+	top: 52%;
+	left: 1%;
+}
+
+.mosh-gorelki-text {
+	text-align: left;
+	top: 18%;
+	left: 20px;
+}
+
+.zadanie-temper-text {
+	text-align: left;
+	top: 26%;
+	left: 20px;
+}
+
+.mosh-gorelki {
+	top: 18%;
+	left: 130px;
+}
+
+.zadanie-temper {
+	top: 26%;
+	left: 130px;
+}
+
+.vosduh-na-razbavl {
+	top: 68%;
+	left: 10%;
+}
+
+.vosduh-na-razbavl-text {
+	text-align: left;
+	top: 68%;
+	left: 20px;
+}
+
+.liniya-parotush-text {
+	top: 4%;
+	left: 30%;
+}
+
+.kamera-vigruzki {
+	top: 47%;
+	right: 22.5%;
+}
+
+.kamera-vigruzki-text {
+	text-align: center;
+	top: 39%;
+	right: 22.5%;
+}
+
+.baraban-text {
+	top: 48%;
+	right: 50%;
+}
+
+.temper-uhodyashih-gazov {
+	top: 12%;
+	right: 20%;
+}
+
+.dymosos-text {
+	top: 60%;
+	right: 8%;
+}
+
+.temper-uhodyashih-gazov-text {
+	top: 6%;
+	right: 17%;
+
+}
+
+.topka-text {
+	top: 43%;
+	left: 20px;
+}
+
+.topka-temper {
+	top: 39%;
+	left: 5%;
+}
+
+.topka-davl {
+	top: 43%;
+	left: 5%;
+}
+
+.pluzdh-sbrasyvatel-text {
+	top: 13%;
+	left: 25%;
+}
+
+@media (max-width: 1280px) {
+
+	.mnemo {
+			position: relative;
+			width: 976px;
+	}
+
+	.mnemo__img {
+			width: 976px;
+	}
+
+	.mnemo__gif-2 img {
+			width: 13px;
+			height: 53px;
+	}
+
+	.mnemo__gif-3 img {
+			width: 52px;
+			height: 42px;
+	}
+
+	.mnemo__gif-7 img {
+			width: 19px;
+			height: 19px;
+	}
+
+	.mnemo__gif-9 img {
+			width: 28px;
+	}
+
+	.mnemo__gif-4 img {
+			width: 26px;
+			height: 23px;
+	}
+
+	.mnemo__gif-1 {
+			top: 51%;
+			left: 12.3%;
+	}
+
+	.mnemo__gif-5 img {
+			width: 40px;
+	}
+
+	.mnemo__gif-6 {
+			top: 11.1%;
+			left: 21.8%;
+	}
+
+	.mnemo__gif-8 {
+			top: 11.1%;
+			left: 26.8%;
+	}
+
+
+	.mnemo__gif-6 img,
+	.mnemo__gif-8 img {
+			width: 56px;
+			height: 61px;
+	}
+
+	.mnemo__param-text,
+	.mnemo__param-naimenov {
+			font-size: 12px;
+			line-height: 14px;
+	}
+
+	.mnemo__param-descr {
+			font-size: 10px;
+			line-height: 10px;
+	}
+
+	.topka-text {
+			top: 34%;
+			left: 0;
+	}
+
+	.topka-temper {
+			left: 0;
+	}
+
+	.topka-davl {
+			left: 0;
+	}
+
+	.mosh-gorelki {
+			left: 88px;
+			top: 19%;
+	}
+
+	.zadanie-temper {
+			top: 28%;
+			left: 88px;
+	}
+
+	.gaz-text {
+			left: 0;
+			max-width: 75px;
+	}
+
+	.mosh-gorelki-text,
+	.zadanie-temper-text {
+			left: 0;
+	}
+
+	.vosduh-na-razbavl-text {
+			top: 65%;
+			left: 0px;
+	}
+
+	.vosduh-na-razbavl {
+			top: 66%;
+			left: 9%;
+	}
+
+	.baraban-text {
+			top: 45%;
+	}
+
+	.temper-uhodyashih-gazov-text {
+			top: 4%;
+			right: 15%;
+	}
+}

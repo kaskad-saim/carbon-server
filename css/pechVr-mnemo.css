@@ -1,0 +1,814 @@
+body::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+  /* ширина scrollbar */
+}
+
+body::-webkit-scrollbar-track {
+  background-color: #dfdcdc;
+  /* цвет дорожки */
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: green;
+  /* цвет плашки */
+  border-radius: 20px;
+  /* закругления плашки */
+}
+
+.mnemo {
+  position: relative;
+  width: 1316px;
+  margin: 0 auto;
+}
+
+.mnemo__title {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 0;
+  text-align: center;
+  font-size: 32px;
+  line-height: 32px;
+  font-weight: 600;
+  color: green;
+}
+
+.current-param__title-span {
+  font-size: 22px;
+  line-height: 30px;
+  font-weight: 600;
+  color: black;
+}
+
+.current-param__subtitle {
+  text-align: center;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  font-size: 20px;
+  line-height: 29px;
+  font-weight: 600;
+  color: black;
+}
+
+.current-param__subtitle-span {
+  margin-left: 15px;
+  font-size: 26px;
+  line-height: 35px;
+  font-weight: 600;
+  color: blue;
+}
+
+.mnemo__img {
+  width: 1316px;
+}
+
+.mnemo__param {
+  margin: 0;
+  position: absolute;
+  z-index: 1;
+}
+
+.mnemo__param-text {
+  font-size: 18px;
+  line-height: 18px;
+  color: blue;
+  font-weight: 600;
+}
+
+.mnemo__param-naimenov {
+  font-size: 18px;
+  line-height: 18px;
+  color: blue;
+  font-weight: 600;
+}
+
+.mnemo__param-descr {
+  position: absolute;
+  z-index: 1;
+  font-size: 12px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+
+  line-height: 14px;
+  color: rgb(10, 59, 10);
+  font-weight: 600;
+  text-align: center;
+}
+
+.mnemo__gif {
+  position: absolute;
+  z-index: 1;
+}
+
+.mnemo__gif-1 {
+  top: 63.1%;
+  left: 61%;
+  transform: rotate(180deg);
+}
+
+.mnemo__gif-2 {
+  top: 28%;
+  left: 73.3%;
+}
+
+.mnemo__gif-2 img {
+  width: 70px;
+  height: 56px;
+}
+
+.mnemo__gif-3 {
+  top: 38.5%;
+  right: -18px;
+}
+
+.mnemo__gif-3 img {
+  width: 50px;
+}
+
+.mnemo__gif-4 {
+  bottom: 6.4%;
+  right: 5%;
+}
+
+.mnemo__gif-4 img {
+  width: 30px;
+}
+
+.mnemo__gif-5 {
+  bottom: 12.5%;
+  right: 62%;
+}
+
+.mnemo__gif-5 img {
+  width: 20px;
+}
+
+.mnemo__gif-6 {
+  top: 0.6%;
+  right: 48%;
+}
+
+.mnemo__gif-6 img {
+  width: 30px;
+}
+
+.mnemo__gif-7 {
+  top: 0.6%;
+  right: 28%;
+}
+
+.mnemo__gif-7 img {
+  width: 30px;
+}
+
+.mnemo__gif-8 {
+  top: 15%;
+  left: 35.5%;
+}
+
+.mnemo__gif-8 img {
+  width: 30px;
+}
+
+.ot-hvo-text {
+  top: 13%;
+  left: 0%;
+}
+
+.avarini-sbros-text {
+  top: 1%;
+  left: 29%;
+}
+
+.par-v-otdelenii-activatsi-text {
+  top: 1%;
+  right: 0%;
+}
+
+.borov-soedinitelni-text {
+  top: 18%;
+  left: 0%;
+  text-align: left;
+  max-width: 140px;
+}
+
+.pech-doziga-gazov-text {
+  top: 19.5%;
+  left: 15%;
+}
+
+.dymosos-text {
+  top: 24%;
+  right: 22%;
+}
+
+.kotel-utilizator-text {
+  top: 37%;
+  right: 31%;
+}
+
+.vyhod-dymovyh-gazov-text {
+  top: 30%;
+  right: -4%;
+  max-width: 103px;
+  text-align: left;
+}
+
+.mokriy-skruber-text {
+  top: 72%;
+  right: 15%;
+}
+
+.topka-text {
+  top: 56%;
+  right: 36%;
+}
+
+.vanna-skrubbera-text {
+  top: 84%;
+  right: 19%;
+  z-index: 11;
+}
+
+.goriz-vibrotransporter-text {
+  max-width: 150px;
+  top: 89%;
+  right: 39%;
+}
+
+.vr-pech-carboniz-text {
+  top: 57%;
+  left: 29%;
+}
+
+.hvo-text {
+  top: 80%;
+  left: 45%;
+}
+
+.holodilnik-text {
+  top: 72%;
+  left: 35%;
+}
+
+.grohot-text {
+  top: 80%;
+  left: 26%;
+}
+
+.elevator-text {
+  top: 76%;
+  left: 17%;
+}
+
+.zagruzka-granul-text {
+  left: 5%;
+  bottom: 20%;
+}
+
+.niz-zagr-kam-text {
+  text-align: left;
+  max-width: 100px;
+  left: 7.5%;
+  bottom: 30.5%;
+}
+
+.v-techke {
+  left: 7.5%;
+  bottom: 28%;
+}
+
+/* .vniz-kamery-zagruzki-text {
+  text-align: left;
+  max-width: 87px;
+  left: 7.5%;
+  bottom: 39%;
+}
+
+.vniz-kamery-zagruzki {
+  left: 7.5%;
+  bottom: 36.5%;
+} */
+
+.vniz-kamery-zagruzki-text {
+  text-align: left;
+  max-width: 87px;
+  left: 7.5%;
+  bottom: 48%;
+}
+
+.vniz-kamery-zagruzki {
+  left: 7.5%;
+  bottom: 45%;
+}
+
+.vverh-kamery-zagruzki-text {
+  text-align: left;
+  max-width: 87px;
+  left: 7.5%;
+  bottom: 39%;
+}
+
+.vverh-kamery-zagruzki {
+  left: 7.5%;
+  bottom: 36.5%;
+}
+
+.vhod-pechi-doziganiy {
+  left: 7.5%;
+  bottom: 53%;
+}
+
+.vhod-pechi-doziganiy-text {
+  text-align: left;
+  max-width: 87px;
+  left: 7.5%;
+  top: 41%;
+}
+
+.vyhod-pechi-doziganiy-text {
+  text-align: left;
+  max-width: 87px;
+  left: 37%;
+  top: 25%;
+}
+
+.zadanie-temper-na-gorelky-text {
+  font-size: 11px;
+  right: 29.9%;
+  bottom: 28%;
+  color: blue;
+}
+
+.third-skolz {
+  top: 64%;
+  left: 18.5%;
+}
+
+.second-skolz {
+  top: 64%;
+  left: 36%;
+}
+
+.first-skolz {
+  top: 64%;
+  left: 48%;
+}
+
+.first-skolz-text {
+  top: 62.5%;
+  left: 48%;
+}
+
+.second-skolz-text {
+  top: 62.5%;
+  left: 36%;
+}
+
+.third-skolz-text {
+  top: 62.5%;
+  left: 18.5%;
+}
+
+.granul-posle-holodil {
+  bottom: 22%;
+  left: 28%;
+}
+
+.uroven-vody-hvo {
+  display: flex;
+  bottom: 9%;
+  left: 39%;
+}
+
+.uroven-vanne-skrubber {
+  bottom: 11%;
+  right: 21%;
+}
+
+.column {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+.column-hvo {
+  width: 35px;
+  height: 41px;
+  bottom: 14%;
+  left: 40.5%;
+  z-index: 1;
+}
+
+.column-hvo__percent {
+  width: 100%;
+  height: 20px;
+  background-color: rgba(0, 255, 255, 0.7);
+}
+
+.column__box {
+  position: relative;
+}
+
+.column-hvo__span-1,
+.column-hvo__span-2 {
+  position: absolute;
+
+  z-index: 1;
+  color: red;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.column-hvo__span-1 {
+  top: -29px;
+  left: 1px;
+}
+
+.column-hvo__span-2 {
+  top: -29px;
+  left: 21px;
+}
+
+.column-skrubber {
+  width: 292px;
+  height: 139px;
+  bottom: 2.7%;
+  right: 12%;
+  z-index: 1;
+}
+
+.column-skrubber__percent {
+  width: 100%;
+  height: 139px;
+  background-color: #00bfff;
+}
+
+.column-skrubber__span-1,
+.column-skrubber__span-2 {
+  position: absolute;
+  z-index: 1;
+  color: red;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.column-skrubber__span-1 {
+  top: -72px;
+  left: 133px;
+}
+
+.column-skrubber__span-2 {
+  top: -72px;
+  left: 163px;
+}
+
+.column-kotel {
+  width: 57px;
+  height: 85px;
+  bottom: 65.8%;
+  right: 46.4%;
+  z-index: 1;
+}
+
+.column-kotel__percent {
+  width: 100%;
+  height: 85px;
+  background-color: #00bfff;
+}
+
+.column-kotel__span-1,
+.column-kotel__span-2 {
+  position: absolute;
+  z-index: 1;
+  color: red;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.column-kotel__span-1 {
+  top: -45px;
+  left: 11px;
+}
+
+.column-kotel__span-2 {
+  top: -45px;
+  left: 35px;
+}
+
+.temper-vody-v-vanne-skrubber {
+  bottom: 14%;
+  right: 13%;
+}
+
+.p-gazov-posle-skrubber {
+  bottom: 54%;
+  right: -1%;
+}
+
+.temper-v-topke {
+  top: 68%;
+  right: 39%;
+}
+
+.p-v-topke {
+  top: 73%;
+  right: 38%;
+}
+
+.zadanie-temper-na-gorelky {
+  top: 68%;
+  right: 30%;
+}
+
+.mosh-gorelky {
+  top: 61%;
+  right: 39%;
+}
+
+.temper-gazov-do-skrubber {
+  top: 29%;
+  right: 30%;
+}
+
+.temper-gazov-posle-skrubber {
+  top: 36%;
+  right: 0;
+}
+
+.vyhod-pechi-doziganiy {
+  top: 29%;
+  left: 39%;
+}
+
+.gazy-kotla-utilizazi {
+  top: 33%;
+  left: 54.5%;
+}
+
+.p-v-prostranstve-kotla {
+  top: 31%;
+  left: 54%;
+}
+
+.uroven-v-barabane-kotla {
+  top: 22.5%;
+  left: 49%;
+  opacity: 0;
+  visibility: hidden;
+}
+
+.uroven-v-barabane-kotla-mnemo {
+  top: 25.5%;
+  left: 54.5%;
+}
+
+.p-v-barabane-kotla {
+  top: 15%;
+  right: 32%;
+}
+
+/* .im2-percent {
+  bottom: 15%;
+  left: 36%;
+} */
+
+.im5-percent {
+  top: 12%;
+  left: 35.5%;
+}
+
+.krutilka-1 {
+  top: 4.1%;
+  left: 17.9%;
+}
+
+.krutilka-2 {
+  top: 13.9%;
+  left: 17.8%;
+}
+
+.krutilka-1 img,
+.krutilka-2 img {
+  width: 52px;
+  height: 44px;
+}
+
+.temper-topka,
+.temper-vniz-kamer-zagruz,
+.temper-verh-kamer-zagruz,
+.temper-topka,
+.temper-1-skolz,
+.temper-2-skolz,
+.temper-3-skolz,
+.temper-granul-holod,
+.temper-vhod-pech-dozhig,
+.temper-vihod-pech-dozhig,
+.davl-topka,
+.razr-niz-zagr-kam,
+.temper-do-skruber,
+.temper-posle-skruber,
+.temper-vody-vanna-skruber,
+.davl-gaz-posle-skruber,
+.temper-gazov-kotel-utiliz,
+.razr-kotel-utiliz,
+.temper-topka-span,
+.temper-vniz-kamer-zagruz-span,
+.temper-verh-kamer-zagruz-span,
+.temper-topka-span,
+.temper-1-skolz-span,
+.temper-2-skolz-span,
+.temper-3-skolz-span,
+.temper-granul-holod-span,
+.temper-vhod-pech-dozhig-span,
+.temper-vihod-pech-dozhig-span,
+.davl-topka-span,
+.razr-niz-zagr-kam-span,
+.temper-do-skruber-span,
+.temper-posle-skruber-span,
+.temper-vody-vanna-skruber-span,
+.davl-gaz-posle-skruber-span,
+.temper-gazov-kotel-utiliz-span,
+.razr-kotel-utiliz-span {
+  animation: colorRed 0.5s infinite ease-in-out;
+  animation-play-state: paused;
+}
+
+@keyframes colorRed {
+  0% {
+    color: blue;
+  }
+  100% {
+    color: red;
+  }
+}
+
+@media (max-width: 1280px) {
+  .mnemo {
+    position: relative;
+    width: 976px;
+  }
+
+  .mnemo__img {
+    width: 976px;
+  }
+
+  .mnemo__param-text,
+  .mnemo__param-naimenov {
+    font-size: 12px;
+    line-height: 14px;
+  }
+
+  .mnemo__param-descr {
+    font-size: 10px;
+    line-height: 10px;
+  }
+
+  .krutilka-1 img,
+  .krutilka-2 img {
+    width: 45px;
+    height: 34px;
+  }
+
+  .avarini-sbros-text {
+    left: 29%;
+  }
+
+  .par-v-otdelenii-activatsi-text {
+    right: 1%;
+  }
+
+  .borov-soedinitelni-text {
+    top: 19%;
+  }
+
+  .pech-doziga-gazov-text {
+    top: 19%;
+  }
+
+  .zagruzka-granul-text {
+    left: 4%;
+  }
+
+  .vniz-kamery-zagruzki-text,
+  .vverh-kamery-zagruzki-text,
+  .vhod-pechi-doziganiy-text {
+    left: 7%;
+    max-width: 80px;
+  }
+
+  .niz-zagr-kam-text {
+    max-width: 80px;
+    left: 7%;
+  }
+
+  .vyhod-dymovyh-gazov-text {
+    text-align: center;
+    top: 36%;
+    right: 8%;
+  }
+
+  .p-gazov-posle-skrubber {
+    right: 0;
+  }
+
+  .zadanie-temper-na-gorelky-text {
+    font-size: 8px;
+  }
+
+  .mnemo__gif-1 {
+    top: 62.2%;
+    left: 60%;
+  }
+
+  .mnemo__gif-2 {
+    top: 27.5%;
+    left: 73%;
+  }
+
+  .mnemo__gif-2 img {
+    width: 58px;
+    height: 48px;
+  }
+
+  .mnemo__gif-3 {
+    right: 0;
+  }
+
+  .mnemo__gif-3 img {
+    width: 35px;
+  }
+
+  .mnemo__gif-4 {
+    bottom: 6.4%;
+  }
+
+  .mnemo__gif-6,
+  .mnemo__gif-7 {
+    top: 0.3%;
+  }
+
+  .mnemo__gif-8 {
+    top: 14.6%;
+  }
+
+  .krutilka-1,
+  .krutilka-2 {
+    left: 17.6%;
+  }
+
+  .column-kotel {
+    width: 42px;
+    height: 64px;
+  }
+
+  .column-kotel__span-1 {
+    left: 4px;
+  }
+
+  .column-kotel__span-2 {
+    left: 26px;
+  }
+
+  .column-kotel__percent {
+    height: 64px;
+  }
+
+  .column-skrubber {
+    width: 217px;
+    height: 105px;
+  }
+
+  .column-skrubber__percent {
+    height: 105px;
+  }
+
+  .column-hvo {
+    width: 25px;
+    height: 32px;
+    bottom: 13.9%;
+  }
+
+  .column-hvo__percent {
+    height: 32px;
+  }
+
+  .uroven-vanne-skrubber {
+    bottom: 9%;
+    right: 25%;
+  }
+
+  .column-skrubber__span-1,
+  .column-skrubber__span-2 {
+    top: -61px;
+  }
+
+  .column-hvo__span-1,
+  .column-hvo__span-2 {
+    font-size: 10px;
+  }
+
+  .column-hvo__span-2 {
+    left: 16px;
+  }
+}

@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mnemo</title>
+    <link rel="stylesheet" href="http://Techsite4/kaskad/css/sushilka-mnemo.css">
+</head>
+<#Refresh Content=60>
+
+    <body>
+
+
+        <h2 class="mnemo__title">
+            <span class="current-param__title-span">Карбон</span>
+            Сушилка №1
+        </h2>
+
+        <div class="mnemo">
+            <img class="mnemo__img" src="http://Techsite4/kaskad/pic/Backgrounds/sushilka.jpg">
+
+
+            <div class="mnemo__gif mnemo__gif-1">
+                <#PasspValue PasspType=9 PasspID=1 Type="Pictures" [true]="pic\images\fire-gif.gif"
+                    [false]="pic\images\none.gif">
+            </div>
+
+            <div class="mnemo__gif mnemo__gif-2">
+                <#PasspValue PasspType=9 PasspID=2 Type="Pictures" [true]="pic\images\gas_flow_up_white.gif"
+                    [false]="pic\images\none.gif">
+            </div>
+
+            <div class="mnemo__gif mnemo__gif-3">
+                <#PasspValue PasspType=9 PasspID=2 Type="Pictures" [true]="pic\images\blower_7fan_left_grey.gif"
+                    [false]="pic\images\none.gif">
+            </div>
+
+            <div class="mnemo__gif mnemo__gif-4">
+                <#PasspValue PasspType=9 PasspID=1 Type="Pictures" [true]="pic\images\blower_7fan_left_grey.gif"
+                    [false]="pic\images\none.gif">
+            </div>
+
+            <div class="mnemo__gif mnemo__gif-5">
+                <#PasspValue PasspType=9 PasspID=1 Type="Pictures" [true]="pic\images\pipeline_top_coal.gif"
+                    [false]="pic\images\none.gif">
+            </div>
+
+            <div class="mnemo__gif mnemo__gif-6">
+                <#PasspValue PasspType=9 PasspID=1 Type="Pictures" [true]="pic\images\pipeline_middle_coal.gif"
+                    [false]="pic\images\none.gif">
+            </div>
+
+            <div class="mnemo__gif mnemo__gif-7">
+                <#PasspValue PasspType=9 PasspID=1 Type="Pictures" [true]="pic\images\pipeline_flow_coal.gif"
+                    [false]="pic\images\none.gif">
+            </div>
+
+            <div class="mnemo__gif mnemo__gif-8">
+                <#PasspValue PasspType=9 PasspID=1 Type="Pictures" [true]="pic\images\pipeline_middle_coal.gif"
+                    [false]="pic\images\none.gif">
+            </div>
+
+            <div class="mnemo__gif mnemo__gif-9">
+                <#PasspValue PasspType=2 PasspID=1 Type="Pictures" [true]="pic\images\kran-gor-open.gif"
+                    [false]="pic\images\kran-gor-close.gif">
+            </div>
+
+
+            <div class="mnemo__param-descr kamera-smeshenia-text">Камера <br> смешения</div>
+            <div class="mnemo__param-descr gaz-text">Газ природный</div>
+            <div class="mnemo__param-descr mosh-gorelki-text">Мощность <br> горелки</div>
+            <div class="mnemo__param-descr zadanie-temper-text">Задание <br> температуры</div>
+            <div class="mnemo__param-descr vosduh-na-razbavl-text">Воздух на <br> разбавление</div>
+            <div class="mnemo__param-descr liniya-parotush-text">Линия паротушения</div>
+            <div class="mnemo__param-descr baraban-text">Барабан</div>
+            <div class="mnemo__param-descr kamera-vigruzki-text">Выгрузочная <br> камера</div>
+            <div class="mnemo__param-descr dymosos-text">Дымосос</div>
+            <div class="mnemo__param-descr temper-uhodyashih-gazov-text">Температура уходящих <br> газов</div>
+            <div class="mnemo__param-descr topka-text">Топка</div>
+            <div class="mnemo__param-descr pluzdh-sbrasyvatel-text">Плужковый сбрасыватель</div>
+
+
+            <div class="mnemo__param kamera-smeshenia">
+                <span class="mnemo__param-text">
+                    <#PasspValue PasspType=1 PasspID=2 Precision=0>
+                </span>
+                <span class="mnemo__param-naimenov">&#176C</span>
+            </div>
+            <div class="mnemo__param topka-temper">
+                <span class="mnemo__param-text">
+                    <#PasspValue PasspType=1 PasspID=1 Precision=0>
+                </span>
+                <span class="mnemo__param-naimenov">&#176C</span>
+            </div>
+            <div class="mnemo__param topka-davl">
+                <span class="mnemo__param-text">
+                    <#PasspValue PasspType=1 PasspID=6 Precision=1>
+                </span>
+                <span class="mnemo__param-naimenov">кг/см2</span>
+            </div>
+            <div class="mnemo__param mosh-gorelki">
+                <span class="mnemo__param-text">
+                    <#PasspValue PasspType=1 PasspID=9 Precision=1>
+                </span>
+                <span class="mnemo__param-naimenov">%</span>
+            </div>
+            <div class="mnemo__param zadanie-temper">
+                <span class="mnemo__param-text">
+                    <#PasspValue PasspType=11 PasspID=3 Precision=0>
+                </span>
+                <span class="mnemo__param-naimenov">&#176C</span>
+            </div>
+            <div class="mnemo__param vosduh-na-razbavl">
+                <span class="mnemo__param-text">
+                    <#PasspValue PasspType=1 PasspID=8 Precision=1>
+                </span>
+                <span class="mnemo__param-naimenov">кг/см2</span>
+            </div>
+            <div class="mnemo__param kamera-vigruzki">
+                <span class="mnemo__param-text">
+                    <#PasspValue PasspType=1 PasspID=7 Precision=1>
+                </span>
+                <span class="mnemo__param-naimenov">кг/см2</span>
+            </div>
+            <div class="mnemo__param temper-uhodyashih-gazov">
+                <span class="mnemo__param-text">
+                    <#PasspValue PasspType=1 PasspID=4 Precision=0>
+                </span>
+                <span class="mnemo__param-naimenov">&#176C</span>
+            </div>
+        </div>
+    </body>
+
+</html>

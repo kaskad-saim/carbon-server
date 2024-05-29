@@ -82,28 +82,25 @@
 body::-webkit-scrollbar {
   width: 5px;
   height: 5px;
-  /* ширина scrollbar */
 }
 
 body::-webkit-scrollbar-track {
   background-color: #dfdcdc;
-  /* цвет дорожки */
 }
 
 body::-webkit-scrollbar-thumb {
   background-color: green;
-  /* цвет плашки */
   border-radius: 20px;
-  /* закругления плашки */
 }
 
-.tables {
+/* .tables {
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
-}
+} */
 
 .current-param {
+  width: 500px;
   margin-right: 15px;
   background-color: #e7eef4;
   box-shadow: 0 0 5px 1px black;
@@ -114,6 +111,7 @@ body::-webkit-scrollbar-thumb {
 }
 
 .current-param__title {
+
   display: flex;
   flex-direction: column;
   margin-bottom: 10px;
@@ -155,13 +153,13 @@ body::-webkit-scrollbar-thumb {
   line-height: 30px;
   font-weight: 600;
   color: black;
+
 }
 
 .table {
-  margin-top: 15px;
+  margin-top: 30px;
   margin-right: 15px;
-  width: 460px;
-  height: fit-content;
+  width: 500px;
   text-align: left;
   border-collapse: collapse;
   border-spacing: 5px;
@@ -185,7 +183,6 @@ body::-webkit-scrollbar-thumb {
 }
 
 .table__th {
-  padding: 5px 10px;
   text-align: center;
   font-family: 'Bitter', sans-serif;
   font-size: 18px;
@@ -206,6 +203,7 @@ body::-webkit-scrollbar-thumb {
 
 .table__left {
   padding: 10px;
+  padding-left: 30px;
   text-align: left;
 }
 
@@ -217,57 +215,4 @@ body::-webkit-scrollbar-thumb {
 .table__th:not(:last-child),
 .table__td:not(:last-child) {
   border-right: 1px solid black;
-}
-
-
-.current-param__subtitle {
-  text-align: center;
-  margin-top: 10px;
-  margin-bottom: 10px;
-  font-family: 'Bitter', sans-serif;
-  font-size: 20px;
-  line-height: 29px;
-  font-weight: 600;
-  color: black;
-}
-
-.current-param__subtitle-span {
-  margin-left: 15px;
-  font-family: 'Bitter', sans-serif;
-  font-size: 26px;
-  line-height: 35px;
-  font-weight: 600;
-  color: blue;
-}
-
-.temper-topka,
-.temper-vniz-kamer-zagruz,
-.temper-verh-kamer-zagruz,
-.temper-topka,
-.temper-1-skolz,
-.temper-2-skolz,
-.temper-3-skolz,
-.temper-granul-holod,
-.temper-vhod-pech-dozhig,
-.temper-vihod-pech-dozhig,
-.davl-topka,
-.razr-niz-zagr-kam,
-.temper-do-skruber,
-.temper-posle-skruber,
-.temper-vody-vanna-skruber,
-.davl-gaz-posle-skruber,
-.temper-gazov-kotel-utiliz,
-.razr-kotel-utiliz {
-  animation: colorRed 0.5s infinite ease-in-out;
-  animation-play-state: paused;
-}
-
-@keyframes colorRed {
-  0% {
-    color: green;
-  }
-
-  100% {
-    color: red;
-  }
 }

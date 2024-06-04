@@ -1,3 +1,93 @@
+@font-face {
+	font-family: "Bitter";
+	font-display: swap;
+	src: url("../fonts/Bitter-SemiBold.woff2") format("woff2"), url("../fonts/Bitter-SemiBold.woff") format("woff");
+	font-weight: 600;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: "Bitter";
+	font-display: swap;
+	src: url("../fonts/Bitter-Regular.woff2") format("woff2"), url("../fonts/Bitter-Regular.woff") format("woff");
+	font-weight: 400;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: "Bitter";
+	font-display: swap;
+	src: url("../fonts/Bitter-Medium.woff2") format("woff2"), url("../fonts/Bitter-Medium.woff") format("woff");
+	font-weight: 500;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: "Gilroy";
+	font-display: swap;
+	src: url("../fonts/Gilroy-Bold.woff2") format("woff2"), url("../fonts/Gilroy-Bold.woff") format("woff");
+	font-weight: 700;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: "Gilroy";
+	font-display: swap;
+	src: url("../fonts/Gilroy-Medium.woff2") format("woff2"), url("../fonts/Gilroy-Medium.woff") format("woff");
+	font-weight: 500;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: "Gilroy";
+	font-display: swap;
+	src: url("../fonts/Gilroy-Regular.woff2") format("woff2"), url("../fonts/Gilroy-Regular.woff") format("woff");
+	font-weight: 400;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: "Gilroy";
+	font-display: swap;
+	src: url("../fonts/Gilroy-Semibold.woff2") format("woff2"), url("../fonts/Gilroy-Semibold.woff") format("woff");
+	font-weight: 600;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: "Oswald";
+	font-display: swap;
+	src: url("../fonts/Oswald-SemiBold.woff2") format("woff2"), url("../fonts/Oswald-SemiBold.woff") format("woff");
+	font-weight: 600;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: "Oswald";
+	font-display: swap;
+	src: url("../fonts/Oswald-Regular.woff2") format("woff2"), url("../fonts/Oswald-Regular.woff") format("woff");
+	font-weight: 400;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: "Oswald";
+	font-display: swap;
+	src: url("../fonts/Oswald-Medium.woff2") format("woff2"), url("../fonts/Oswald-Medium.woff") format("woff");
+	font-weight: 500;
+	font-style: normal;
+}
+
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+
+body {
+	font-family: 'Bitter', sans-serif;
+}
+
 body::-webkit-scrollbar {
 	width: 5px;
 	height: 5px;
@@ -132,8 +222,8 @@ body::-webkit-scrollbar-thumb {
 }
 
 .mnemo__param-text {
-	font-size: 18px;
-	line-height: 18px;
+	font-size: 16px;
+	line-height: 16px;
 	color: red;
 	font-weight: 600;
 }
@@ -148,9 +238,7 @@ body::-webkit-scrollbar-thumb {
 .mnemo__param-descr {
 	position: absolute;
 	z-index: 1;
-	font-size: 12px;
-	font-family: Verdana, Geneva, Tahoma, sans-serif;
-
+	font-size: 15px;
 	line-height: 14px;
 	color: rgb(10, 59, 10);
 	font-weight: 600;
@@ -197,13 +285,13 @@ body::-webkit-scrollbar-thumb {
 }
 
 .vosduh-na-razbavl {
-	top: 68%;
+	top: 67%;
 	left: 10%;
 }
 
 .vosduh-na-razbavl-text {
 	text-align: left;
-	top: 68%;
+	top: 67%;
 	left: 20px;
 }
 
@@ -267,124 +355,124 @@ body::-webkit-scrollbar-thumb {
 @media (max-width: 1280px) {
 
 	.mnemo {
-			position: relative;
-			width: 976px;
+		position: relative;
+		width: 976px;
 	}
 
 	.mnemo__img {
-			width: 976px;
+		width: 976px;
 	}
 
 	.mnemo__gif-2 img {
-			width: 13px;
-			height: 53px;
+		width: 13px;
+		height: 53px;
 	}
 
 	.mnemo__gif-3 img {
-			width: 52px;
-			height: 42px;
+		width: 52px;
+		height: 42px;
 	}
 
 	.mnemo__gif-7 img {
-			width: 19px;
-			height: 19px;
+		width: 19px;
+		height: 19px;
 	}
 
 	.mnemo__gif-9 img {
-			width: 28px;
+		width: 28px;
 	}
 
 	.mnemo__gif-4 img {
-			width: 26px;
-			height: 23px;
+		width: 26px;
+		height: 23px;
 	}
 
 	.mnemo__gif-1 {
-			top: 51%;
-			left: 12.3%;
+		top: 51%;
+		left: 12.3%;
 	}
 
 	.mnemo__gif-5 img {
-			width: 40px;
+		width: 40px;
 	}
 
 	.mnemo__gif-6 {
-			top: 11.1%;
-			left: 21.8%;
+		top: 11.1%;
+		left: 21.8%;
 	}
 
 	.mnemo__gif-8 {
-			top: 11.1%;
-			left: 26.8%;
+		top: 11.1%;
+		left: 26.8%;
 	}
 
 
 	.mnemo__gif-6 img,
 	.mnemo__gif-8 img {
-			width: 56px;
-			height: 61px;
+		width: 56px;
+		height: 61px;
 	}
 
 	.mnemo__param-text,
 	.mnemo__param-naimenov {
-			font-size: 12px;
-			line-height: 14px;
+		font-size: 12px;
+		line-height: 14px;
 	}
 
 	.mnemo__param-descr {
-			font-size: 10px;
-			line-height: 10px;
+		font-size: 10px;
+		line-height: 10px;
 	}
 
 	.topka-text {
-			top: 34%;
-			left: 0;
+		top: 34%;
+		left: 0;
 	}
 
 	.topka-temper {
-			left: 0;
+		left: 0;
 	}
 
 	.topka-davl {
-			left: 0;
+		left: 0;
 	}
 
 	.mosh-gorelki {
-			left: 88px;
-			top: 19%;
+		left: 88px;
+		top: 19%;
 	}
 
 	.zadanie-temper {
-			top: 28%;
-			left: 88px;
+		top: 28%;
+		left: 88px;
 	}
 
 	.gaz-text {
-			left: 0;
-			max-width: 75px;
+		left: 0;
+		max-width: 75px;
 	}
 
 	.mosh-gorelki-text,
 	.zadanie-temper-text {
-			left: 0;
+		left: 0;
 	}
 
 	.vosduh-na-razbavl-text {
-			top: 65%;
-			left: 0px;
+		top: 65%;
+		left: 0px;
 	}
 
 	.vosduh-na-razbavl {
-			top: 66%;
-			left: 9%;
+		top: 65%;
+		left: 9%;
 	}
 
 	.baraban-text {
-			top: 45%;
+		top: 45%;
 	}
 
 	.temper-uhodyashih-gazov-text {
-			top: 4%;
-			right: 15%;
+		top: 4%;
+		right: 15%;
 	}
 }

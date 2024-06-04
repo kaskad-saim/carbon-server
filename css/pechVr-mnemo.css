@@ -1,3 +1,93 @@
+@font-face {
+  font-family: "Bitter";
+  font-display: swap;
+  src: url("../fonts/Bitter-SemiBold.woff2") format("woff2"), url("../fonts/Bitter-SemiBold.woff") format("woff");
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Bitter";
+  font-display: swap;
+  src: url("../fonts/Bitter-Regular.woff2") format("woff2"), url("../fonts/Bitter-Regular.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Bitter";
+  font-display: swap;
+  src: url("../fonts/Bitter-Medium.woff2") format("woff2"), url("../fonts/Bitter-Medium.woff") format("woff");
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Gilroy";
+  font-display: swap;
+  src: url("../fonts/Gilroy-Bold.woff2") format("woff2"), url("../fonts/Gilroy-Bold.woff") format("woff");
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Gilroy";
+  font-display: swap;
+  src: url("../fonts/Gilroy-Medium.woff2") format("woff2"), url("../fonts/Gilroy-Medium.woff") format("woff");
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Gilroy";
+  font-display: swap;
+  src: url("../fonts/Gilroy-Regular.woff2") format("woff2"), url("../fonts/Gilroy-Regular.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Gilroy";
+  font-display: swap;
+  src: url("../fonts/Gilroy-Semibold.woff2") format("woff2"), url("../fonts/Gilroy-Semibold.woff") format("woff");
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Oswald";
+  font-display: swap;
+  src: url("../fonts/Oswald-SemiBold.woff2") format("woff2"), url("../fonts/Oswald-SemiBold.woff") format("woff");
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Oswald";
+  font-display: swap;
+  src: url("../fonts/Oswald-Regular.woff2") format("woff2"), url("../fonts/Oswald-Regular.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Oswald";
+  font-display: swap;
+  src: url("../fonts/Oswald-Medium.woff2") format("woff2"), url("../fonts/Oswald-Medium.woff") format("woff");
+  font-weight: 500;
+  font-style: normal;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Bitter', sans-serif;
+}
+
 body::-webkit-scrollbar {
   width: 5px;
   height: 5px;
@@ -85,9 +175,8 @@ body::-webkit-scrollbar-thumb {
 .mnemo__param-descr {
   position: absolute;
   z-index: 1;
-  font-size: 12px;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
-
+  font-size: 14px;
+  /* font-family: Verdana, Geneva, Tahoma, sans-serif; */
   line-height: 14px;
   color: rgb(10, 59, 10);
   font-weight: 600;
@@ -351,7 +440,7 @@ body::-webkit-scrollbar-thumb {
 
 .first-skolz {
   top: 64%;
-  left: 48%;
+  left: 47.8%;
 }
 
 .first-skolz-text {
@@ -503,12 +592,12 @@ body::-webkit-scrollbar-thumb {
 
 .p-gazov-posle-skrubber {
   bottom: 54%;
-  right: -1%;
+  right: -2%;
 }
 
 .temper-v-topke {
-  top: 68%;
-  right: 39%;
+  top: 66%;
+  right: 37.5%;
 }
 
 .p-v-topke {
@@ -523,7 +612,7 @@ body::-webkit-scrollbar-thumb {
 
 .mosh-gorelky {
   top: 61%;
-  right: 39%;
+  right: 38%;
 }
 
 .temper-gazov-do-skrubber {
@@ -538,7 +627,7 @@ body::-webkit-scrollbar-thumb {
 
 .vyhod-pechi-doziganiy {
   top: 29%;
-  left: 39%;
+  left: 37%;
 }
 
 .gazy-kotla-utilizazi {
@@ -565,7 +654,7 @@ body::-webkit-scrollbar-thumb {
 
 .p-v-barabane-kotla {
   top: 15%;
-  right: 32%;
+  right: 31%;
 }
 
 /* .im2-percent {
@@ -638,6 +727,7 @@ body::-webkit-scrollbar-thumb {
   0% {
     color: blue;
   }
+
   100% {
     color: red;
   }
@@ -708,9 +798,9 @@ body::-webkit-scrollbar-thumb {
     right: 8%;
   }
 
-  .p-gazov-posle-skrubber {
+  /* .p-gazov-posle-skrubber {
     right: 0;
-  }
+  } */
 
   .zadanie-temper-na-gorelky-text {
     font-size: 8px;

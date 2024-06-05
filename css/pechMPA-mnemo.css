@@ -174,9 +174,8 @@ body::-webkit-scrollbar-thumb {
 .mnemo__param-descr {
   position: absolute;
   z-index: 1;
-  font-size: 12px;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
-
+  font-size: 14px;
+  /* font-family: Verdana, Geneva, Tahoma, sans-serif; */
   line-height: 14px;
   color: rgb(10, 59, 10);
   font-weight: 600;
@@ -196,7 +195,7 @@ body::-webkit-scrollbar-thumb {
 }
 
 .mnemo__param-descr-borov {
-  font-size: 10px;
+  font-size: 12px;
   width: 60px;
   padding: 3px;
   padding-left: 0;
@@ -328,7 +327,7 @@ body::-webkit-scrollbar-thumb {
 
 .ks {
   position: absolute;
-  bottom: 29.4%;
+  bottom: 30.4%;
   left: 8.5%;
 }
 

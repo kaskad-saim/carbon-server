@@ -106,6 +106,16 @@ body::-webkit-scrollbar-thumb {
 	/* закругления плашки */
 }
 
+.btn-reset {
+	background-color: transparent;
+	cursor: pointer;
+	padding: 0px;
+	border-width: initial;
+	border-style: none;
+	border-color: initial;
+	border-image: initial;
+}
+
 .mnemo {
 	position: relative;
 	width: 1616px;
@@ -206,32 +216,24 @@ body::-webkit-scrollbar-thumb {
 	left: 28.4%;
 }
 
-.mnemo__gif-9 {
-	top: 7.3%;
-	left: 16%;
-}
-
-.mnemo__gif-9 img {
-	width: 45px;
-}
-
 .mnemo__param {
+	padding: 2px;
 	margin: 0;
 	position: absolute;
-	z-index: 1;
+	background-color: #bfbcbc
 }
 
 .mnemo__param-text {
 	font-size: 16px;
 	line-height: 16px;
-	color: red;
+	color: blue;
 	font-weight: 600;
 }
 
 .mnemo__param-naimenov {
 	font-size: 18px;
 	line-height: 18px;
-	color: red;
+	color: blue;
 	font-weight: 600;
 }
 
@@ -246,14 +248,14 @@ body::-webkit-scrollbar-thumb {
 }
 
 .kamera-smeshenia {
-	top: 47%;
-	left: 19%;
+	top: 45%;
+	left: 20%;
 }
 
 .kamera-smeshenia-text {
 	text-align: center;
 	top: 38%;
-	left: 18.5%;
+	left: 19.1%;
 }
 
 .gaz-text {
@@ -285,13 +287,13 @@ body::-webkit-scrollbar-thumb {
 }
 
 .vosduh-na-razbavl {
-	top: 67%;
-	left: 10%;
+	top: 65%;
+	left: 9.5%;
 }
 
 .vosduh-na-razbavl-text {
 	text-align: left;
-	top: 67%;
+	top: 65%;
 	left: 20px;
 }
 
@@ -301,24 +303,24 @@ body::-webkit-scrollbar-thumb {
 }
 
 .kamera-vigruzki {
-	top: 47%;
-	right: 22.5%;
+	top: 45%;
+	right: 22.9%;
 }
 
 .kamera-vigruzki-text {
 	text-align: center;
-	top: 39%;
-	right: 22.5%;
+	top: 38%;
+	right: 22.8%;
 }
 
 .baraban-text {
-	top: 48%;
+	top: 46%;
 	right: 50%;
 }
 
 .temper-uhodyashih-gazov {
 	top: 12%;
-	right: 20%;
+	right: 21%;
 }
 
 .dymosos-text {
@@ -333,24 +335,236 @@ body::-webkit-scrollbar-thumb {
 }
 
 .topka-text {
-	top: 43%;
+	top: 40.5%;
 	left: 20px;
 }
 
 .topka-temper {
-	top: 39%;
-	left: 5%;
+	top: 36.5%;
+	left: 6%;
 }
 
 .topka-davl {
-	top: 43%;
-	left: 5%;
+	top: 42%;
+	left: 6%;
 }
 
 .pluzdh-sbrasyvatel-text {
 	top: 13%;
 	left: 25%;
 }
+
+/* Всплывающие подсказки */
+.mnemo__param-box--btns {
+	position: absolute;
+	top: -40px;
+	left: 0;
+	z-index: 1;
+	display: flex;
+	align-items: center;
+}
+
+.mnemo__param-box--btn {
+	padding: 5px;
+	font-size: 16px;
+	line-height: 23px;
+	font-weight: 600;
+	color: green;
+	border: 1px solid green;
+	transition: color 0.3s ease-in-out, background-color 0.3s ease-in-out;
+}
+
+.mnemo__param-box--btn:hover {
+	color: white;
+	background-color: green;
+}
+
+.mnemo__param-box--btn:active {
+	color: white;
+	background-color: green;
+}
+
+.mnemo__param-clue {
+	width: 150px;
+	position: absolute !important;
+	z-index: 1;
+	border-radius: 15px;
+	box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
+		rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+	opacity: 0;
+	visibility: hidden;
+	transition: opacity 0.5s ease-in-out;
+}
+
+.mnemo__param-clue-content {
+	position: relative;
+	padding: 10px;
+	display: flex;
+	flex-direction: column;
+	background-color: rgb(240, 238, 238);
+	border: 2px solid green;
+	border-radius: 15px;
+}
+
+.mnemo__param-clue-content::after {
+	content: '';
+	position: absolute;
+	bottom: -14px;
+	left: 50%;
+	z-index: -1;
+	width: 25px;
+	height: 25px;
+	background-color: green;
+	transform: rotate(45deg) translateX(-50%);
+}
+
+.mnemo__param-clue-div:not(:last-child) {
+	margin-bottom: 5px;
+}
+
+.mnemo__param-clue-div {
+	font-size: 14px;
+	line-height: 18px;
+	font-weight: 400;
+}
+
+.mnemo__param-clue-span {
+	font-size: 14px;
+	line-height: 18px;
+	font-weight: 600;
+}
+
+.mnemo__tooltip:hover .mnemo__param-clue {
+	visibility: hidden;
+	opacity: 0;
+}
+
+.mnemo__tooltip:active .mnemo__param-clue {
+	visibility: hidden;
+	opacity: 0;
+}
+
+.mnemo__tooltip:focus {
+	outline: none;
+}
+
+.mnemo__tooltip:focus .mnemo__param-clue {
+	visibility: hidden;
+	opacity: 0;
+}
+
+.enabled-hover:hover {
+	box-shadow: 0 0 0 3px white, 0 0 0 6px green;
+	transition: box-shadow 0.3s ease-in-out;
+	cursor: pointer;
+}
+
+.enabled-hover:active {
+	box-shadow: 0 0 0 3px white, 0 0 0 6px green;
+	transition: box-shadow 0.3s ease-in-out;
+	cursor: pointer;
+}
+
+.enabled-hover:hover .mnemo__param-clue {
+	visibility: visible;
+	opacity: 1;
+}
+
+.enabled-hover:hover .mnemo__param-clue {
+	visibility: visible;
+	opacity: 1;
+}
+
+.enabled-hover:focus {
+	outline: none;
+}
+
+.enabled-hover:focus .mnemo__param-clue {
+	visibility: visible;
+	opacity: 1;
+}
+
+.kamera-smeshenia-clue {
+	width: 225px;
+	top: -102px;
+	left: -94px;
+}
+
+.topka-temper-clue {
+	width: 225px;
+	top: -103px;
+	left: -93px;
+}
+
+.topka-davl-clue {
+	width: 216px;
+	top: -103px;
+	left: -68px;
+}
+
+.vosduh-na-razbavl-clue {
+	width: 190px;
+	top: -103px;
+	left: -49px;
+}
+
+.kamera-vigruzki-clue {
+	width: 190px;
+	top: -103px;
+	left: -51px;
+}
+
+.temper-uhodyashih-gazov-clue {
+	width: 225px;
+	top: -102px;
+	left: -94px;
+}
+
+/* Кран */
+.mnemo__kran-vert {
+	position: absolute;
+	z-index: 1;
+	top: 7%;
+	left: 18%;
+}
+
+.mnemo__kran-box {
+	position: relative;
+	display: flex;
+	align-items: center;
+	background-color: white;
+}
+
+.mnemo__triangle1 {
+	width: 0;
+	height: 0;
+	border-top: 17px solid transparent;
+	border-left: 20px solid green;
+	border-bottom: 17px solid transparent;
+}
+
+.mnemo__triangle2 {
+	width: 0;
+	height: 0;
+	border-top: 17px solid transparent;
+	border-right: 20px solid green;
+	border-bottom: 17px solid transparent;
+}
+
+.mnemo__kran-img {
+	position: relative;
+}
+
+.mnemo__kran-img img {
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 1;
+	width: 5px;
+	left: 5px;
+}
+
+.mnemo__kran-1 {}
 
 @media (max-width: 1280px) {
 
@@ -376,10 +590,6 @@ body::-webkit-scrollbar-thumb {
 	.mnemo__gif-7 img {
 		width: 19px;
 		height: 19px;
-	}
-
-	.mnemo__gif-9 img {
-		width: 28px;
 	}
 
 	.mnemo__gif-4 img {
@@ -413,9 +623,13 @@ body::-webkit-scrollbar-thumb {
 		height: 61px;
 	}
 
+	.mnemo__param {
+		padding: 0 2px;
+	}
+
 	.mnemo__param-text,
 	.mnemo__param-naimenov {
-		font-size: 12px;
+		font-size: 10px;
 		line-height: 14px;
 	}
 
@@ -425,36 +639,43 @@ body::-webkit-scrollbar-thumb {
 	}
 
 	.topka-text {
-		top: 34%;
+		top: 39%;
 		left: 0;
 	}
 
 	.topka-temper {
-		left: 0;
+		top: 34%;
+		left: 8%;
 	}
 
 	.topka-davl {
-		left: 0;
+		top: 41.5%;
+		left: 5.3%;
 	}
 
 	.mosh-gorelki {
 		left: 88px;
-		top: 19%;
+		top: 15%;
+	}
+
+	.mosh-gorelki-text {
+		top: 15%;
+		left: 0;
 	}
 
 	.zadanie-temper {
-		top: 28%;
+		top: 23%;
 		left: 88px;
+	}
+
+	.zadanie-temper-text {
+		top: 23%;
+		left: 0;
 	}
 
 	.gaz-text {
 		left: 0;
 		max-width: 75px;
-	}
-
-	.mosh-gorelki-text,
-	.zadanie-temper-text {
-		left: 0;
 	}
 
 	.vosduh-na-razbavl-text {
@@ -463,8 +684,12 @@ body::-webkit-scrollbar-thumb {
 	}
 
 	.vosduh-na-razbavl {
-		top: 65%;
-		left: 9%;
+		top: 64%;
+		left: 9.4%;
+	}
+
+	.vosduh-na-razbavl-text {
+		top: 64%;
 	}
 
 	.baraban-text {
@@ -475,4 +700,86 @@ body::-webkit-scrollbar-thumb {
 		top: 4%;
 		right: 15%;
 	}
+
+	.temper-uhodyashih-gazov {
+		top: 11%;
+		right: 19.5%;
+	}
+
+	.kamera-vigruzki {
+		top: 45%;
+		right: 23%;
+	}
+
+	.kamera-vigruzki-text {
+		top: 38%;
+	}
+
+	.enabled-hover:hover {
+		box-shadow: 0 0 0 2px white, 0 0 0 4px green;
+	}
+
+	.enabled-hover:active {
+		box-shadow: 0 0 0 2px white, 0 0 0 4px green;
+	}
+
+	.mnemo__param-clue-content {
+		padding: 8px;
+	}
+
+	.mnemo__param-clue-div {
+		font-size: 12px;
+	}
+
+	.mnemo__param-clue-span {
+		font-size: 12px;
+	}
+
+	.topka-temper-clue {
+		width: 192px;
+		top: -98px;
+		left: -85px;
+	}
+
+	.topka-davl-clue {
+		width: 185px;
+		top: -97px;
+	}
+
+	.kamera-smeshenia-clue {
+		width: 192px;
+		top: -97px;
+		left: -86px;
+	}
+
+	.vosduh-na-razbavl-clue {
+		width: 162px;
+		top: -98px;
+		left: -54px;
+	}
+
+	.kamera-vigruzki-clue {
+		width: 162px;
+		top: -96px;
+		left: -57px;
+	}
+
+	.temper-uhodyashih-gazov-clue {
+		width: 185px;
+		top: -97px;
+		left: -84px;
+	}
+
+	.mnemo__triangle1 {
+		border-top: 10px solid transparent;
+		border-left: 15px solid green;
+		border-bottom: 10px solid transparent;
+	}
+
+	.mnemo__triangle2 {
+		border-top: 10px solid transparent;
+		border-right: 15px solid green;
+		border-bottom: 10px solid transparent;
+	}
+
 }

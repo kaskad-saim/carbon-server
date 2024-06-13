@@ -79,7 +79,7 @@ if (temperVhodPechDozhig.innerHTML > 1200) {
 
 const temperVihodPechDozhig = document.querySelector('.temper-vihod-pech-dozhig');
 
-if (temperVihodPechDozhig.innerHTML > 1200 || temperVihodPechDozhig.innerHTML < 1100) {
+if (temperVihodPechDozhig.innerHTML > 1200) {
   temperVihodPechDozhig.style.animationPlayState = 'running';
 } else {
   temperVihodPechDozhig.style.animationPlayState = 'paused';
@@ -89,7 +89,7 @@ const davlTopka = document.querySelector('.davl-topka');
 let davlTopkaChanged = davlTopka.innerHTML.replace(',', '.');
 let davlTopkaResult = Number(davlTopkaChanged);
 
-if (davlTopkaResult > -1 || davlTopkaResult < -3) {
+if (davlTopkaResult > -1 || davlTopkaResult < -4) {
   davlTopka.style.animationPlayState = 'running';
 } else {
   davlTopka.style.animationPlayState = 'paused';
@@ -123,7 +123,7 @@ if (temperPosleSkruber.innerHTML > 100) {
 
 const temperVodyVannaSkruber = document.querySelector('.temper-vody-vanna-skruber');
 
-if (temperVodyVannaSkruber.innerHTML > 90 || temperVodyVannaSkruber.innerHTML < 70) {
+if (temperVodyVannaSkruber.innerHTML > 90) {
   temperVodyVannaSkruber.style.animationPlayState = 'running';
 } else {
   temperVodyVannaSkruber.style.animationPlayState = 'paused';

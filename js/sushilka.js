@@ -24,11 +24,9 @@ const red = 'red';
 if (kran.src == 'http://techsite4/KASKAD/pic/images/true.gif') {
   kranBorderLeft(kranLeft, green);
   kranBorderRight(kranRight, green);
-  console.log(typeof kran.src);
 } else {
   kranBorderLeft(kranLeft, red);
   kranBorderRight(kranRight, red);
-  console.log(typeof kran.src);
 }
 
 const hoverNoneBtn = document.querySelector('.hover-none-btn');

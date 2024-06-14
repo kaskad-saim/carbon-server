@@ -213,7 +213,7 @@ body::-webkit-scrollbar-thumb {
   width: 50px;
 }
 
-.mnemo__gif-4 {
+/* .mnemo__gif-4 {
   bottom: 6.4%;
   right: 5%;
 }
@@ -256,6 +256,141 @@ body::-webkit-scrollbar-thumb {
 
 .mnemo__gif-8 img {
   width: 30px;
+} */
+
+.mnemo__kran-vert {
+  position: absolute;
+  z-index: 1;
+}
+
+.mnemo__kran-box {
+  position: relative;
+  display: flex;
+  align-items: center;
+  background-color: white;
+}
+
+.mnemo__triangle1 {
+  width: 0;
+  height: 0;
+  border-top: 10px solid transparent;
+  border-left: 16px solid green;
+  border-bottom: 10px solid transparent;
+}
+
+.mnemo__triangle1-small {
+  width: 0;
+  height: 0;
+  border-top: 8px solid transparent;
+  border-left: 12px solid green;
+  border-bottom: 8px solid transparent;
+}
+
+.mnemo__triangle2 {
+  width: 0;
+  height: 0;
+  border-top: 10px solid transparent;
+  border-right: 16px solid green;
+  border-bottom: 10px solid transparent;
+}
+
+.mnemo__triangle2-small {
+  width: 0;
+  height: 0;
+  border-top: 8px solid transparent;
+  border-right: 12px solid green;
+  border-bottom: 8px solid transparent;
+}
+
+.mnemo__kran-img {
+  position: relative;
+}
+
+.mnemo__kran-img img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  width: 5px;
+  left: 5px;
+}
+
+.mnemo__kran2-img {
+  position: relative;
+}
+
+.mnemo__kran2-img img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  width: 5px;
+  left: 5px;
+}
+
+.mnemo__kran3-img {
+  position: relative;
+}
+
+.mnemo__kran3-img img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  width: 5px;
+  left: 5px;
+}
+
+.mnemo__kran4-img {
+  position: relative;
+}
+
+.mnemo__kran4-img img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  width: 5px;
+  left: 5px;
+}
+
+.mnemo__kran5-img {
+  position: relative;
+}
+
+.mnemo__kran5-img img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  width: 5px;
+  left: 5px;
+}
+
+
+.kran-1 {
+  bottom: 6.8%;
+  right: 5%;
+}
+
+.kran-2 {
+  bottom: 12.8%;
+  right: 62%;
+}
+
+.kran-3 {
+  top: 0.8%;
+  right: 48%;
+}
+
+.kran-4 {
+  top: 0.8%;
+  right: 28%;
+}
+
+.kran-5 {
+  top: 15%;
+  left: 35.7%;
 }
 
 .ot-hvo-text {
@@ -723,6 +858,8 @@ body::-webkit-scrollbar-thumb {
   animation-play-state: paused;
 }
 
+
+
 @keyframes colorRed {
   0% {
     color: blue;
@@ -829,7 +966,7 @@ body::-webkit-scrollbar-thumb {
     width: 35px;
   }
 
-  .mnemo__gif-4 {
+  /* .mnemo__gif-4 {
     bottom: 6.4%;
   }
 
@@ -840,6 +977,27 @@ body::-webkit-scrollbar-thumb {
 
   .mnemo__gif-8 {
     top: 14.6%;
+  } */
+
+  .kran-1 {
+    bottom: 6.5%;
+  }
+
+  .kran-2 {
+    bottom: 12.7%;
+  }
+
+  .kran-3 {
+    top: 0.5%;
+  }
+
+  .kran-4 {
+    top: 0.5%;
+  }
+
+  .kran-5 {
+    top: 14.7%;
+    left: 35.4%;
   }
 
   .krutilka-1,

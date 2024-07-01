@@ -262,6 +262,14 @@ body::-webkit-scrollbar-thumb {
   animation-play-state: paused;
 }
 
+.siren {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  z-index: 1;
+  opacity: 0;
+}
+
 @keyframes colorRed {
   0% {
     color: green;

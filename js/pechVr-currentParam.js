@@ -1,8 +1,34 @@
-//mode
 const modeTitle = document.querySelector('.current-param__subtitle-span');
 const temper3Skolz = document.querySelector('.temper-3-skolz');
 const temper1Skolz = document.querySelector('.temper-1-skolz');
+const sirenVR1param = document.querySelector('.siren__media-vr1-param');
+const sirenVR2param = document.querySelector('.siren__media-vr2-param');
 
+// условия по параметрам
+
+const animationRun = (param) => {
+  param.style.animationPlayState = 'running';
+  if (sirenVR1param) {
+    if (modeTitle.innerHTML == 'Установившийся режим') {
+      sirenVR1param.play();
+    } else {
+      sirenVR1param.pause();
+    }
+  }
+  if (sirenVR2param) {
+    if (modeTitle.innerHTML == 'Установившийся режим') {
+      sirenVR2param.play();
+    } else {
+      sirenVR2param.pause();
+    }
+  }
+};
+
+const animationPaused = (param) => {
+  param.style.animationPlayState = 'paused';
+};
+
+//mode
 if (temper1Skolz.innerHTML < 550 && temper1Skolz.innerHTML > 50) {
   modeTitle.innerHTML = 'Выход на режим';
   if (temper3Skolz.innerHTML > 750) {
@@ -13,76 +39,75 @@ if (temper1Skolz.innerHTML < 550 && temper1Skolz.innerHTML > 50) {
 } else if (temper1Skolz.innerHTML > 550) {
   modeTitle.innerHTML = 'Установившийся режим';
   if (temper3Skolz.innerHTML > 400) {
-    temper3Skolz.style.animationPlayState = 'running';
+    animationRun(temper3Skolz);
   } else {
-    temper3Skolz.style.animationPlayState = 'paused';
+    animationPaused(temper3Skolz);
   }
 } else {
   modeTitle.innerHTML = 'Печь не работает';
 }
 //------------------------------------------------------------------
 
-// условия по параметрам
 if (temper1Skolz.innerHTML > 50) {
   if (temper1Skolz.innerHTML > 700 || temper1Skolz.innerHTML < 550) {
-    temper1Skolz.style.animationPlayState = 'running';
+    animationRun(temper1Skolz);
   } else {
-    temper1Skolz.style.animationPlayState = 'paused';
+    animationPaused(temper1Skolz);
   }
 
   const temperTopka = document.querySelector('.temper-topka');
   if (temperTopka.innerHTML > 1000) {
-    temperTopka.style.animationPlayState = 'running';
+    animationRun(temperTopka);
   } else {
-    temperTopka.style.animationPlayState = 'paused';
+    animationPaused(temperTopka);
   }
 
   const temper2Skolz = document.querySelector('.temper-2-skolz');
 
   if (temper2Skolz.innerHTML > 700) {
-    temper2Skolz.style.animationPlayState = 'running';
+    animationRun(temper2Skolz);
   } else {
-    temper2Skolz.style.animationPlayState = 'paused';
+    animationPaused(temper2Skolz);
   }
 
   const temperVnizKamerZagruz = document.querySelector('.temper-vniz-kamer-zagruz');
 
   if (temperVnizKamerZagruz.innerHTML > 1100 || temperVnizKamerZagruz.innerHTML < 1000) {
-    temperVnizKamerZagruz.style.animationPlayState = 'running';
+    animationRun(temperVnizKamerZagruz);
   } else {
-    temperVnizKamerZagruz.style.animationPlayState = 'paused';
+    animationPaused(temperVnizKamerZagruz);
   }
 
   const temperVerhKamerZagruz = document.querySelector('.temper-verh-kamer-zagruz');
 
   if (temperVerhKamerZagruz.innerHTML > 1000) {
-    temperVerhKamerZagruz.style.animationPlayState = 'running';
+    animationRun(temperVerhKamerZagruz);
   } else {
-    temperVerhKamerZagruz.style.animationPlayState = 'paused';
+    animationPaused(temperVerhKamerZagruz);
   }
 
   const temperGranulHolod = document.querySelector('.temper-granul-holod');
 
   if (temperGranulHolod.innerHTML > 70) {
-    temperGranulHolod.style.animationPlayState = 'running';
+    animationRun(temperGranulHolod);
   } else {
-    temperGranulHolod.style.animationPlayState = 'paused';
+    animationPaused(temperGranulHolod);
   }
 
   const temperVhodPechDozhig = document.querySelector('.temper-vhod-pech-dozhig');
 
   if (temperVhodPechDozhig.innerHTML > 1200) {
-    temperVhodPechDozhig.style.animationPlayState = 'running';
+    animationRun(temperVhodPechDozhig);
   } else {
-    temperVhodPechDozhig.style.animationPlayState = 'paused';
+    animationPaused(temperVhodPechDozhig);
   }
 
   const temperVihodPechDozhig = document.querySelector('.temper-vihod-pech-dozhig');
 
   if (temperVihodPechDozhig.innerHTML > 1200) {
-    temperVihodPechDozhig.style.animationPlayState = 'running';
+    animationRun(temperVihodPechDozhig);
   } else {
-    temperVihodPechDozhig.style.animationPlayState = 'paused';
+    animationPaused(temperVihodPechDozhig);
   }
 
   const davlTopka = document.querySelector('.davl-topka');
@@ -108,25 +133,25 @@ if (temper1Skolz.innerHTML > 50) {
   const temperDoSkruber = document.querySelector('.temper-do-skruber');
 
   if (temperDoSkruber.innerHTML > 400) {
-    temperDoSkruber.style.animationPlayState = 'running';
+    animationRun(temperDoSkruber);
   } else {
-    temperDoSkruber.style.animationPlayState = 'paused';
+    animationPaused(temperDoSkruber);
   }
 
   const temperPosleSkruber = document.querySelector('.temper-posle-skruber');
 
   if (temperPosleSkruber.innerHTML > 100) {
-    temperPosleSkruber.style.animationPlayState = 'running';
+    animationRun(temperPosleSkruber);
   } else {
-    temperPosleSkruber.style.animationPlayState = 'paused';
+    animationPaused(temperPosleSkruber);
   }
 
   const temperVodyVannaSkruber = document.querySelector('.temper-vody-vanna-skruber');
 
   if (temperVodyVannaSkruber.innerHTML > 90) {
-    temperVodyVannaSkruber.style.animationPlayState = 'running';
+    animationRun(temperVodyVannaSkruber);
   } else {
-    temperVodyVannaSkruber.style.animationPlayState = 'paused';
+    animationPaused(temperVodyVannaSkruber);
   }
 
   const davlGazPosleSkruber = document.querySelector('.davl-gaz-posle-skruber');
@@ -142,9 +167,9 @@ if (temper1Skolz.innerHTML > 50) {
   const temperGazovKotelUtiliz = document.querySelector('.temper-gazov-kotel-utiliz');
 
   if (temperGazovKotelUtiliz.innerHTML > 1100) {
-    temperGazovKotelUtiliz.style.animationPlayState = 'running';
+    animationRun(temperGazovKotelUtiliz);
   } else {
-    temperGazovKotelUtiliz.style.animationPlayState = 'paused';
+    animationPaused(temperGazovKotelUtiliz);
   }
 
   const razrKotelUtiliz = document.querySelector('.razr-kotel-utiliz');

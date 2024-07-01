@@ -274,7 +274,7 @@ body::-webkit-scrollbar-thumb {
   width: 0;
   height: 0;
   border-top: 10px solid transparent;
-  border-left: 16px solid green;
+  border-left: 13px solid green;
   border-bottom: 10px solid transparent;
 }
 
@@ -290,7 +290,7 @@ body::-webkit-scrollbar-thumb {
   width: 0;
   height: 0;
   border-top: 10px solid transparent;
-  border-right: 16px solid green;
+  border-right: 13px solid green;
   border-bottom: 10px solid transparent;
 }
 
@@ -390,7 +390,12 @@ body::-webkit-scrollbar-thumb {
 
 .kran-5 {
   top: 15%;
-  left: 35.7%;
+  left: 35.65%;
+}
+
+.kran-6 {
+  top: 15%;
+  left: 35.65%;
 }
 
 .ot-hvo-text {
@@ -535,6 +540,11 @@ body::-webkit-scrollbar-thumb {
 .vverh-kamery-zagruzki {
   left: 7.5%;
   bottom: 36.5%;
+}
+
+.vigruzka-kam-text {
+  bottom: 20%;
+  right: 37%;
 }
 
 .vhod-pechi-doziganiy {
@@ -760,6 +770,11 @@ body::-webkit-scrollbar-thumb {
   right: 0;
 }
 
+.temper-kameri-vigruzki {
+  top: 80%;
+  right: 43%;
+}
+
 .vyhod-pechi-doziganiy {
   top: 29%;
   left: 37%;
@@ -859,6 +874,69 @@ body::-webkit-scrollbar-thumb {
 }
 
 
+.siren {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  z-index: 1;
+  opacity: 1;
+}
+
+/* table-small */
+
+.table {
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 1;
+  width: 100%;
+  max-width: 300px;
+  height: fit-content;
+  text-align: left;
+  border-collapse: collapse;
+  border-spacing: 5px;
+  background-color: #e7eef4;
+  box-shadow: 0 0 5px 0 black;
+}
+
+.table__tr {
+  height: 15px;
+  border: 1px solid black;
+}
+
+.table__th {
+  padding: 5px 10px;
+  text-align: center;
+  font-family: 'Bitter', sans-serif;
+  font-size: 12px;
+  line-height: 12px;
+  font-weight: 800;
+  color: black;
+}
+
+.table__td {
+  text-align: center;
+  font-family: 'Bitter', sans-serif;
+  font-size: 10px;
+  line-height: 10px;
+  font-weight: 500;
+  color: black;
+}
+
+.table__left {
+  padding: 0;
+  text-align: left;
+}
+
+.table__right {
+  color: green;
+  font-weight: 600;
+}
+
+.table__th:not(:last-child),
+.table__td:not(:last-child) {
+  border-right: 1px solid black;
+}
 
 @keyframes colorRed {
   0% {
@@ -999,6 +1077,12 @@ body::-webkit-scrollbar-thumb {
     top: 14.7%;
     left: 35.4%;
   }
+
+  .kran-6 {
+    top: 14.7%;
+    left: 35.4%;
+  }
+
 
   .krutilka-1,
   .krutilka-2 {

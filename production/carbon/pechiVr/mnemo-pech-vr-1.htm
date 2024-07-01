@@ -12,17 +12,18 @@
 
     <body>
         <h2 class="mnemo__title">
+            <div class="siren">
+                <audio class="siren__media-vr1-mnemo" controls loop>
+                    <source src="http://Techsite6/kaskad/audio/siren.mp3" type="audio/mp3">
+                </audio>
+            </div>
             <span class="current-param__title-span">Карбон</span>
-
             Печь карбонизации №1
         </h2>
         <h2 class="current-param__subtitle">Режим работы печи:
             <span class="current-param__subtitle-span"></span>
         </h2>
         <div class="mnemo">
-
-
-
             <div class="mnemo__gif mnemo__gif-1">
                 <#PasspValue PasspType=9 PasspID=5 Type="Pictures" [true]="pic\images\fire-gif.gif"
                     [false]="pic\images\none.gif">
@@ -104,9 +105,7 @@
 
             <div class="mnemo__kran-vert kran-5">
                 <div class="mnemo__kran-box">
-                    <div class="mnemo__triangle1 mnemo__kran5-img mnemo__kran5-left">
-                        <#PasspValue PasspType=9 PasspID=7 Type="Pictures" [true]="pic\images\true.gif"
-                            [false]="pic\images\false.gif">
+                    <div class="mnemo__triangle1 mnemo__kran5-left">
                     </div>
                     <div class="mnemo__triangle2 mnemo__kran5-right"></div>
                 </div>
@@ -132,6 +131,7 @@
             <div class="mnemo__param-descr elevator-text">Элеватор</div>
             <div class="mnemo__param-descr zagruzka-granul-text">Загрузка гранул</div>
             <div class="mnemo__param-descr niz-zagr-kam-text">Низ загрузочной камеры</div>
+            <div class="mnemo__param-descr vigruzka-kam-text">Камера выгрузки</div>
             <div class="mnemo__param-descr vniz-kamery-zagruzki-text">Внизу камеры загрузки </div>
             <div class="mnemo__param-descr vverh-kamery-zagruzki-text">Вверху камеры загрузки </div>
             <div class="mnemo__param-descr vhod-pechi-doziganiy-text">Вход печи дожигания </div>
@@ -290,6 +290,13 @@
                 <span class="mnemo__param-naimenov temper-posle-skruber-span">&#176C</span>
             </div>
 
+            <div class="mnemo__param temper-kameri-vigruzki">
+                <span class="mnemo__param-text">
+                    <#PasspValue PasspType=1 PasspID=227 Precision=0>
+                </span>
+                <span class="mnemo__param-naimenov">&#176C</span>
+            </div>
+
 
 
             <div class="mnemo__param vyhod-pechi-doziganiy">
@@ -339,7 +346,8 @@
             </div> -->
 
             <div class="mnemo__param im5-percent">
-                <span class="mnemo__param-text ">
+
+                <span class="mnemo__param-text im5-pech1-value">
                     <#PasspValue PasspType=1 PasspID=37 Precision=0>
                 </span>
                 <span class="mnemo__param-naimenov">%</span>
@@ -351,7 +359,6 @@
             <div class="mnemo__param krutilka-2">
                 <img src="../pic/images/blower_7fan_left_grey.gif" alt="img">
             </div>
-
 
 
 

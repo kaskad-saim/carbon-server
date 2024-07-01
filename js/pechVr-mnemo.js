@@ -1,12 +1,38 @@
-//mode
 const modeTitle = document.querySelector('.current-param__subtitle-span');
 const temper3Skolz = document.querySelector('.temper-3-skolz');
 const temper3SkolzSpan = document.querySelector('.temper-3-skolz-span');
 const temper1Skolz = document.querySelector('.temper-1-skolz');
+const sirenVR1mnemo = document.querySelector('.siren__media-vr1-mnemo');
+const sirenVR2mnemo = document.querySelector('.siren__media-vr2-mnemo');
+
+// условия по параметрам
+const animationRun = (param) => {
+  param.style.animationPlayState = 'running';
+  if (sirenVR1mnemo) {
+    if (modeTitle.innerHTML == 'Установившийся режим') {
+      sirenVR1mnemo.play();
+    } else {
+      sirenVR1mnemo.pause();
+    }
+  }
+  if (sirenVR2mnemo) {
+    if (modeTitle.innerHTML == 'Установившийся режим') {
+      sirenVR2mnemo.play();
+    } else {
+      sirenVR2mnemo.pause();
+    }
+  }
+};
+
+const animationPaused = (param) => {
+  param.style.animationPlayState = 'paused';
+};
 
 
+//mode
 if (temper1Skolz.innerHTML < 550 && temper1Skolz.innerHTML > 50) {
   modeTitle.innerHTML = 'Выход на режим';
+
   if (temper3Skolz.innerHTML > 750) {
     temper3Skolz.style.animationPlayState = 'running';
     temper3SkolzSpan.style.animationPlayState = 'running';
@@ -17,36 +43,30 @@ if (temper1Skolz.innerHTML < 550 && temper1Skolz.innerHTML > 50) {
 } else if (temper1Skolz.innerHTML > 550) {
   modeTitle.innerHTML = 'Установившийся режим';
   if (temper3Skolz.innerHTML > 400) {
-    temper3Skolz.style.animationPlayState = 'running';
-    temper3SkolzSpan.style.animationPlayState = 'running';
+    animationRun(temper3Skolz);
+    animationRun(temper3SkolzSpan);
   } else {
-    temper3Skolz.style.animationPlayState = 'paused';
-    temper3SkolzSpan.style.animationPlayState = 'paused';
+    animationPaused(temper3Skolz);
+    animationPaused(temper3SkolzSpan);
   }
 } else {
   modeTitle.innerHTML = 'Печь не работает';
 }
 //------------------------------------------------------------------
 
-
-// условия по параметрам
-const animationRun = (param) => {
-  param.style.animationPlayState = 'running';
-};
-
-const animationPaused = (param) => {
-  param.style.animationPlayState = 'paused';
-};
-
 if (temper1Skolz.innerHTML > 50) {
   const temper1SkolzSpan = document.querySelector('.temper-1-skolz-span');
 
   if (temper1Skolz.innerHTML > 700 || temper1Skolz.innerHTML < 550) {
-    temper1Skolz.style.animationPlayState = 'running';
-    temper1SkolzSpan.style.animationPlayState = 'running';
+    console.log('true');
+
+    animationRun(temper1Skolz);
+    animationRun(temper1SkolzSpan);
   } else {
-    temper1Skolz.style.animationPlayState = 'paused';
-    temper1SkolzSpan.style.animationPlayState = 'paused';
+    console.log('false');
+
+    animationPaused(temper1Skolz);
+    animationPaused(temper1SkolzSpan);
   }
   const nizZagrKam = document.querySelector('.razr-niz-zagr-kam');
   const nizZagrKamSpan = document.querySelector('.razr-niz-zagr-kam-span');
@@ -54,11 +74,11 @@ if (temper1Skolz.innerHTML > 50) {
   let nizZagrKamResult = Number(nizZagrKamChanged);
 
   if (nizZagrKamResult > -3 || nizZagrKamResult < -5) {
-    animationRun(nizZagrKam);
-    animationRun(nizZagrKamSpan);
+    nizZagrKam.style.animationPlayState = 'running';
+    nizZagrKamSpan.style.animationPlayState = 'running';
   } else {
-    animationPaused(nizZagrKam);
-    animationPaused(nizZagrKamSpan);
+    nizZagrKam.style.animationPlayState = 'paused';
+    nizZagrKamSpan.style.animationPlayState = 'paused';
   }
 
   const temperVnizKamerZagruz = document.querySelector('.temper-vniz-kamer-zagruz');
@@ -98,22 +118,22 @@ if (temper1Skolz.innerHTML > 50) {
   const temper2SkolzSpan = document.querySelector('.temper-2-skolz-span');
 
   if (temper2Skolz.innerHTML > 700) {
-    temper2Skolz.style.animationPlayState = 'running';
-    temper2SkolzSpan.style.animationPlayState = 'running';
+    animationRun(temper2Skolz);
+    animationRun(temper2SkolzSpan);
   } else {
-    temper2Skolz.style.animationPlayState = 'paused';
-    temper2SkolzSpan.style.animationPlayState = 'paused';
+    animationPaused(temper2Skolz);
+    animationPaused(temper2SkolzSpan);
   }
 
   const temperGranulHolod = document.querySelector('.temper-granul-holod');
   const temperGranulHolodSpan = document.querySelector('.temper-granul-holod-span');
 
   if (temperGranulHolod.innerHTML > 70) {
-    temperGranulHolod.style.animationPlayState = 'running';
-    temperGranulHolodSpan.style.animationPlayState = 'running';
+    animationRun(temperGranulHolod);
+    animationRun(temperGranulHolodSpan);
   } else {
-    temperGranulHolod.style.animationPlayState = 'paused';
-    temperGranulHolodSpan.style.animationPlayState = 'paused';
+    animationPaused(temperGranulHolod);
+    animationPaused(temperGranulHolodSpan);
   }
 
   const davlGazPosleSkruber = document.querySelector('.davl-gaz-posle-skruber');
@@ -133,11 +153,11 @@ if (temper1Skolz.innerHTML > 50) {
   const temperTopkaSpan = document.querySelector('.temper-topka-span');
 
   if (temperTopka.innerHTML > 1000) {
-    temperTopka.style.animationPlayState = 'running';
-    temperTopkaSpan.style.animationPlayState = 'running';
+    animationRun(temperTopka);
+    animationRun(temperTopkaSpan);
   } else {
-    temperTopka.style.animationPlayState = 'paused';
-    temperTopkaSpan.style.animationPlayState = 'paused';
+    animationPaused(temperTopka);
+    animationPaused(temperTopkaSpan);
   }
 
   const davlTopka = document.querySelector('.davl-topka');
@@ -157,44 +177,44 @@ if (temper1Skolz.innerHTML > 50) {
   const temperDoSkruberSpan = document.querySelector('.temper-do-skruber-span');
 
   if (temperDoSkruber.innerHTML > 400) {
-    temperDoSkruber.style.animationPlayState = 'running';
-    temperDoSkruberSpan.style.animationPlayState = 'running';
+    animationRun(temperDoSkruber);
+    animationRun(temperDoSkruberSpan);
   } else {
-    temperDoSkruber.style.animationPlayState = 'paused';
-    temperDoSkruberSpan.style.animationPlayState = 'paused';
+    animationPaused(temperDoSkruber);
+    animationPaused(temperDoSkruberSpan);
   }
 
   const temperPosleSkruber = document.querySelector('.temper-posle-skruber');
   const temperPosleSkruberSpan = document.querySelector('.temper-posle-skruber-span');
 
   if (temperPosleSkruber.innerHTML > 100) {
-    temperPosleSkruber.style.animationPlayState = 'running';
-    temperPosleSkruberSpan.style.animationPlayState = 'running';
+    animationRun(temperPosleSkruber);
+    animationRun(temperPosleSkruberSpan);
   } else {
-    temperPosleSkruber.style.animationPlayState = 'paused';
-    temperPosleSkruberSpan.style.animationPlayState = 'paused';
+    animationPaused(temperPosleSkruber);
+    animationPaused(temperPosleSkruberSpan);
   }
 
   const temperVihodPechDozhig = document.querySelector('.temper-vihod-pech-dozhig');
   const temperVihodPechDozhigSpan = document.querySelector('.temper-vihod-pech-dozhig-span');
 
   if (temperVihodPechDozhig.innerHTML > 1200) {
-    temperVihodPechDozhig.style.animationPlayState = 'running';
-    temperVihodPechDozhigSpan.style.animationPlayState = 'running';
+    animationRun(temperVihodPechDozhig);
+    animationRun(temperVihodPechDozhigSpan);
   } else {
-    temperVihodPechDozhig.style.animationPlayState = 'paused';
-    temperVihodPechDozhigSpan.style.animationPlayState = 'paused';
+    animationPaused(temperVihodPechDozhig);
+    animationPaused(temperVihodPechDozhigSpan);
   }
 
   const temperGazovKotelUtiliz = document.querySelector('.temper-gazov-kotel-utiliz');
   const temperGazovKotelUtilizSpan = document.querySelector('.temper-gazov-kotel-utiliz-span');
 
   if (temperGazovKotelUtiliz.innerHTML > 1100) {
-    temperGazovKotelUtiliz.style.animationPlayState = 'running';
-    temperGazovKotelUtilizSpan.style.animationPlayState = 'running';
+    animationRun(temperGazovKotelUtiliz);
+    animationRun(temperGazovKotelUtilizSpan);
   } else {
-    temperGazovKotelUtiliz.style.animationPlayState = 'paused';
-    temperGazovKotelUtilizSpan.style.animationPlayState = 'paused';
+    animationPaused(temperGazovKotelUtiliz);
+    animationPaused(temperGazovKotelUtilizSpan);
   }
 
   const razrKotelUtiliz = document.querySelector('.razr-kotel-utiliz');
@@ -214,14 +234,13 @@ if (temper1Skolz.innerHTML > 50) {
   const temperVodyVannaSkruberSpan = document.querySelector('.temper-vody-vanna-skruber-span');
 
   if (temperVodyVannaSkruber.innerHTML > 90) {
-    temperVodyVannaSkruber.style.animationPlayState = 'running';
-    temperVodyVannaSkruberSpan.style.animationPlayState = 'running';
+    animationRun(temperVodyVannaSkruber);
+    animationRun(temperVodyVannaSkruberSpan);
   } else {
-    temperVodyVannaSkruber.style.animationPlayState = 'green';
-    temperVodyVannaSkruberSpan.style.animationPlayState = 'green';
+    animationPaused(temperVodyVannaSkruber);
+    animationPaused(temperVodyVannaSkruberSpan);
   }
 }
-
 
 //Краны
 const kran = document.querySelector('.mnemo__kran-img img');
@@ -283,14 +302,30 @@ if (kran4.src == 'http://techsite4/KASKAD/pic/images/true.gif') {
   kranBorderRight(kranRight4, red);
 }
 
-const kran5 = document.querySelector('.mnemo__kran5-img img');
+const pech1im = document.querySelector('.im5-pech1-value');
 const kranLeft5 = document.querySelector('.mnemo__kran5-left');
 const kranRight5 = document.querySelector('.mnemo__kran5-right');
 
-if (kran5.src == 'http://techsite4/KASKAD/pic/images/true.gif') {
-  kranBorderLeft(kranLeft5, green);
-  kranBorderRight(kranRight5, green);
-} else {
-  kranBorderLeft(kranLeft5, red);
-  kranBorderRight(kranRight5, red);
+if (pech1im) {
+  if (Number(pech1im.innerHTML >= 5)) {
+    kranBorderLeft(kranLeft5, green);
+    kranBorderRight(kranRight5, green);
+  } else {
+    kranBorderLeft(kranLeft5, red);
+    kranBorderRight(kranRight5, red);
+  }
+}
+
+const pech2im = document.querySelector('.im5-pech2-value');
+const kranLeft6 = document.querySelector('.mnemo__kran6-left');
+const kranRight6 = document.querySelector('.mnemo__kran6-right');
+
+if (pech2im) {
+  if (Number(pech2im.innerHTML >= 5)) {
+    kranBorderLeft(kranLeft6, green);
+    kranBorderRight(kranRight6, green);
+  } else {
+    kranBorderLeft(kranLeft6, red);
+    kranBorderRight(kranRight6, red);
+  }
 }

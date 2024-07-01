@@ -12,6 +12,11 @@
 
     <body>
         <h2 class="mnemo__title">
+            <div class="siren">
+                <audio class="siren__media-vr2-mnemo" controls loop>
+                    <source src="http://Techsite6/kaskad/audio/siren2.mp3" type="audio/mp3">
+                </audio>
+            </div>
             <span class="current-param__title-span">Карбон</span>
             Печь карбонизации №2
         </h2>
@@ -19,10 +24,30 @@
             <span class="current-param__subtitle-span"></span>
         </h2>
 
+        <table class="table">
+            <thead class="table__thead">
+                <tr class="table__tr">
+                    <th class="table__th table__left">Наименование параметра</th>
+                    <th class="table__th ">Значения</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="table__tr">
+                    <td class="table__td table__left">В топке печи, кгс/м2</td>
+                    <td class="table__td table__right davl-topka">
+                        <#PasspValue PasspType=1 PasspID=39 Precision=1>
+                    </td>
+                </tr>
+                <tr class="table__tr">
+                    <td class="table__td table__left"> Низ загрузочной камеры, кгс/м2</td>
+                    <td class="table__td table__right razr-niz-zagr-kam">
+                        <#PasspValue PasspType=1 PasspID=40 Precision=1>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
         <div class="mnemo">
-
-
-
             <div class="mnemo__gif mnemo__gif-1">
                 <#PasspValue PasspType=9 PasspID=12 Type="Pictures" [true]="pic\images\fire-gif.gif"
                     [false]="pic\images\none.gif">
@@ -102,13 +127,11 @@
                 </div>
             </div>
 
-            <div class="mnemo__kran-vert kran-5">
+            <div class="mnemo__kran-vert kran-6">
                 <div class="mnemo__kran-box">
-                    <div class="mnemo__triangle1 mnemo__kran5-img mnemo__kran5-left">
-                        <#PasspValue PasspType=9 PasspID=7 Type="Pictures" [true]="pic\images\true.gif"
-                            [false]="pic\images\false.gif">
+                    <div class="mnemo__triangle1 mnemo__kran6-left">
                     </div>
-                    <div class="mnemo__triangle2 mnemo__kran5-right"></div>
+                    <div class="mnemo__triangle2 mnemo__kran6-right"></div>
                 </div>
             </div>
 
@@ -233,7 +256,7 @@
                 <span class="mnemo__param-naimenov">мм</span>
             </div>
 
-            <div class="mnemo__param uroven-vanne-skrubber">
+            <div class="mnemo__param uroven-vanne-skrubber">l
                 <span class="mnemo__param-text uroven-vanne-skrubber-value">
                     <#PasspValue PasspType=1 PasspID=83 Precision=0>
                 </span>
@@ -335,7 +358,7 @@
             </div> -->
 
             <div class="mnemo__param im5-percent">
-                <span class="mnemo__param-text ">
+                <span class="mnemo__param-text im5-pech2-value">
                     <#PasspValue PasspType=1 PasspID=68 Precision=0>
                 </span>
                 <span class="mnemo__param-naimenov">%</span>

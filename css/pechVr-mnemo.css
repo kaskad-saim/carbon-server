@@ -106,16 +106,31 @@ body::-webkit-scrollbar-thumb {
   /* закругления плашки */
 }
 
+.content {
+  position: relative;
+  max-width: 1450px;
+}
+
 .mnemo {
   position: relative;
   width: 1316px;
-  margin: 0 auto;
+  /* margin: 0 auto; */
+}
+
+.mnemo__title-content {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  max-width: 1000px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .mnemo__title {
   display: flex;
   flex-direction: column;
-  margin-bottom: 0;
+  margin: 0;
   text-align: center;
   font-size: 32px;
   line-height: 32px;
@@ -124,6 +139,7 @@ body::-webkit-scrollbar-thumb {
 }
 
 .current-param__title-span {
+  margin: 0;
   font-size: 22px;
   line-height: 30px;
   font-weight: 600;
@@ -131,9 +147,8 @@ body::-webkit-scrollbar-thumb {
 }
 
 .current-param__subtitle {
-  text-align: center;
-  margin-top: 10px;
-  margin-bottom: 10px;
+  /* text-align: center; */
+  margin: 0;
   font-size: 20px;
   line-height: 29px;
   font-weight: 600;
@@ -409,8 +424,8 @@ body::-webkit-scrollbar-thumb {
 }
 
 .par-v-otdelenii-activatsi-text {
-  top: 1%;
-  right: 0%;
+  top: 4%;
+  right: 19%;
 }
 
 .borov-soedinitelni-text {
@@ -879,18 +894,18 @@ body::-webkit-scrollbar-thumb {
   top: 10px;
   left: 10px;
   z-index: 1;
-  opacity: 1;
+  opacity: 0;
 }
 
 /* table-small */
 
 .table {
   position: absolute;
-  top: 0;
-  right: 0;
+  top: 10px;
+  right: 10px;
   z-index: 1;
   width: 100%;
-  max-width: 300px;
+  max-width: 340px;
   height: fit-content;
   text-align: left;
   border-collapse: collapse;
@@ -908,8 +923,8 @@ body::-webkit-scrollbar-thumb {
   padding: 5px 10px;
   text-align: center;
   font-family: 'Bitter', sans-serif;
-  font-size: 12px;
-  line-height: 12px;
+  font-size: 14px;
+  line-height: 14px;
   font-weight: 800;
   color: black;
 }
@@ -917,20 +932,30 @@ body::-webkit-scrollbar-thumb {
 .table__td {
   text-align: center;
   font-family: 'Bitter', sans-serif;
-  font-size: 10px;
-  line-height: 10px;
+  font-size: 14px;
+  line-height: 14px;
   font-weight: 500;
   color: black;
+  animation: colorRed 0.9s infinite ease-in-out;
+
 }
 
 .table__left {
-  padding: 0;
+  padding: 3px;
   text-align: left;
 }
 
 .table__right {
   color: green;
   font-weight: 600;
+  animation: colorRed 0.9s infinite ease-in-out;
+}
+
+.table__td--descr {
+  animation-play-state: paused;
+  text-align: center;
+  font-size: 14px;
+  line-height: 19px;
 }
 
 .table__th:not(:last-child),
@@ -950,6 +975,7 @@ body::-webkit-scrollbar-thumb {
 
 @media (max-width: 1280px) {
   .mnemo {
+    margin-top: 50px;
     position: relative;
     width: 976px;
   }
@@ -980,7 +1006,7 @@ body::-webkit-scrollbar-thumb {
   }
 
   .par-v-otdelenii-activatsi-text {
-    right: 1%;
+    right: 20%;
   }
 
   .borov-soedinitelni-text {
@@ -1142,5 +1168,38 @@ body::-webkit-scrollbar-thumb {
 
   .column-hvo__span-2 {
     left: 16px;
+  }
+
+  .mnemo__title {
+    font-size: 24px;
+    line-height: 24px;
+  }
+
+  .current-param__title-span {
+    font-size: 24px;
+    line-height: 24px;
+  }
+
+  .current-param__subtitle {
+    font-size: 18px;
+    line-height: 18px;
+  }
+
+  .current-param__subtitle-span {
+    font-size: 20px;
+    line-height: 20px;
+  }
+
+  .table {
+    max-width: 400px;
+  }
+
+  .mnemo__title-content {
+    max-width: 600px;
+  }
+
+  .table__td {
+    font-size: 12px;
+    line-height: 12px;
   }
 }

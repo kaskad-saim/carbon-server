@@ -28,6 +28,20 @@ const animationPaused = (param) => {
   param.style.animationPlayState = 'paused';
 };
 
+//табличка с параметрами которые не соответствуют требованиям
+const tableTbody = document.querySelector('.table__tbody');
+
+const addRowIfRunning = (param, description) => {
+  if (param.style.animationPlayState === 'running') {
+    const row = `
+      <tr class="table__tr">
+        <td class="table__td table__left">${description}</td>
+        <td class="table__td table__right">${param.innerHTML}</td>
+      </tr>
+    `;
+    tableTbody.innerHTML += row;
+  }
+};
 
 //mode
 if (temper1Skolz.innerHTML < 550 && temper1Skolz.innerHTML > 50) {
@@ -40,6 +54,8 @@ if (temper1Skolz.innerHTML < 550 && temper1Skolz.innerHTML > 50) {
     temper3Skolz.style.animationPlayState = 'paused';
     temper3SkolzSpan.style.animationPlayState = 'paused';
   }
+
+  addRowIfRunning(temper3Skolz, 'На 3-ей скользящей, °C');
 } else if (temper1Skolz.innerHTML > 550) {
   modeTitle.innerHTML = 'Установившийся режим';
   if (temper3Skolz.innerHTML > 400) {
@@ -49,6 +65,7 @@ if (temper1Skolz.innerHTML < 550 && temper1Skolz.innerHTML > 50) {
     animationPaused(temper3Skolz);
     animationPaused(temper3SkolzSpan);
   }
+  addRowIfRunning(temper3Skolz, 'На 3-ей скользящей, °C');
 } else {
   modeTitle.innerHTML = 'Печь не работает';
 }
@@ -58,16 +75,15 @@ if (temper1Skolz.innerHTML > 50) {
   const temper1SkolzSpan = document.querySelector('.temper-1-skolz-span');
 
   if (temper1Skolz.innerHTML > 700 || temper1Skolz.innerHTML < 550) {
-    console.log('true');
-
     animationRun(temper1Skolz);
     animationRun(temper1SkolzSpan);
   } else {
-    console.log('false');
-
     animationPaused(temper1Skolz);
     animationPaused(temper1SkolzSpan);
   }
+
+  addRowIfRunning(temper1Skolz, 'На 1-ой скользящей, °C');
+
   const nizZagrKam = document.querySelector('.razr-niz-zagr-kam');
   const nizZagrKamSpan = document.querySelector('.razr-niz-zagr-kam-span');
   let nizZagrKamChanged = nizZagrKam.innerHTML.replace(',', '.');
@@ -81,6 +97,8 @@ if (temper1Skolz.innerHTML > 50) {
     nizZagrKamSpan.style.animationPlayState = 'paused';
   }
 
+  addRowIfRunning(nizZagrKam, 'Низ загрузочной камеры, кгс/м2');
+
   const temperVnizKamerZagruz = document.querySelector('.temper-vniz-kamer-zagruz');
   const temperVnizKamerZagruzSpan = document.querySelector('.temper-vniz-kamer-zagruz-span');
 
@@ -91,6 +109,8 @@ if (temper1Skolz.innerHTML > 50) {
     animationPaused(temperVnizKamerZagruz);
     animationPaused(temperVnizKamerZagruzSpan);
   }
+
+  addRowIfRunning(temperVnizKamerZagruz, 'Внизу камеры загрузки, °C');
 
   const temperVerhKamerZagruz = document.querySelector('.temper-verh-kamer-zagruz');
   const temperVerhKamerZagruzSpan = document.querySelector('.temper-verh-kamer-zagruz-span');
@@ -103,6 +123,8 @@ if (temper1Skolz.innerHTML > 50) {
     animationPaused(temperVerhKamerZagruzSpan);
   }
 
+  addRowIfRunning(temperVerhKamerZagruz, 'Вверху камеры загрузки, °C');
+
   const temperVhodPechDozhig = document.querySelector('.temper-vhod-pech-dozhig');
   const temperVhodPechDozhigSpan = document.querySelector('.temper-vhod-pech-dozhig-span');
 
@@ -113,6 +135,8 @@ if (temper1Skolz.innerHTML > 50) {
     animationPaused(temperVhodPechDozhig);
     animationPaused(temperVhodPechDozhigSpan);
   }
+
+  addRowIfRunning(temperVhodPechDozhig, 'На входе печи дожига, °C');
 
   const temper2Skolz = document.querySelector('.temper-2-skolz');
   const temper2SkolzSpan = document.querySelector('.temper-2-skolz-span');
@@ -125,6 +149,8 @@ if (temper1Skolz.innerHTML > 50) {
     animationPaused(temper2SkolzSpan);
   }
 
+  addRowIfRunning(temper2Skolz, 'На 2-ой скользящей, °C');
+
   const temperGranulHolod = document.querySelector('.temper-granul-holod');
   const temperGranulHolodSpan = document.querySelector('.temper-granul-holod-span');
 
@@ -135,6 +161,8 @@ if (temper1Skolz.innerHTML > 50) {
     animationPaused(temperGranulHolod);
     animationPaused(temperGranulHolodSpan);
   }
+
+  addRowIfRunning(temperGranulHolod, 'Гранул после холод-ка, °C');
 
   const davlGazPosleSkruber = document.querySelector('.davl-gaz-posle-skruber');
   const davlGazPosleSkruberSpan = document.querySelector('.davl-gaz-posle-skruber-span');
@@ -149,6 +177,8 @@ if (temper1Skolz.innerHTML > 50) {
     davlGazPosleSkruberSpan.style.animationPlayState = 'paused';
   }
 
+  addRowIfRunning(davlGazPosleSkruber, 'Давление газов после скруббера, кгс/м2');
+
   const temperTopka = document.querySelector('.temper-topka');
   const temperTopkaSpan = document.querySelector('.temper-topka-span');
 
@@ -159,6 +189,8 @@ if (temper1Skolz.innerHTML > 50) {
     animationPaused(temperTopka);
     animationPaused(temperTopkaSpan);
   }
+
+  addRowIfRunning(temperTopka, 'В топке, °C');
 
   const davlTopka = document.querySelector('.davl-topka');
   const davlTopkaSpan = document.querySelector('.davl-topka-span');
@@ -173,6 +205,8 @@ if (temper1Skolz.innerHTML > 50) {
     davlTopkaSpan.style.animationPlayState = 'paused';
   }
 
+  addRowIfRunning(davlTopka, 'В топке печи, кгс/м2');
+
   const temperDoSkruber = document.querySelector('.temper-do-skruber');
   const temperDoSkruberSpan = document.querySelector('.temper-do-skruber-span');
 
@@ -183,6 +217,8 @@ if (temper1Skolz.innerHTML > 50) {
     animationPaused(temperDoSkruber);
     animationPaused(temperDoSkruberSpan);
   }
+
+  addRowIfRunning(temperDoSkruber, 'Температура газов до скруббера, °C');
 
   const temperPosleSkruber = document.querySelector('.temper-posle-skruber');
   const temperPosleSkruberSpan = document.querySelector('.temper-posle-skruber-span');
@@ -195,6 +231,8 @@ if (temper1Skolz.innerHTML > 50) {
     animationPaused(temperPosleSkruberSpan);
   }
 
+  addRowIfRunning(temperPosleSkruber, 'Температура газов после скруббера, °C');
+
   const temperVihodPechDozhig = document.querySelector('.temper-vihod-pech-dozhig');
   const temperVihodPechDozhigSpan = document.querySelector('.temper-vihod-pech-dozhig-span');
 
@@ -206,6 +244,8 @@ if (temper1Skolz.innerHTML > 50) {
     animationPaused(temperVihodPechDozhigSpan);
   }
 
+  addRowIfRunning(temperVihodPechDozhig, 'На выходе печи дожига, °C');
+
   const temperGazovKotelUtiliz = document.querySelector('.temper-gazov-kotel-utiliz');
   const temperGazovKotelUtilizSpan = document.querySelector('.temper-gazov-kotel-utiliz-span');
 
@@ -216,6 +256,8 @@ if (temper1Skolz.innerHTML > 50) {
     animationPaused(temperGazovKotelUtiliz);
     animationPaused(temperGazovKotelUtilizSpan);
   }
+
+  addRowIfRunning(temperGazovKotelUtiliz, 'Температура дымовых газов котла-утилизат., °C');
 
   const razrKotelUtiliz = document.querySelector('.razr-kotel-utiliz');
   const razrKotelUtilizSpan = document.querySelector('.razr-kotel-utiliz-span');
@@ -230,6 +272,8 @@ if (temper1Skolz.innerHTML > 50) {
     razrKotelUtilizSpan.style.animationPlayState = 'paused';
   }
 
+  addRowIfRunning(razrKotelUtiliz, 'Разрежение в пространстве котла, кгс/м2');
+
   const temperVodyVannaSkruber = document.querySelector('.temper-vody-vanna-skruber');
   const temperVodyVannaSkruberSpan = document.querySelector('.temper-vody-vanna-skruber-span');
 
@@ -240,6 +284,19 @@ if (temper1Skolz.innerHTML > 50) {
     animationPaused(temperVodyVannaSkruber);
     animationPaused(temperVodyVannaSkruberSpan);
   }
+
+  addRowIfRunning(temperVodyVannaSkruber, 'Температура воды в ванне скруббера, °C');
+}
+
+const trs = tableTbody.querySelectorAll('tr');
+if (trs.length == 0) {
+  const noDataRow = `
+  <tr class="table__tr">
+    <td class="table__td table__left table__td--descr" colspan="2">Тут будут отображаться параметры
+        которые превышают допустимые значения</td>
+  </tr>
+  `;
+  tableTbody.innerHTML = noDataRow;
 }
 
 //Краны

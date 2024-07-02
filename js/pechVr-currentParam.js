@@ -181,4 +181,12 @@ if (temper1Skolz.innerHTML > 50) {
   } else {
     razrKotelUtiliz.style.animationPlayState = 'paused';
   }
+
+  const temperLamerVygruz = document.querySelector('.temper-kamer-vygruz');
+
+  if (temperLamerVygruz.innerHTML > 850) {
+    animationRun(temperLamerVygruz);
+  } else {
+    animationPaused(temperLamerVygruz);
+  }
 }

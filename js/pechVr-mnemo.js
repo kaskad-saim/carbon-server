@@ -286,6 +286,19 @@ if (temper1Skolz.innerHTML > 50) {
   }
 
   addRowIfRunning(temperVodyVannaSkruber, 'Температура воды в ванне скруббера, °C');
+
+  const temperKamerVygruz = document.querySelector('.temper-kamer-vygruz');
+  const temperKamerVygruzSpan = document.querySelector('.temper-kamer-vygruz-span');
+
+  if (temperKamerVygruz.innerHTML > 90) {
+    animationRun(temperKamerVygruz);
+    animationRun(temperKamerVygruzSpan);
+  } else {
+    animationPaused(temperKamerVygruz);
+    animationPaused(temperKamerVygruzSpan);
+  }
+
+  addRowIfRunning(temperKamerVygruz, 'Температура камеры выгрузки, °C');
 }
 
 const trs = tableTbody.querySelectorAll('tr');

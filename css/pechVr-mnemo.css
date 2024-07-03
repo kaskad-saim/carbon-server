@@ -785,7 +785,7 @@ body::-webkit-scrollbar-thumb {
   right: 0;
 }
 
-.temper-kamer-vygruz {
+.temper-kamer-vygruz-div {
   top: 80%;
   right: 43%;
 }
@@ -883,7 +883,9 @@ body::-webkit-scrollbar-thumb {
 .temper-vody-vanna-skruber-span,
 .davl-gaz-posle-skruber-span,
 .temper-gazov-kotel-utiliz-span,
-.razr-kotel-utiliz-span {
+.razr-kotel-utiliz-span,
+.temper-kamer-vygruz,
+.temper-kamer-vygruz-span {
   animation: colorRed 0.5s infinite ease-in-out;
   animation-play-state: paused;
 }
@@ -970,6 +972,82 @@ body::-webkit-scrollbar-thumb {
 
   100% {
     color: red;
+  }
+}
+
+/* light-alarm */
+.light-alarm {
+  position: absolute;
+  top: 420px;
+  left: 530px;
+  z-index: 1;
+}
+
+.light-alarm__content {
+  padding: 10px 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  font-size: 18px;
+  line-height: 18px;
+  text-transform: uppercase;
+  letter-spacing: 1.3px;
+  font-weight: 600;
+  color: white;
+  background-color: red;
+  border: none;
+  border-radius: 10px;
+  transition: all 0.3s ease-in-out 0s;
+}
+
+.light-alarm__content::before {
+  content: '';
+  border-radius: 10px;
+  min-width: calc(100% + 6px);
+  min-height: calc(45px + 6px);
+  border: 10px solid red;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  transition: all 0.3s ease-in-out 0s;
+}
+
+.light-alarm__content::after {
+  content: '';
+  width: 30px;
+  height: 30px;
+  border-radius: 100%;
+  border: 10px solid red;
+  position: absolute;
+  z-index: -1;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  animation: ring 3s infinite;
+}
+
+.light-alarm__content.siren-off {
+  background-color: green;
+}
+
+.siren-off::after {
+  animation-play-state: paused;
+}
+
+@keyframes ring {
+  0% {
+    width: 30px;
+    height: 30px;
+    opacity: 1;
+  }
+
+  100% {
+    width: 900px;
+    height: 900px;
+    opacity: 0;
   }
 }
 
@@ -1201,5 +1279,12 @@ body::-webkit-scrollbar-thumb {
   .table__td {
     font-size: 12px;
     line-height: 12px;
+  }
+
+  .light-alarm {
+
+    top: 320px;
+    left: 430px;
+
   }
 }

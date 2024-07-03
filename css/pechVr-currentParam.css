@@ -257,7 +257,8 @@ body::-webkit-scrollbar-thumb {
 .temper-vody-vanna-skruber,
 .davl-gaz-posle-skruber,
 .temper-gazov-kotel-utiliz,
-.razr-kotel-utiliz {
+.razr-kotel-utiliz,
+.temper-kamer-vygruz {
   animation: colorRed 0.5s infinite ease-in-out;
   animation-play-state: paused;
 }

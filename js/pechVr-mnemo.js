@@ -4,6 +4,8 @@ const temper3SkolzSpan = document.querySelector('.temper-3-skolz-span');
 const temper1Skolz = document.querySelector('.temper-1-skolz');
 const sirenVR1mnemo = document.querySelector('.siren__media-vr1-mnemo');
 const sirenVR2mnemo = document.querySelector('.siren__media-vr2-mnemo');
+const sirenAnimation = document.querySelector('.light-alarm__content');
+
 
 // условия по параметрам
 const animationRun = (param) => {
@@ -40,6 +42,7 @@ const addRowIfRunning = (param, description) => {
       </tr>
     `;
     tableTbody.innerHTML += row;
+    sirenAnimation.classList.remove('siren-off');
   }
 };
 
@@ -290,7 +293,7 @@ if (temper1Skolz.innerHTML > 50) {
   const temperKamerVygruz = document.querySelector('.temper-kamer-vygruz');
   const temperKamerVygruzSpan = document.querySelector('.temper-kamer-vygruz-span');
 
-  if (temperKamerVygruz.innerHTML > 90) {
+  if (temperKamerVygruz.innerHTML > 850) {
     animationRun(temperKamerVygruz);
     animationRun(temperKamerVygruzSpan);
   } else {
@@ -310,6 +313,7 @@ if (trs.length == 0) {
   </tr>
   `;
   tableTbody.innerHTML = noDataRow;
+  sirenAnimation.classList.add('siren-off');
 }
 
 //Краны

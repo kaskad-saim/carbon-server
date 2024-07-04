@@ -8,7 +8,7 @@
     <title>Mnemo</title>
     <link rel="stylesheet" href="http://Techsite4/kaskad/css/pechVr-mnemo.css">
 </head>
-<#Refresh Content=60>
+<#Refresh Content=120>
 
     <body>
 
@@ -49,18 +49,25 @@
                     </div>
                 </div>
 
+
+                <div class="mnemo__param-box--btns">
+                    <button class="mnemo__param-box--btn btn-reset hover-none-btn">
+                        Включить всплывающие подсказки
+                    </button>
+                </div>
+
                 <div class="mnemo__gif mnemo__gif-1">
                     <#PasspValue PasspType=9 PasspID=5 Type="Pictures" [true]="pic\images\fire-gif.gif"
                         [false]="pic\images\none.gif">
                 </div>
 
                 <div class="mnemo__gif mnemo__gif-2">
-                    <#PasspValue PasspType=9 PasspID=6 Type="Pictures" [true]="pic\images\blower_7fan_left_grey.gif"
-                        [false]="pic\images\blower-7fan-stop.png">
+                    <#PasspValue PasspType=9 PasspID=6 Type="Pictures" [true]="pic\images\ventilator.png"
+                        [false]="pic\images\ventilator-none.png">
                 </div>
 
                 <div class="mnemo__gif mnemo__gif-3">
-                    <#PasspValue PasspType=9 PasspID=6 Type="Pictures" [true]="pic\images\gas.gif"
+                    <#PasspValue PasspType=9 PasspID=6 Type="Pictures" [true]="pic\images\par.gif"
                         [false]="pic\images\none.gif">
                 </div>
 
@@ -205,90 +212,345 @@
 
 
 
-                <div class="mnemo__param v-techke">
+                <div class="mnemo__param mnemo__tooltip v-techke">
                     <span class="mnemo__param-text razr-niz-zagr-kam">
                         <#PasspValue PasspType=1 PasspID=40 Precision=1>
                     </span>
                     <span class="mnemo__param-naimenov razr-niz-zagr-kam-span">кгс/м2</span>
+
+
+                    <div class="mnemo__param-clue v-techke-clue">
+                        <div class="mnemo__param-clue-content">
+                            <div class="mnemo__param-clue-div">Прибор:
+                                <span class="mnemo__param-clue-span">
+                                    Хороший
+                                </span>
+                            </div>
+                            <div class="mnemo__param-clue-div">Диапазон: <span class="mnemo__param-clue-span">
+                                    Большой
+                                </span>
+                            </div>
+                            <div class="mnemo__param-clue-div">Градуировка:
+                                <span class="mnemo__param-clue-span">
+                                    Лучшая
+                                </span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="mnemo__param vniz-kamery-zagruzki">
+                <div class="mnemo__param mnemo__tooltip vniz-kamery-zagruzki">
                     <span class="mnemo__param-text temper-vniz-kamer-zagruz">
                         <#PasspValue PasspType=1 PasspID=27 Precision=0>
                     </span>
                     <span class="mnemo__param-naimenov temper-vniz-kamer-zagruz-span">&#176C</span>
+                    <div class="mnemo__param-clue vniz-kamery-zagruzki-clue">
+                        <div class="mnemo__param-clue-content">
+                            <div class="mnemo__param-clue-div">Прибор:
+                                <span class="mnemo__param-clue-span">
+                                    Хороший
+                                </span>
+                            </div>
+                            <div class="mnemo__param-clue-div">Диапазон: <span class="mnemo__param-clue-span">
+                                    Большой
+                                </span>
+                            </div>
+                            <div class="mnemo__param-clue-div">Градуировка:
+                                <span class="mnemo__param-clue-span">
+                                    Лучшая
+                                </span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="mnemo__param vverh-kamery-zagruzki">
+                <div class="mnemo__param  mnemo__tooltip vverh-kamery-zagruzki">
                     <span class="mnemo__param-text temper-verh-kamer-zagruz">
                         <#PasspValue PasspType=1 PasspID=202 Precision=0>
                     </span>
                     <span class="mnemo__param-naimenov temper-verh-kamer-zagruz-span">&#176C</span>
+                    <div class="mnemo__param-clue vverh-kamery-zagruzki-clue">
+                        <div class="mnemo__param-clue-content">
+                            <div class="mnemo__param-clue-div">Прибор:
+                                <span class="mnemo__param-clue-span">
+                                    Хороший
+                                </span>
+                            </div>
+                            <div class="mnemo__param-clue-div">Диапазон: <span class="mnemo__param-clue-span">
+                                    Большой
+                                </span>
+                            </div>
+                            <div class="mnemo__param-clue-div">Градуировка:
+                                <span class="mnemo__param-clue-span">
+                                    Лучшая
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
-                <div class="mnemo__param vhod-pechi-doziganiy">
+                <div class="mnemo__param mnemo__tooltip vhod-pechi-doziganiy">
                     <span class="mnemo__param-text temper-vhod-pech-dozhig">
                         <#PasspValue PasspType=1 PasspID=28 Precision=0>
                     </span>
                     <span class="mnemo__param-naimenov temper-vhod-pech-dozhig-span">&#176C</span>
+                    <div class="mnemo__param-clue vhod-pechi-doziganiy-clue">
+                        <div class="mnemo__param-clue-content">
+                            <div class="mnemo__param-clue-div">Прибор:
+                                <span class="mnemo__param-clue-span">
+                                    Хороший
+                                </span>
+                            </div>
+                            <div class="mnemo__param-clue-div">Диапазон: <span class="mnemo__param-clue-span">
+                                    Большой
+                                </span>
+                            </div>
+                            <div class="mnemo__param-clue-div">Градуировка:
+                                <span class="mnemo__param-clue-span">
+                                    Лучшая
+                                </span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="mnemo__param third-skolz">
+                <div class="mnemo__param mnemo__tooltip third-skolz">
                     <span class="mnemo__param-text temper-3-skolz">
                         <#PasspValue PasspType=1 PasspID=26 Precision=0>
                     </span>
                     <span class="mnemo__param-naimenov temper-3-skolz-span">&#176C</span>
+                    <div class="mnemo__param-clue third-skolz-clue">
+                        <div class="mnemo__param-clue-content">
+                            <div class="mnemo__param-clue-div">Прибор:
+                                <span class="mnemo__param-clue-span">
+                                    Хороший
+                                </span>
+                            </div>
+                            <div class="mnemo__param-clue-div">Диапазон: <span class="mnemo__param-clue-span">
+                                    Большой
+                                </span>
+                            </div>
+                            <div class="mnemo__param-clue-div">Градуировка:
+                                <span class="mnemo__param-clue-span">
+                                    Лучшая
+                                </span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="mnemo__param second-skolz">
+                <div class="mnemo__param mnemo__tooltip second-skolz">
                     <span class="mnemo__param-text temper-2-skolz">
                         <#PasspValue PasspType=1 PasspID=25 Precision=0>
                     </span>
                     <span class="mnemo__param-naimenov temper-2-skolz-span">&#176C</span>
+                    <div class="mnemo__param-clue second-skolz-clue">
+                        <div class="mnemo__param-clue-content">
+                            <div class="mnemo__param-clue-div">Прибор:
+                                <span class="mnemo__param-clue-span">
+                                    Хороший
+                                </span>
+                            </div>
+                            <div class="mnemo__param-clue-div">Диапазон: <span class="mnemo__param-clue-span">
+                                    Большой
+                                </span>
+                            </div>
+                            <div class="mnemo__param-clue-div">Градуировка:
+                                <span class="mnemo__param-clue-span">
+                                    Лучшая
+                                </span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="mnemo__param first-skolz">
+                <div class="mnemo__param mnemo__tooltip first-skolz">
                     <span class="mnemo__param-text temper-1-skolz">
                         <#PasspValue PasspType=1 PasspID=24 Precision=0>
                     </span>
                     <span class="mnemo__param-naimenov temper-1-skolz-span">&#176C</span>
+                    <div class="mnemo__param-clue first-skolz-clue">
+                        <div class="mnemo__param-clue-content">
+                            <div class="mnemo__param-clue-div">Прибор:
+                                <span class="mnemo__param-clue-span">
+                                    Хороший
+                                </span>
+                            </div>
+                            <div class="mnemo__param-clue-div">Диапазон: <span class="mnemo__param-clue-span">
+                                    Большой
+                                </span>
+                            </div>
+                            <div class="mnemo__param-clue-div">Градуировка:
+                                <span class="mnemo__param-clue-span">
+                                    Лучшая
+                                </span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="mnemo__param granul-posle-holodil">
+                <div class="mnemo__param mnemo__tooltip granul-posle-holodil">
                     <span class="mnemo__param-text temper-granul-holod">
                         <#PasspValue PasspType=1 PasspID=34 Precision=0>
                     </span>
                     <span class="mnemo__param-naimenov temper-granul-holod-span">&#176C</span>
+                    <div class="mnemo__param-clue granul-posle-holodil-clue">
+                        <div class="mnemo__param-clue-content">
+                            <div class="mnemo__param-clue-div">Прибор:
+                                <span class="mnemo__param-clue-span">
+                                    Хороший
+                                </span>
+                            </div>
+                            <div class="mnemo__param-clue-div">Диапазон: <span class="mnemo__param-clue-span">
+                                    Большой
+                                </span>
+                            </div>
+                            <div class="mnemo__param-clue-div">Градуировка:
+                                <span class="mnemo__param-clue-span">
+                                    Лучшая
+                                </span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="mnemo__param uroven-vody-hvo">
+                <div class="mnemo__param mnemo__tooltip uroven-vody-hvo">
                     <span class="mnemo__param-text uroven-vody-hvo-value">
                         <#PasspValue PasspType=1 PasspID=48 Precision=0>
                     </span>
                     <span class="mnemo__param-naimenov">мм</span>
+                    <div class="mnemo__param-clue uroven-vody-hvo-clue">
+                        <div class="mnemo__param-clue-content">
+                            <div class="mnemo__param-clue-div">Прибор:
+                                <span class="mnemo__param-clue-span">
+                                    Хороший
+                                </span>
+                            </div>
+                            <div class="mnemo__param-clue-div">Диапазон: <span class="mnemo__param-clue-span">
+                                    Большой
+                                </span>
+                            </div>
+                            <div class="mnemo__param-clue-div">Градуировка:
+                                <span class="mnemo__param-clue-span">
+                                    Лучшая
+                                </span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
-                <div class="mnemo__param uroven-vanne-skrubber">
+                <div class="mnemo__param mnemo__tooltip uroven-vanne-skrubber">
                     <span class="mnemo__param-text uroven-vanne-skrubber-value">
                         <#PasspValue PasspType=1 PasspID=47 Precision=0>
                     </span>
                     <span class="mnemo__param-naimenov">мм</span>
+                    <div class="mnemo__param-clue uroven-vanne-skrubber-clue">
+                        <div class="mnemo__param-clue-content">
+                            <div class="mnemo__param-clue-div">Прибор:
+                                <span class="mnemo__param-clue-span">
+                                    Хороший
+                                </span>
+                            </div>
+                            <div class="mnemo__param-clue-div">Диапазон: <span class="mnemo__param-clue-span">
+                                    Большой
+                                </span>
+                            </div>
+                            <div class="mnemo__param-clue-div">Градуировка:
+                                <span class="mnemo__param-clue-span">
+                                    Лучшая
+                                </span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="mnemo__param temper-vody-v-vanne-skrubber">
+                <div class="mnemo__param mnemo__tooltip temper-vody-v-vanne-skrubber">
                     <span class="mnemo__param-text temper-vody-vanna-skruber">
                         <#PasspValue PasspType=1 PasspID=33 Precision=0>
                     </span>
                     <span class="mnemo__param-naimenov temper-vody-vanna-skruber-span">&#176C</span>
+                    <div class="mnemo__param-clue temper-vody-v-vanne-skrubber-clue">
+                        <div class="mnemo__param-clue-content">
+                            <div class="mnemo__param-clue-div">Прибор:
+                                <span class="mnemo__param-clue-span">
+                                    Хороший
+                                </span>
+                            </div>
+                            <div class="mnemo__param-clue-div">Диапазон: <span class="mnemo__param-clue-span">
+                                    Большой
+                                </span>
+                            </div>
+                            <div class="mnemo__param-clue-div">Градуировка:
+                                <span class="mnemo__param-clue-span">
+                                    Лучшая
+                                </span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="mnemo__param p-gazov-posle-skrubber">
+                <div class="mnemo__param mnemo__tooltip p-gazov-posle-skrubber">
                     <span class="mnemo__param-text davl-gaz-posle-skruber">
                         <#PasspValue PasspType=1 PasspID=43 Precision=1>
                     </span>
                     <span class="mnemo__param-naimenov davl-gaz-posle-skruber-span">кгс/м2</span>
+                    <div class="mnemo__param-clue p-gazov-posle-skrubber-clue">
+                        <div class="mnemo__param-clue-content">
+                            <div class="mnemo__param-clue-div">Прибор:
+                                <span class="mnemo__param-clue-span">
+                                    Хороший
+                                </span>
+                            </div>
+                            <div class="mnemo__param-clue-div">Диапазон: <span class="mnemo__param-clue-span">
+                                    Большой
+                                </span>
+                            </div>
+                            <div class="mnemo__param-clue-div">Градуировка:
+                                <span class="mnemo__param-clue-span">
+                                    Лучшая
+                                </span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="mnemo__param temper-v-topke">
+                <div class="mnemo__param mnemo__tooltip temper-v-topke">
                     <span class="mnemo__param-text temper-topka">
                         <#PasspValue PasspType=1 PasspID=23 Precision=0>
                     </span>
                     <span class="mnemo__param-naimenov temper-topka-span">&#176C</span>
+                    <div class="mnemo__param-clue temper-v-topke-clue">
+                        <div class="mnemo__param-clue-content">
+                            <div class="mnemo__param-clue-div">Прибор:
+                                <span class="mnemo__param-clue-span">
+                                    Хороший
+                                </span>
+                            </div>
+                            <div class="mnemo__param-clue-div">Диапазон: <span class="mnemo__param-clue-span">
+                                    Большой
+                                </span>
+                            </div>
+                            <div class="mnemo__param-clue-div">Градуировка:
+                                <span class="mnemo__param-clue-span">
+                                    Лучшая
+                                </span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="mnemo__param p-v-topke">
+                <div class="mnemo__param mnemo__tooltip p-v-topke">
                     <span class="mnemo__param-text davl-topka">
                         <#PasspValue PasspType=1 PasspID=39 Precision=1>
                     </span>
                     <span class="mnemo__param-naimenov davl-topka-span">кгс/м2</span>
+                    <div class="mnemo__param-clue p-v-topke-clue">
+                        <div class="mnemo__param-clue-content">
+                            <div class="mnemo__param-clue-div">Прибор:
+                                <span class="mnemo__param-clue-span">
+                                    Хороший
+                                </span>
+                            </div>
+                            <div class="mnemo__param-clue-div">Диапазон: <span class="mnemo__param-clue-span">
+                                    Большой
+                                </span>
+                            </div>
+                            <div class="mnemo__param-clue-div">Градуировка:
+                                <span class="mnemo__param-clue-span">
+                                    Лучшая
+                                </span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <div class="mnemo__param zadanie-temper-na-gorelky">
                     <span class="mnemo__param-text ">
@@ -302,52 +564,179 @@
                     </span>
                     <span class="mnemo__param-naimenov">%</span>
                 </div>
-                <div class="mnemo__param temper-gazov-do-skrubber">
+                <div class="mnemo__param mnemo__tooltip temper-gazov-do-skrubber">
                     <span class="mnemo__param-text temper-do-skruber">
                         <#PasspValue PasspType=1 PasspID=31 Precision=0>
                     </span>
                     <span class="mnemo__param-naimenov temper-do-skruber-span">&#176C</span>
+                    <div class="mnemo__param-clue temper-gazov-do-skrubber-clue">
+                        <div class="mnemo__param-clue-content">
+                            <div class="mnemo__param-clue-div">Прибор:
+                                <span class="mnemo__param-clue-span">
+                                    Хороший
+                                </span>
+                            </div>
+                            <div class="mnemo__param-clue-div">Диапазон: <span class="mnemo__param-clue-span">
+                                    Большой
+                                </span>
+                            </div>
+                            <div class="mnemo__param-clue-div">Градуировка:
+                                <span class="mnemo__param-clue-span">
+                                    Лучшая
+                                </span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="mnemo__param temper-gazov-posle-skrubber">
+                <div class="mnemo__param mnemo__tooltip temper-gazov-posle-skrubber">
                     <span class="mnemo__param-text temper-posle-skruber">
                         <#PasspValue PasspType=1 PasspID=32 Precision=0>
                     </span>
                     <span class="mnemo__param-naimenov temper-posle-skruber-span">&#176C</span>
+                    <div class="mnemo__param-clue temper-gazov-posle-skrubber-clue">
+                        <div class="mnemo__param-clue-content">
+                            <div class="mnemo__param-clue-div">Прибор:
+                                <span class="mnemo__param-clue-span">
+                                    Хороший
+                                </span>
+                            </div>
+                            <div class="mnemo__param-clue-div">Диапазон: <span class="mnemo__param-clue-span">
+                                    Большой
+                                </span>
+                            </div>
+                            <div class="mnemo__param-clue-div">Градуировка:
+                                <span class="mnemo__param-clue-span">
+                                    Лучшая
+                                </span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
-                <div class="mnemo__param temper-kamer-vygruz-div">
+                <div class="mnemo__param mnemo__tooltip temper-kamer-vygruz-div">
                     <span class="mnemo__param-text temper-kamer-vygruz">
                         <#PasspValue PasspType=1 PasspID=227 Precision=0>
                     </span>
                     <span class="mnemo__param-naimenov temper-kamer-vygruz-span">&#176C</span>
+                    <div class="mnemo__param-clue temper-kamer-vygruz-div-clue">
+                        <div class="mnemo__param-clue-content">
+                            <div class="mnemo__param-clue-div">Прибор:
+                                <span class="mnemo__param-clue-span">
+                                    Хороший
+                                </span>
+                            </div>
+                            <div class="mnemo__param-clue-div">Диапазон: <span class="mnemo__param-clue-span">
+                                    Большой
+                                </span>
+                            </div>
+                            <div class="mnemo__param-clue-div">Градуировка:
+                                <span class="mnemo__param-clue-span">
+                                    Лучшая
+                                </span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
 
 
-                <div class="mnemo__param vyhod-pechi-doziganiy">
+                <div class="mnemo__param mnemo__tooltip vyhod-pechi-doziganiy">
                     <span class="mnemo__param-text temper-vihod-pech-dozhig">
                         <#PasspValue PasspType=1 PasspID=29 Precision=0>
                     </span>
                     <span class="mnemo__param-naimenov temper-vihod-pech-dozhig-span">&#176C</span>
+                    <div class="mnemo__param-clue vyhod-pechi-doziganiy-clue">
+                        <div class="mnemo__param-clue-content">
+                            <div class="mnemo__param-clue-div">Прибор:
+                                <span class="mnemo__param-clue-span">
+                                    Хороший
+                                </span>
+                            </div>
+                            <div class="mnemo__param-clue-div">Диапазон: <span class="mnemo__param-clue-span">
+                                    Большой
+                                </span>
+                            </div>
+                            <div class="mnemo__param-clue-div">Градуировка:
+                                <span class="mnemo__param-clue-span">
+                                    Лучшая
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
-                <div class="mnemo__param gazy-kotla-utilizazi">
+                <div class="mnemo__param mnemo__tooltip gazy-kotla-utilizazi">
                     <span class="mnemo__param-text temper-gazov-kotel-utiliz">
                         <#PasspValue PasspType=1 PasspID=30 Precision=0>
                     </span>
                     <span class="mnemo__param-naimenov temper-gazov-kotel-utiliz-span">&#176C</span>
+                    <div class="mnemo__param-clue gazy-kotla-utilizazi-clue">
+                        <div class="mnemo__param-clue-content">
+                            <div class="mnemo__param-clue-div">Прибор:
+                                <span class="mnemo__param-clue-span">
+                                    Хороший
+                                </span>
+                            </div>
+                            <div class="mnemo__param-clue-div">Диапазон: <span class="mnemo__param-clue-span">
+                                    Большой
+                                </span>
+                            </div>
+                            <div class="mnemo__param-clue-div">Градуировка:
+                                <span class="mnemo__param-clue-span">
+                                    Лучшая
+                                </span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="mnemo__param p-v-prostranstve-kotla">
+                <div class="mnemo__param mnemo__tooltip p-v-prostranstve-kotla">
                     <span class="mnemo__param-text razr-kotel-utiliz">
                         <#PasspValue PasspType=1 PasspID=41 Precision=1>
                     </span>
                     <span class="mnemo__param-naimenov razr-kotel-utiliz-span">кгс/м2</span>
+                    <div class="mnemo__param-clue p-v-prostranstve-kotla-clue">
+                        <div class="mnemo__param-clue-content">
+                            <div class="mnemo__param-clue-div">Прибор:
+                                <span class="mnemo__param-clue-span">
+                                    Хороший
+                                </span>
+                            </div>
+                            <div class="mnemo__param-clue-div">Диапазон: <span class="mnemo__param-clue-span">
+                                    Большой
+                                </span>
+                            </div>
+                            <div class="mnemo__param-clue-div">Градуировка:
+                                <span class="mnemo__param-clue-span">
+                                    Лучшая
+                                </span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
-                <div class="mnemo__param p-v-barabane-kotla">
+                <div class="mnemo__param mnemo__tooltip p-v-barabane-kotla">
                     <span class="mnemo__param-text">
                         <#PasspValue PasspType=1 PasspID=42 Precision=1>
                     </span>
                     <span class="mnemo__param-naimenov">кгс/см2</span>
+                    <div class="mnemo__param-clue p-v-barabane-kotla-clue">
+                        <div class="mnemo__param-clue-content">
+                            <div class="mnemo__param-clue-div">Прибор:
+                                <span class="mnemo__param-clue-span">
+                                    Хороший
+                                </span>
+                            </div>
+                            <div class="mnemo__param-clue-div">Диапазон: <span class="mnemo__param-clue-span">
+                                    Большой
+                                </span>
+                            </div>
+                            <div class="mnemo__param-clue-div">Градуировка:
+                                <span class="mnemo__param-clue-span">
+                                    Лучшая
+                                </span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
                 <div class="mnemo__param uroven-v-barabane-kotla">
@@ -357,11 +746,29 @@
                     <span class="mnemo__param-naimenov">мм</span>
                 </div>
 
-                <div class="mnemo__param uroven-v-barabane-kotla-mnemo">
+                <div class="mnemo__param mnemo__tooltip uroven-v-barabane-kotla-mnemo">
                     <span class="mnemo__param-text">
                         <#PasspValue PasspType=1 PasspID=45 Precision=0>
                     </span>
                     <span class="mnemo__param-naimenov">мм</span>
+                    <div class="mnemo__param-clue uroven-v-barabane-kotla-mnemo-clue">
+                        <div class="mnemo__param-clue-content">
+                            <div class="mnemo__param-clue-div">Прибор:
+                                <span class="mnemo__param-clue-span">
+                                    Хороший
+                                </span>
+                            </div>
+                            <div class="mnemo__param-clue-div">Диапазон: <span class="mnemo__param-clue-span">
+                                    Большой
+                                </span>
+                            </div>
+                            <div class="mnemo__param-clue-div">Градуировка:
+                                <span class="mnemo__param-clue-span">
+                                    Лучшая
+                                </span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <!-- <div class="mnemo__param im2-percent">
                     <span class="mnemo__param-text ">
@@ -377,12 +784,13 @@
                     </span>
                     <span class="mnemo__param-naimenov">%</span>
                 </div>
+                <!-- <img src="../pic/images/ventilator.JFIF" alt="img"> -->
 
                 <div class="mnemo__param krutilka-1">
-                    <img src="../pic/images/blower_7fan_left_grey.gif" alt="img">
+                    <img src="../pic/images/ventilator.png" alt="img">
                 </div>
                 <div class="mnemo__param krutilka-2">
-                    <img src="../pic/images/blower_7fan_left_grey.gif" alt="img">
+                    <img src="../pic/images/ventilator.png" alt="img">
                 </div>
             </div>
         </div>

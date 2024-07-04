@@ -220,7 +220,8 @@ body::-webkit-scrollbar-thumb {
 	padding: 2px;
 	margin: 0;
 	position: absolute;
-	background-color: #bfbcbc
+	z-index: 1;
+	background-color: #bfbcbc;
 }
 
 .mnemo__param-text {

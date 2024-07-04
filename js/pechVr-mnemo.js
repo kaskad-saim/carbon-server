@@ -6,7 +6,6 @@ const sirenVR1mnemo = document.querySelector('.siren__media-vr1-mnemo');
 const sirenVR2mnemo = document.querySelector('.siren__media-vr2-mnemo');
 const sirenAnimation = document.querySelector('.light-alarm__content');
 
-
 // условия по параметрам
 const animationRun = (param) => {
   param.style.animationPlayState = 'running';
@@ -403,3 +402,35 @@ if (pech2im) {
     kranBorderRight(kranRight6, red);
   }
 }
+
+
+//ventilator
+const ventilatorGif2 = document.querySelector('.mnemo__gif-2 img');
+
+if (ventilatorGif2.src == 'http://techsite4/KASKAD/pic/images/ventilator.png') {
+  ventilatorGif2.style.animationPlayState = 'running';
+} else {
+  ventilatorGif2.style.animationPlayState = 'pause';
+}
+
+
+
+//tooltips
+const hoverNoneBtn = document.querySelector('.hover-none-btn');
+const hoverElemParam = document.querySelectorAll('.mnemo__tooltip');
+
+const toggleBtnText = () => {
+  hoverNoneBtn.innerHTML =
+    hoverNoneBtn.innerHTML == 'Выключить всплывающие подсказки'
+      ? 'Включить всплывающие подсказки'
+      : 'Выключить всплывающие подсказки';
+};
+
+hoverNoneBtn.addEventListener('click', () => {
+  for (let i = 0; i < hoverElemParam.length; i++) {
+    const item = hoverElemParam[i];
+    item.classList.toggle('enabled-hover');
+  }
+  toggleBtnText();
+});
+

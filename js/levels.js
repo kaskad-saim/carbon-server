@@ -11,7 +11,6 @@ const levelObj = (minScale, maxScale, current, maxSize, level, levelPercent) => 
   //переводим в px
   let px = (maxSize * percentage) / 100;
   levelPercent.innerHTML = parseFloat(percentage.toFixed(0)) ;
-  console.log(levelPercent.innerHTML);
 
   //красим контейнер
   level.style.height = px + 'px';

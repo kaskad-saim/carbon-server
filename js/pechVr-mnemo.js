@@ -76,7 +76,7 @@ if (temper1Skolz.innerHTML < 550 && temper1Skolz.innerHTML > 50) {
 if (temper1Skolz.innerHTML > 50) {
   const temper1SkolzSpan = document.querySelector('.temper-1-skolz-span');
 
-  if (temper1Skolz.innerHTML > 700 || temper1Skolz.innerHTML < 550) {
+  if (temper1Skolz.innerHTML > 800 || temper1Skolz.innerHTML < 550) {
     animationRun(temper1Skolz);
     animationRun(temper1SkolzSpan);
   } else {
@@ -91,7 +91,7 @@ if (temper1Skolz.innerHTML > 50) {
   let nizZagrKamChanged = nizZagrKam.innerHTML.replace(',', '.');
   let nizZagrKamResult = Number(nizZagrKamChanged);
 
-  if (nizZagrKamResult > -3 || nizZagrKamResult < -5) {
+  if (nizZagrKamResult > -1 || nizZagrKamResult < -5) {
     nizZagrKam.style.animationPlayState = 'running';
     nizZagrKamSpan.style.animationPlayState = 'running';
   } else {
@@ -292,7 +292,7 @@ if (temper1Skolz.innerHTML > 50) {
   const temperKamerVygruz = document.querySelector('.temper-kamer-vygruz');
   const temperKamerVygruzSpan = document.querySelector('.temper-kamer-vygruz-span');
 
-  if (temperKamerVygruz.innerHTML > 850) {
+  if (temperKamerVygruz.innerHTML > 750) {
     animationRun(temperKamerVygruz);
     animationRun(temperKamerVygruzSpan);
   } else {
@@ -301,6 +301,45 @@ if (temper1Skolz.innerHTML > 50) {
   }
 
   addRowIfRunning(temperKamerVygruz, 'Температура камеры выгрузки, °C');
+
+  const urovenBarabanKotla = document.querySelector('.uroven-v-barabane-kotla-mnemo-val');
+  const urovenBarabanKotlaSpan = document.querySelector('.uroven-v-barabane-kotla-mnemo-val-span');
+
+  if (urovenBarabanKotla.innerHTML <= -100) {
+    animationRun(urovenBarabanKotla);
+    animationRun(urovenBarabanKotlaSpan);
+  } else {
+    animationPaused(urovenBarabanKotla);
+    animationPaused(urovenBarabanKotlaSpan);
+  }
+
+  addRowIfRunning(urovenBarabanKotla, 'Уровень в барабане котла, мм');
+
+  const urovenVannaSkrubber = document.querySelector('.uroven-vanne-skrubber-value');
+  const urovenVannaSkrubberSpan = document.querySelector('.uroven-vanne-skrubber-value-span');
+
+  if (urovenVannaSkrubber.innerHTML <= 250) {
+    animationRun(urovenVannaSkrubber);
+    animationRun(urovenVannaSkrubberSpan);
+  } else {
+    animationPaused(urovenVannaSkrubber);
+    animationPaused(urovenVannaSkrubberSpan);
+  }
+
+  addRowIfRunning(urovenVannaSkrubber, 'Уровень в ванне скруббера, мм');
+
+  const urovenVodyHvo = document.querySelector('.uroven-vody-hvo-value');
+  const urovenVodyHvoSpan = document.querySelector('.uroven-vody-hvo-value-span');
+
+  if (urovenVodyHvo.innerHTML <= 1500) {
+    animationRun(urovenVodyHvo);
+    animationRun(urovenVodyHvoSpan);
+  } else {
+    animationPaused(urovenVodyHvo);
+    animationPaused(urovenVodyHvoSpan);
+  }
+
+  addRowIfRunning(urovenVodyHvo, 'Уровень воды в емкости ХВО, мм');
 }
 
 const trs = tableTbody.querySelectorAll('tr');
@@ -403,7 +442,6 @@ if (pech2im) {
   }
 }
 
-
 //ventilator
 const ventilatorGif2 = document.querySelector('.mnemo__gif-2 img');
 
@@ -413,24 +451,21 @@ if (ventilatorGif2.src == 'http://techsite4/KASKAD/pic/images/ventilator.png') {
   ventilatorGif2.style.animationPlayState = 'pause';
 }
 
+// //tooltips
+// const hoverNoneBtn = document.querySelector('.hover-none-btn');
+// const hoverElemParam = document.querySelectorAll('.mnemo__tooltip');
 
+// const toggleBtnText = () => {
+//   hoverNoneBtn.innerHTML =
+//     hoverNoneBtn.innerHTML == 'Выключить всплывающие подсказки'
+//       ? 'Включить всплывающие подсказки'
+//       : 'Выключить всплывающие подсказки';
+// };
 
-//tooltips
-const hoverNoneBtn = document.querySelector('.hover-none-btn');
-const hoverElemParam = document.querySelectorAll('.mnemo__tooltip');
-
-const toggleBtnText = () => {
-  hoverNoneBtn.innerHTML =
-    hoverNoneBtn.innerHTML == 'Выключить всплывающие подсказки'
-      ? 'Включить всплывающие подсказки'
-      : 'Выключить всплывающие подсказки';
-};
-
-hoverNoneBtn.addEventListener('click', () => {
-  for (let i = 0; i < hoverElemParam.length; i++) {
-    const item = hoverElemParam[i];
-    item.classList.toggle('enabled-hover');
-  }
-  toggleBtnText();
-});
-
+// hoverNoneBtn.addEventListener('click', () => {
+//   for (let i = 0; i < hoverElemParam.length; i++) {
+//     const item = hoverElemParam[i];
+//     item.classList.toggle('enabled-hover');
+//   }
+//   toggleBtnText();
+// });

@@ -258,7 +258,10 @@ body::-webkit-scrollbar-thumb {
 .davl-gaz-posle-skruber,
 .temper-gazov-kotel-utiliz,
 .razr-kotel-utiliz,
-.temper-kamer-vygruz {
+.temper-kamer-vygruz,
+.uroven-v-barabane-kotla-mnemo-val,
+.uroven-vanne-skrubber-value,
+.uroven-vody-hvo-value {
   animation: colorRed 0.5s infinite ease-in-out;
   animation-play-state: paused;
 }

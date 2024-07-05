@@ -49,7 +49,7 @@ if (temper1Skolz.innerHTML < 550 && temper1Skolz.innerHTML > 50) {
 //------------------------------------------------------------------
 
 if (temper1Skolz.innerHTML > 50) {
-  if (temper1Skolz.innerHTML > 700 || temper1Skolz.innerHTML < 550) {
+  if (temper1Skolz.innerHTML > 800 || temper1Skolz.innerHTML < 550) {
     animationRun(temper1Skolz);
   } else {
     animationPaused(temper1Skolz);
@@ -124,7 +124,7 @@ if (temper1Skolz.innerHTML > 50) {
   let nizZagrKamChanged = nizZagrKam.innerHTML.replace(',', '.');
   let nizZagrKamResult = Number(nizZagrKamChanged);
 
-  if (nizZagrKamResult > -3 || nizZagrKamResult < -5) {
+  if (nizZagrKamResult > -1 || nizZagrKamResult < -5) {
     nizZagrKam.style.animationPlayState = 'running';
   } else {
     nizZagrKam.style.animationPlayState = 'paused';
@@ -184,9 +184,33 @@ if (temper1Skolz.innerHTML > 50) {
 
   const temperKamerVygruz = document.querySelector('.temper-kamer-vygruz');
 
-  if (temperKamerVygruz.innerHTML > 850) {
+  if (temperKamerVygruz.innerHTML > 750) {
     animationRun(temperKamerVygruz);
   } else {
     animationPaused(temperKamerVygruz);
+  }
+
+  const urovenVodyHvo = document.querySelector('.uroven-vody-hvo-value');
+
+  if (urovenVodyHvo.innerHTML <= 1500) {
+    animationRun(urovenVodyHvo);
+  } else {
+    animationPaused(urovenVodyHvo);
+  }
+
+  const urovenVannaSkrubber = document.querySelector('.uroven-vanne-skrubber-value');
+
+  if (urovenVannaSkrubber.innerHTML <= 250) {
+    animationRun(urovenVannaSkrubber);
+  } else {
+    animationPaused(urovenVannaSkrubber);
+  }
+
+  const urovenBarabanKotla = document.querySelector('.uroven-v-barabane-kotla-mnemo-val');
+
+  if (urovenBarabanKotla.innerHTML <= -100) {
+    animationRun(urovenBarabanKotla);
+  } else {
+    animationPaused(urovenBarabanKotla);
   }
 }

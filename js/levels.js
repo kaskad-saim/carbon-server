@@ -1,4 +1,4 @@
-const levelObj = (minScale, maxScale, current, maxSize, level, levelPercent) => {
+const levelObj = (minScale, maxScale, current, maxSize, level, levelPercent, minSet, maxSet) => {
   // Вычисляем общий диапазон шкалы
   let totalScale = maxScale - minScale;
 
@@ -15,7 +15,7 @@ const levelObj = (minScale, maxScale, current, maxSize, level, levelPercent) => 
   //красим контейнер
   level.style.height = px + 'px';
 
-  if (levelPercent.innerHTML <= 25) {
+  if (levelPercent.innerHTML <= minSet || levelPercent.innerHTML >= maxSet) {
     level.style.backgroundColor = 'red';
     level.style.animationPlayState = 'running';
   }
@@ -36,22 +36,22 @@ const levelKotelPercent = document.querySelector('.column-kotel__span-1');
 let screenWidth = window.innerWidth;
 
 if ((levelHvo, valueHvoCurrent, levelHvoPercent)) {
-  levelObj(0, 6000, valueHvoCurrent, 41, levelHvo, levelHvoPercent);
+  levelObj(0, 6000, valueHvoCurrent, 41, levelHvo, levelHvoPercent, 25, 90);
   if (screenWidth < 1568) {
-    levelObj(0, 6000, valueHvoCurrent, 32, levelHvo, levelHvoPercent);
+    levelObj(0, 6000, valueHvoCurrent, 32, levelHvo, levelHvoPercent, 25, 90);
   }
 }
 
 if ((levelSkrubber, valueSkrubberCurrent, levelSkrubberPercent)) {
-  levelObj(0, 1000, valueSkrubberCurrent, 139, levelSkrubber, levelSkrubberPercent);
+  levelObj(0, 1000, valueSkrubberCurrent, 139, levelSkrubber, levelSkrubberPercent, 25, 90);
   if (screenWidth < 1568) {
-    levelObj(0, 1000, valueSkrubberCurrent, 105, levelSkrubber, levelSkrubberPercent);
+    levelObj(0, 1000, valueSkrubberCurrent, 105, levelSkrubber, levelSkrubberPercent, 25, 90);
   }
 }
 
 if ((levelKotel, valueKotelCurrent, levelKotelPercent)) {
-  levelObj(-200, 200, valueKotelCurrent, 85, levelKotel, levelKotelPercent);
+  levelObj(-200, 200, valueKotelCurrent, 85, levelKotel, levelKotelPercent, 33, 68);
   if (screenWidth < 1568) {
-    levelObj(-200, 200, valueKotelCurrent, 64, levelKotel, levelKotelPercent);
+    levelObj(-200, 200, valueKotelCurrent, 64, levelKotel, levelKotelPercent, 33, 68);
   }
 }

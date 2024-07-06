@@ -305,7 +305,7 @@ if (temper1Skolz.innerHTML > 50) {
   const urovenBarabanKotla = document.querySelector('.uroven-v-barabane-kotla-mnemo-val');
   const urovenBarabanKotlaSpan = document.querySelector('.uroven-v-barabane-kotla-mnemo-val-span');
 
-  if (urovenBarabanKotla.innerHTML <= -100) {
+  if (urovenBarabanKotla.innerHTML <= -70 || urovenBarabanKotla.innerHTML >= 70) {
     animationRun(urovenBarabanKotla);
     animationRun(urovenBarabanKotlaSpan);
   } else {

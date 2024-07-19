@@ -47,6 +47,23 @@ hoverNoneBtn.addEventListener('click', () => {
   toggleBtnText();
 });
 
+// ventilators
+
+const ventilatorGif3 = document.querySelector('.mnemo__gif-3 img');
+const ventilatorGif4 = document.querySelector('.mnemo__gif-4 img');
+
+if (ventilatorGif3.src == 'http://techsite4/KASKAD/pic/images/ventilator.png') {
+  ventilatorGif3.style.animationPlayState = 'running';
+} else {
+  ventilatorGif3.style.animationPlayState = 'pause';
+}
+
+if (ventilatorGif4.src == 'http://techsite4/KASKAD/pic/images/ventilator.png') {
+  ventilatorGif4.style.animationPlayState = 'running';
+} else {
+  ventilatorGif4.style.animationPlayState = 'pause';
+}
+
 // const left = (param, color) => {
 //   param.style = `border-left: 20px solid ${color}`;
 // };

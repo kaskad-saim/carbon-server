@@ -184,8 +184,8 @@ body::-webkit-scrollbar-thumb {
   /* z-index: 1; */
   /* background-color: #bfbcbc; */
   background-color: white;
-
 }
+
 
 .mnemo__param-text {
   font-size: 18px;
@@ -672,7 +672,7 @@ body::-webkit-scrollbar-thumb {
   position: absolute;
 
   z-index: 1;
-  color: red;
+  color: black;
   font-size: 13px;
   font-weight: 600;
 }
@@ -705,7 +705,7 @@ body::-webkit-scrollbar-thumb {
 .column-skrubber__span-2 {
   position: absolute;
   z-index: 1;
-  color: red;
+  color: black;
   font-size: 16px;
   font-weight: 600;
 }
@@ -738,7 +738,7 @@ body::-webkit-scrollbar-thumb {
 .column-kotel__span-2 {
   position: absolute;
   z-index: 1;
-  color: red;
+  color: black;
   font-size: 16px;
   font-weight: 600;
 }

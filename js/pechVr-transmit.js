@@ -20,6 +20,7 @@ window.addEventListener('load', () => {
     '.bot-vr1-temper-skruber',
     '.bot-vr1-temper-granul',
   ];
+
   const temperatureSelectorsVr2 = [
     '.bot-vr2-temper-1-skolz',
     '.bot-vr2-temper-2-skolz',
@@ -47,20 +48,39 @@ window.addEventListener('load', () => {
 
   // Разрежение
   const underPressureSelectorsVr1 = ['.bot-vr1-razr-topka', '.bot-vr1-razr-kotel', '.bot-vr1-razr-niz-kam'];
+
   const underPressureSelectorsVr2 = ['.bot-vr2-razr-topka', '.bot-vr2-razr-kotel', '.bot-vr2-razr-niz-kam'];
 
-  const allowedOrigins = ['http://169.254.7.86:92', 'http://169.254.6.19:50'];
+  const allowedOrigins = ['http://169.254.0.167:3001'];
 
-  const postValues = (selectors, prefix) => {
+  // const allowedOrigins = ['http://169.254.7.86:3001', 'http://169.254.0.167:3001', 'http://169.254.6.19:50'];
+
+  const postValuesVr1 = (selectors, prefix) => {
     selectors.forEach((selector, index) => {
       const element = document.querySelector(selector);
       const value = element ? element.textContent.trim() : null;
       if (value !== null) {
-        console.log(`Отправляется ${prefix}${index + 1}: ${value}`);
-
         allowedOrigins.forEach((origin) => {
-          window.parent.postMessage({ type: `${prefix}${index + 1}`, value }, origin);
+          window.parent.postMessage({ type: `pechVr1${prefix}${index + 1}`, value }, origin);
         });
+
+        console.log(`Отправляется pechVr1${prefix}${index + 1}: ${value}`);
+      } else {
+        console.log(`${selector} не найден или значение равно null.`);
+      }
+    });
+  };
+
+  const postValuesVr2 = (selectors, prefix) => {
+    selectors.forEach((selector, index) => {
+      const element = document.querySelector(selector);
+      const value = element ? element.textContent.trim() : null;
+      if (value !== null) {
+        allowedOrigins.forEach((origin) => {
+          window.parent.postMessage({ type: `pechVr2${prefix}${index + 1}`, value }, origin);
+        });
+
+        console.log(`Отправляется pechVr2${prefix}${index + 1}: ${value}`);
       } else {
         console.log(`${selector} не найден или значение равно null.`);
       }
@@ -68,22 +88,36 @@ window.addEventListener('load', () => {
   };
 
   // Отправка состояния режима
-  postValues(rezhimSelectorVr1, 'rezhim');
-  postValues(rezhimSelectorVr2, 'rezhim');
+  postValuesVr1(rezhimSelectorVr1, 'rezhim');
+  postValuesVr2(rezhimSelectorVr2, 'rezhim');
 
   // Отправка значений температуры
-  postValues(temperatureSelectorsVr1, 'temperature');
-  postValues(temperatureSelectorsVr2, 'temperature');
+  postValuesVr1(temperatureSelectorsVr1, 'temperature');
+  postValuesVr2(temperatureSelectorsVr2, 'temperature');
 
   // Отправка значений уровней
-  postValues(levelSelectorsVr1, 'level');
-  postValues(levelSelectorsVr2, 'level');
+  postValuesVr1(levelSelectorsVr1, 'level');
+  postValuesVr2(levelSelectorsVr2, 'level');
 
   // Отправка значений давления
-  postValues(pressureSelectorsVr1, 'pressure');
-  postValues(pressureSelectorsVr2, 'pressure');
+  postValuesVr1(pressureSelectorsVr1, 'pressure');
+  postValuesVr2(pressureSelectorsVr2, 'pressure');
 
   // Отправка значений разрежения
-  postValues(underPressureSelectorsVr1, 'underpressure');
-  postValues(underPressureSelectorsVr2, 'underpressure');
+  postValuesVr1(underPressureSelectorsVr1, 'underpressure');
+  postValuesVr2(underPressureSelectorsVr2, 'underpressure');
+
+  // Отправка текущего времени
+  const timestamp = new Date().toLocaleString();
+  const timeMessageVr1 = `pechVr1Time: ${timestamp}`;
+  const timeMessageVr2 = `pechVr2Time: ${timestamp}`;
+
+  allowedOrigins.forEach((origin) => {
+    console.log(`Отправляется ${timeMessageVr1}`);
+    window.parent.postMessage({ type: 'pechVr1Time', value: timestamp }, origin);
+  });
+  allowedOrigins.forEach((origin) => {
+    console.log(`Отправляется ${timeMessageVr2}`);
+    window.parent.postMessage({ type: 'pechVr2Time', value: timestamp }, origin);
+  });
 });

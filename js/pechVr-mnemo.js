@@ -29,7 +29,7 @@ const animationPaused = (param) => {
   param.style.animationPlayState = 'paused';
 };
 
-//табличка с параметрами которые не соответствуют требованиям
+//табличка с параметрами которые не соответствуют тoifребованиям
 const tableTbody = document.querySelector('.table__tbody');
 
 const addRowIfRunning = (param, description) => {

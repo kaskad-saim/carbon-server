@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mnemo</title>
+  <link rel="stylesheet" href="http://Techsite4/kaskad/css/pechVr-mnemo.css">
+</head>
+<#Refresh Content=30>
+
+  <body>
+
+
+    <div class="object container">
+      <h2>Объекты снятия данных для отправки в телеграм бот</h2>
+      <div>
+        <div class="current-param__subtitle title-reset">Режим работы печи ВР1:
+          <span class="current-param__subtitle-span current-param__subtitle-span-vr1 bot-vr1-mode"></span>
+        </div>
+        <div class="current-param__subtitle title-reset">Режим работы печи ВР2:
+          <span class="current-param__subtitle-span current-param__subtitle-span-vr2 bot-vr2-mode"></span>
+        </div>
+      </div>
+
+      <ul class="object__list list-reset">
+        <li class="object__item">
+          <table class="table object__table">
+            <caption class="table__title">Печь карбонизации №1
+            </caption>
+            <thead class="table__thead">
+              <tr class="table__tr">
+                <th class="table__th table__left">Наименование параметра</th>
+                <th class="table__th ">Значения &#176C</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="table__tr">
+                <td class="table__td table__td--object table__left">Температура 1-СК</td>
+                <td class="table__td table__td--object table__right temper-1-skolz-vr1 bot-vr1-temper-1-skolz">
+                  <#PasspValue PasspType=1 PasspID=24 Precision=0>
+                </td>
+              </tr>
+              <tr class="table__tr">
+                <td class="table__td table__td--object table__left">Температура 2-СК</td>
+                <td class="table__td table__td--object table__right bot-vr1-temper-2-skolz">
+                  <#PasspValue PasspType=1 PasspID=25 Precision=0>
+                </td>
+              </tr>
+              <tr class="table__tr">
+                <td class="table__td table__td--object table__left">Температура 3-СК</td>
+                <td class="table__td table__td--object table__right bot-vr1-temper-3-skolz">
+                  <#PasspValue PasspType=1 PasspID=26 Precision=0>
+                </td>
+              </tr>
+              <tr class="table__tr">
+                <td class="table__td table__td--object table__left">В топке</td>
+                <td class="table__td table__td--object table__right bot-vr1-temper-topka">
+                  <#PasspValue PasspType=1 PasspID=23 Precision=0>
+                </td>
+              </tr>
+              <tr class="table__tr">
+                <td class="table__td table__td--object table__left">Вверху камеры загрузки</td>
+                <td class="table__td table__td--object table__right bot-vr1-temper-verh-kam">
+                  <#PasspValue PasspType=1 PasspID=202 Precision=0>
+                </td>
+              </tr>
+              <tr class="table__tr">
+                <td class="table__td table__td--object table__left">Внизу камеры загрузки</td>
+                <td class="table__td table__td--object table__right bot-vr1-temper-niz-kam">
+                  <#PasspValue PasspType=1 PasspID=27 Precision=0>
+                </td>
+              </tr>
+              <tr class="table__tr">
+                <td class="table__td table__td--object table__left">На входе печи дожига</td>
+                <td class="table__td table__td--object table__right bot-vr1-temper-vhod-pechi">
+                  <#PasspValue PasspType=1 PasspID=28 Precision=0>
+                </td>
+              </tr>
+              <tr class="table__tr">
+                <td class="table__td table__td--object table__left">На выходе печи дожига</td>
+                <td class="table__td table__td--object table__right bot-vr1-temper-vihod-dozhig">
+                  <#PasspValue PasspType=1 PasspID=29 Precision=0>
+                </td>
+              </tr>
+              <tr class="table__tr">
+                <td class="table__td table__td--object table__left">Камера выгрузки</td>
+                <td class="table__td table__td--object table__right bot-vr1-temper-kamer-vygruz">
+                  <#PasspValue PasspType=1 PasspID=227 Precision=0>
+                </td>
+              </tr>
+              <tr class="table__tr">
+                <td class="table__td table__td--object table__left">Температура дымовых газов котла-утилизатора</td>
+                <td class="table__td table__td--object table__right bot-vr1-temper-kotel">
+                  <#PasspValue PasspType=1 PasspID=30 Precision=0>
+                </td>
+              </tr>
+              <tr class="table__tr">
+                <td class="table__td table__td--object table__left">Температура газов до скруббера</td>
+                <td class="table__td table__td--object table__right bot-vr1-temper-do-skruber">
+                  <#PasspValue PasspType=1 PasspID=31 Precision=0>
+                </td>
+              </tr>
+              <tr class="table__tr">
+                <td class="table__td table__td--object table__left">Температура газов после скруббера</td>
+                <td class="table__td table__td--object table__right bot-vr1-temper-posle-skruber">
+                  <#PasspValue PasspType=1 PasspID=32 Precision=0>
+                </td>
+              </tr>
+              <tr class="table__tr">
+                <td class="table__td table__td--object table__left">Температура воды в ванне скруббера</td>
+                <td class="table__td table__td--object table__right bot-vr1-temper-skruber">
+                  <#PasspValue PasspType=1 PasspID=33 Precision=0>
+                </td>
+              </tr>
+              <tr class="table__tr">
+                <td class="table__td table__td--object table__left">Температура гранул после холод-ка</td>
+                <td class="table__td table__td--object table__right bot-vr1-temper-granul">
+                  <#PasspValue PasspType=1 PasspID=34 Precision=0>
+                </td>
+              </tr>
+              <tr class="table__tr">
+                <td class="table__td table__td--object table__left">Давление газов после скруббера</td>
+                <td class="table__td table__td--object table__right bot-vr1-davl-posle-skruber">
+                  <#PasspValue PasspType=1 PasspID=43 Precision=1>
+                </td>
+              </tr>
+              <tr class="table__tr">
+                <td class="table__td table__td--object table__left">Давление пара в котле-утилизаторе</td>
+                <td class="table__td table__td--object table__right bot-vr1-davl-kotla">
+                  <#PasspValue PasspType=1 PasspID=42 Precision=1>
+                </td>
+              </tr>
+              <tr class="table__tr">
+                <td class="table__td table__td--object table__left">Разрежение в топке печи</td>
+                <td class="table__td table__td--object table__right bot-vr1-razr-topka">
+                  <#PasspValue PasspType=1 PasspID=39 Precision=1>
+                </td>
+              </tr>
+              <tr class="table__tr">
+                <td class="table__td table__td--object table__left">Разрежение в котле-утилизаторе</td>
+                <td class="table__td table__td--object table__right bot-vr1-razr-kotel">
+                  <#PasspValue PasspType=1 PasspID=41 Precision=1>
+                </td>
+              </tr>
+              <tr class="table__tr">
+                <td class="table__td table__td--object table__left">Разрежение в низу загрузочной камеры</td>
+                <td class="table__td table__td--object table__right bot-vr1-razr-niz-kam">
+                  <#PasspValue PasspType=1 PasspID=40 Precision=1>
+                </td>
+              </tr>
+              <tr class="table__tr">
+                <td class="table__td table__td--object table__left">Уровень воды в ванне скруббера</td>
+                <td class="table__td table__td--object table__right bot-vr1-uroven-skrubber">
+                  <#PasspValue PasspType=1 PasspID=47 Precision=0>
+                </td>
+              </tr>
+              <tr class="table__tr">
+                <td class="table__td table__td--object table__left">Уровень воды в ХВО</td>
+                <td class="table__td table__td--object table__right bot-vr1-uroven-hvo">
+                  <#PasspValue PasspType=1 PasspID=48 Precision=0>
+                </td>
+              </tr>
+              <tr class="table__tr">
+                <td class="table__td table__td--object table__left">Уровень воды в котле-утилизаторе</td>
+                <td class="table__td table__td--object table__right bot-vr1-uroven-kotla">
+                  <#PasspValue PasspType=1 PasspID=45 Precision=0>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </li>
+
+
+
+        <li class="object__item">
+          <table class="table object__table">
+            <caption class="table__title">Печь карбонизации №2
+            </caption>
+            <thead class="table__thead">
+              <tr class="table__tr">
+                <th class="table__th table__left">Наименование параметра</th>
+                <th class="table__th ">Значения &#176C</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="table__tr">
+                <td class="table__td table__td--object table__left">Температура 1-СК</td>
+                <td class="table__td table__td--object table__right temper-1-skolz-vr2 bot-vr2-temper-1-skolz">
+                  <#PasspValue PasspType=1 PasspID=55 Precision=0>
+                </td>
+              </tr>
+              <tr class="table__tr">
+                <td class="table__td table__td--object table__left">Температура 2-СК</td>
+                <td class="table__td table__td--object table__right bot-vr2-temper-2-skolz">
+                  <#PasspValue PasspType=1 PasspID=56 Precision=0>
+                </td>
+              </tr>
+              <tr class="table__tr">
+                <td class="table__td table__td--object table__left">Температура 3-СК</td>
+                <td class="table__td table__td--object table__right bot-vr2-temper-3-skolz">
+                  <#PasspValue PasspType=1 PasspID=57 Precision=0>
+                </td>
+              </tr>
+              <tr class="table__tr">
+                <td class="table__td table__td--object table__left">В топке</td>
+                <td class="table__td table__td--object table__right bot-vr2-temper-topka">
+                  <#PasspValue PasspType=1 PasspID=49 Precision=0>
+                </td>
+              </tr>
+              <tr class="table__tr">
+                <td class="table__td table__td--object table__left">Вверху камеры загрузки</td>
+                <td class="table__td table__td--object table__right bot-vr2-temper-verh-kam">
+                  <#PasspValue PasspType=1 PasspID=203 Precision=0>
+                </td>
+              </tr>
+              <tr class="table__tr">
+                <td class="table__td table__td--object table__left">Внизу камеры загрузки</td>
+                <td class="table__td table__td--object table__right bot-vr2-temper-niz-kam">
+                  <#PasspValue PasspType=1 PasspID=58 Precision=0>
+                </td>
+              </tr>
+              <tr class="table__tr">
+                <td class="table__td table__td--object table__left">На входе печи дожига</td>
+                <td class="table__td table__td--object table__right bot-vr2-temper-vhod-pechi">
+                  <#PasspValue PasspType=1 PasspID=59 Precision=0>
+                </td>
+              </tr>
+              <tr class="table__tr">
+                <td class="table__td table__td--object table__left">На выходе печи дожига</td>
+                <td class="table__td table__td--object table__right bot-vr2-temper-vihod-dozhig">
+                  <#PasspValue PasspType=1 PasspID=60 Precision=0>
+                </td>
+              </tr>
+              <tr class="table__tr">
+                <td class="table__td table__td--object table__left">Камера выгрузки</td>
+                <td class="table__td table__td--object table__right bot-vr2-temper-kamer-vygruz">
+                  <#PasspValue PasspType=1 PasspID=69 Precision=0>
+                </td>
+              </tr>
+              <tr class="table__tr">
+                <td class="table__td table__td--object table__left">Температура дымовых газов котла-утилизатора</td>
+                <td class="table__td table__td--object table__right bot-vr2-temper-kotel">
+                  <#PasspValue PasspType=1 PasspID=61 Precision=0>
+                </td>
+              </tr>
+              <tr class="table__tr">
+                <td class="table__td table__td--object table__left">Температура газов до скруббера</td>
+                <td class="table__td table__td--object table__right bot-vr2-temper-do-skruber">
+                  <#PasspValue PasspType=1 PasspID=62 Precision=0>
+                </td>
+              </tr>
+              <tr class="table__tr">
+                <td class="table__td table__td--object table__left">Температура газов после скруббера</td>
+                <td class="table__td table__td--object table__right bot-vr2-temper-posle-skruber">
+                  <#PasspValue PasspType=1 PasspID=63 Precision=0>
+                </td>
+              </tr>
+              <tr class="table__tr">
+                <td class="table__td table__td--object table__left">Температура воды в ванне скруббера</td>
+                <td class="table__td table__td--object table__right bot-vr2-temper-skruber">
+                  <#PasspValue PasspType=1 PasspID=64 Precision=0>
+                </td>
+              </tr>
+              <tr class="table__tr">
+                <td class="table__td table__td--object table__left">Температура гранул после холод-ка</td>
+                <td class="table__td table__td--object table__right bot-vr2-temper-granul">
+                  <#PasspValue PasspType=1 PasspID=65 Precision=0>
+                </td>
+              </tr>
+              <tr class="table__tr">
+                <td class="table__td table__td--object table__left">Давление газов после скруббера</td>
+                <td class="table__td table__td--object table__right bot-vr2-davl-posle-skruber">
+                  <#PasspValue PasspType=1 PasspID=74 Precision=1>
+                </td>
+              </tr>
+              <tr class="table__tr">
+                <td class="table__td table__td--object table__left">Давление пара в котле-утилизаторе</td>
+                <td class="table__td table__td--object table__right bot-vr2-davl-kotla">
+                  <#PasspValue PasspType=1 PasspID=73 Precision=1>
+                </td>
+              </tr>
+              <tr class="table__tr">
+                <td class="table__td table__td--object table__left">Разрежение в топке печи</td>
+                <td class="table__td table__td--object table__right bot-vr2-razr-topka">
+                  <#PasspValue PasspType=1 PasspID=70 Precision=1>
+                </td>
+              </tr>
+              <tr class="table__tr">
+                <td class="table__td table__td--object table__left">Разрежение в котле-утилизаторе</td>
+                <td class="table__td table__td--object table__right bot-vr2-razr-kotel">
+                  <#PasspValue PasspType=1 PasspID=72 Precision=1>
+                </td>
+              </tr>
+              <tr class="table__tr">
+                <td class="table__td table__td--object table__left">Разрежение в низу загрузочной камеры</td>
+                <td class="table__td table__td--object table__right bot-vr2-razr-niz-kam">
+                  <#PasspValue PasspType=1 PasspID=71 Precision=1>
+                </td>
+              </tr>
+              <tr class="table__tr">
+                <td class="table__td table__td--object table__left">Уровень воды в ванне скруббера</td>
+                <td class="table__td table__td--object table__right bot-vr2-uroven-skrubber">
+                  <#PasspValue PasspType=1 PasspID=83 Precision=0>
+                </td>
+              </tr>
+              <tr class="table__tr">
+                <td class="table__td table__td--object table__left">Уровень воды в ХВО</td>
+                <td class="table__td table__td--object table__right bot-vr2-uroven-hvo">
+                  <#PasspValue PasspType=1 PasspID=84 Precision=0>
+                </td>
+              </tr>
+              <tr class="table__tr">
+                <td class="table__td table__td--object table__left">Уровень воды в котле-утилизаторе</td>
+                <td class="table__td table__td--object table__right bot-vr2-uroven-kotla">
+                  <#PasspValue PasspType=1 PasspID=82 Precision=0>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </li>
+      </ul>
+    </div>
+
+
+
+
+    <script src="http://techsite4/kaskad/js/pechVrTelegram.js"></script>
+    <script src="http://techsite4/kaskad/js/pechVr-transmit.js"></script>
+  </body>
+
+</html>

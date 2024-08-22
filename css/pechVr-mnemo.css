@@ -138,6 +138,13 @@ body::-webkit-scrollbar-thumb {
   /* margin: 0 auto; */
 }
 
+.container {
+  max-width: 1230px;
+  margin: 0 auto;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
 .mnemo__title-content {
   margin-top: 10px;
   margin-bottom: 10px;
@@ -742,6 +749,7 @@ body::-webkit-scrollbar-thumb {
 .column-kotel__percent {
   width: 100%;
   height: 85px;
+  max-height: 85px;
   background-color: #00bfff;
 }
 
@@ -1769,6 +1777,27 @@ body::-webkit-scrollbar-thumb {
   animation-play-state: paused;
 }
 
+
+
+/* for telegram */
+.object {
+  display: flex;
+  flex-direction: column;
+}
+
+.object__list {
+  display: flex;
+  gap: 30px;
+}
+
+.object__table {
+  position: static;
+}
+
+.table__td--object {
+  animation-play-state: paused;
+}
+
 @keyframes colorRedLevel {
   0% {
     background-color: #00bfff;
@@ -1935,6 +1964,7 @@ body::-webkit-scrollbar-thumb {
 
   .column-kotel__percent {
     height: 64px;
+    max-height: 64px;
   }
 
   .column-skrubber {

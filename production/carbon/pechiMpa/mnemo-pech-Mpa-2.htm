@@ -22,7 +22,13 @@
 
             <img class="mnemo__img" src="http://Techsite4/kaskad/pic/Backgrounds/pech-mpa.jpg">
 
-            <div class="regenerator-center"></div>
+            <div class="mnemo__param-box--btns">
+                <button class="mnemo__param-box--btn btn-reset hover-none-btn">
+                    Включить всплывающие подсказки
+                </button>
+            </div>
+
+            <!-- <div class="regenerator-center"></div> -->
 
             <div class="mnemo__param-descr regenerator-text">Регенератор</div>
             <div class="mnemo__param-descr dym-borov-text">Дымовой боров</div>
@@ -31,21 +37,57 @@
             <div class="mnemo__param-box vr">
                 <div class="mnemo__param-box-vr">
                     <div class="mnemo__param-descr mnemo__param-descr-left">ВРЛ</div>
-                    <div class="mnemo__param mnemo__param-val  vrl-t">
+                    <div class="mnemo__param mnemo__param-val mnemo__tooltip  vrl-t">
                         <span class="mnemo__param-text">
                             <#PasspValue PasspType=1 PasspID=208 Precision=0>
                         </span>
                         <span class="mnemo__param-naimenov">&#176C</span>
+                        <div class="mnemo__param-clue vrl-t-clue">
+                            <div class="mnemo__param-clue-content">
+                                <div class="mnemo__param-clue-div">Прибор:
+                                    <span class="mnemo__param-clue-span">
+                                        Термопара (1000мм)
+                                    </span>
+                                </div>
+                                <div class="mnemo__param-clue-div">Диапазон: <span class="mnemo__param-clue-span">
+                                        0...1300 &#176C
+                                    </span>
+                                </div>
+                                <div class="mnemo__param-clue-div">Градуировка:
+                                    <span class="mnemo__param-clue-span">
+                                        ХА (К)
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                     <div class="mnemo__param-descr mnemo__param-descr-borov">Боров 13</div>
                 </div>
                 <div class="mnemo__param-box-vr">
                     <div class="mnemo__param-descr mnemo__param-descr-right">ВРП</div>
-                    <div class="mnemo__param mnemo__param-val  vrp-t">
+                    <div class="mnemo__param mnemo__param-val mnemo__tooltip vrp-t brd-transparent">
                         <span class="mnemo__param-text">
                             <#PasspValue PasspType=1 PasspID=215 Precision=0>
                         </span>
                         <span class="mnemo__param-naimenov">&#176C</span>
+                        <div class="mnemo__param-clue vrp-t-clue">
+                            <div class="mnemo__param-clue-content">
+                                <div class="mnemo__param-clue-div">Прибор:
+                                    <span class="mnemo__param-clue-span">
+                                        Термопара (1000мм)
+                                    </span>
+                                </div>
+                                <div class="mnemo__param-clue-div">Диапазон: <span class="mnemo__param-clue-span">
+                                        0...1300 &#176C
+                                    </span>
+                                </div>
+                                <div class="mnemo__param-clue-div">Градуировка:
+                                    <span class="mnemo__param-clue-span">
+                                        ХА (К)
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                     <div class="mnemo__param-descr mnemo__param-descr-borov">Боров 14</div>
                 </div>
@@ -55,33 +97,105 @@
                 <div class="mnemo__param-descr mnemo__param-descr-borov">Боров 9</div>
                 <div class="mnemo__param-flex">
                     <div class="mnemo__param-descr mnemo__param-descr-left">ВДЛ</div>
-                    <div class="mnemo__param mnemo__param-val">
+                    <div class="mnemo__param mnemo__param-val mnemo__tooltip">
                         <span class="mnemo__param-text">
                             <#PasspValue PasspType=1 PasspID=210 Precision=0>
                         </span>
                         <span class="mnemo__param-naimenov">&#176C</span>
+                        <div class="mnemo__param-clue vdl-t-clue">
+                            <div class="mnemo__param-clue-content">
+                                <div class="mnemo__param-clue-div">Прибор:
+                                    <span class="mnemo__param-clue-span">
+                                        Термопара (1000мм)
+                                    </span>
+                                </div>
+                                <div class="mnemo__param-clue-div">Диапазон: <span class="mnemo__param-clue-span">
+                                        0...1300 &#176C
+                                    </span>
+                                </div>
+                                <div class="mnemo__param-clue-div">Градуировка:
+                                    <span class="mnemo__param-clue-span">
+                                        ХА (К)
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="mnemo__param mnemo__param-val-p">
+                    <div class="mnemo__param mnemo__param-val-p mnemo__tooltip brd-transparent">
                         <span class="mnemo__param-text">
                             <#PasspValue PasspType=1 PasspID=206 Precision=1>
                         </span>
                         <span class="mnemo__param-naimenov">кг/м2</span>
+                        <div class="mnemo__param-clue vdl-p-clue">
+                            <div class="mnemo__param-clue-content">
+                                <div class="mnemo__param-clue-div">Прибор:
+                                    <span class="mnemo__param-clue-span">
+                                        ПД
+                                    </span>
+                                </div>
+                                <div class="mnemo__param-clue-div">Диапазон: <span class="mnemo__param-clue-span">
+                                        0...15 кг/м2
+                                    </span>
+                                </div>
+                                <div class="mnemo__param-clue-div">Токовый выход:
+                                    <span class="mnemo__param-clue-span">
+                                        4 - 20 мА
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div class="mnemo__param-descr mnemo__param-descr-borov">Боров 10</div>
                 <div class="mnemo__param-flex">
                     <div class="mnemo__param-descr mnemo__param-descr-right">ВДП</div>
-                    <div class="mnemo__param mnemo__param-val">
+                    <div class="mnemo__param mnemo__param-val mnemo__tooltip">
                         <span class="mnemo__param-text">
                             <#PasspValue PasspType=1 PasspID=217 Precision=0>
                         </span>
                         <span class="mnemo__param-naimenov">&#176C</span>
+                        <div class="mnemo__param-clue vdp-t-clue">
+                            <div class="mnemo__param-clue-content">
+                                <div class="mnemo__param-clue-div">Прибор:
+                                    <span class="mnemo__param-clue-span">
+                                        Термопара (1000мм)
+                                    </span>
+                                </div>
+                                <div class="mnemo__param-clue-div">Диапазон: <span class="mnemo__param-clue-span">
+                                        0...1300 &#176C
+                                    </span>
+                                </div>
+                                <div class="mnemo__param-clue-div">Градуировка:
+                                    <span class="mnemo__param-clue-span">
+                                        ХА (К)
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="mnemo__param mnemo__param-val-p">
+                    <div class="mnemo__param mnemo__param-val-p mnemo__tooltip brd-transparent">
                         <span class="mnemo__param-text">
                             <#PasspValue PasspType=1 PasspID=207 Precision=1>
                         </span>
                         <span class="mnemo__param-naimenov">кг/м2</span>
+                        <div class="mnemo__param-clue vdp-p-clue">
+                            <div class="mnemo__param-clue-content">
+                                <div class="mnemo__param-clue-div">Прибор:
+                                    <span class="mnemo__param-clue-span">
+                                        ПД
+                                    </span>
+                                </div>
+                                <div class="mnemo__param-clue-div">Диапазон: <span class="mnemo__param-clue-span">
+                                        0...15 кг/м2
+                                    </span>
+                                </div>
+                                <div class="mnemo__param-clue-div">Градуировка:
+                                    <span class="mnemo__param-clue-span">
+                                        4 - 20 мА
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -90,11 +204,29 @@
                 <div class="mnemo__param-descr mnemo__param-descr-borov">Боров 11</div>
                 <div class="mnemo__param-flex">
                     <div class="mnemo__param-descr mnemo__param-descr-left">ВБЛ</div>
-                    <div class="mnemo__param mnemo__param-val">
+                    <div class="mnemo__param mnemo__param-val mnemo__tooltip">
                         <span class="mnemo__param-text">
                             <#PasspValue PasspType=1 PasspID=209 Precision=0>
                         </span>
                         <span class="mnemo__param-naimenov">&#176C</span>
+                        <div class="mnemo__param-clue vbl-t-clue">
+                            <div class="mnemo__param-clue-content">
+                                <div class="mnemo__param-clue-div">Прибор:
+                                    <span class="mnemo__param-clue-span">
+                                        Термопара (1000мм)
+                                    </span>
+                                </div>
+                                <div class="mnemo__param-clue-div">Диапазон: <span class="mnemo__param-clue-span">
+                                        0...1300 &#176C
+                                    </span>
+                                </div>
+                                <div class="mnemo__param-clue-div">Градуировка:
+                                    <span class="mnemo__param-clue-span">
+                                        ХА (К)
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                     <!-- <div class="mnemo__param mnemo__param-val-p">
                     <span class="mnemo__param-text">
@@ -106,11 +238,29 @@
                 <div class="mnemo__param-descr mnemo__param-descr-borov">Боров 12</div>
                 <div class="mnemo__param-flex">
                     <div class="mnemo__param-descr mnemo__param-descr-right">ВБП</div>
-                    <div class="mnemo__param mnemo__param-val">
+                    <div class="mnemo__param mnemo__param-val mnemo__tooltip">
                         <span class="mnemo__param-text">
                             <#PasspValue PasspType=1 PasspID=216 Precision=0>
                         </span>
                         <span class="mnemo__param-naimenov">&#176C</span>
+                        <div class="mnemo__param-clue vbp-t-clue">
+                            <div class="mnemo__param-clue-content">
+                                <div class="mnemo__param-clue-div">Прибор:
+                                    <span class="mnemo__param-clue-span">
+                                        Термопара (1000мм)
+                                    </span>
+                                </div>
+                                <div class="mnemo__param-clue-div">Диапазон: <span class="mnemo__param-clue-span">
+                                        0...1300 &#176C
+                                    </span>
+                                </div>
+                                <div class="mnemo__param-clue-div">Градуировка:
+                                    <span class="mnemo__param-clue-span">
+                                        ХА (К)
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                     <!-- <div class="mnemo__param mnemo__param-val-p">
                     <span class="mnemo__param-text">
@@ -126,33 +276,105 @@
                 <div class="mnemo__param-descr mnemo__param-descr-borov">Боров 5</div>
                 <div class="mnemo__param-flex">
                     <div class="mnemo__param-descr mnemo__param-descr-left">СДЛ</div>
-                    <div class="mnemo__param mnemo__param-val">
+                    <div class="mnemo__param mnemo__param-val mnemo__tooltip">
                         <span class="mnemo__param-text">
                             <#PasspValue PasspType=1 PasspID=212 Precision=0>
                         </span>
                         <span class="mnemo__param-naimenov">&#176C</span>
+                        <div class="mnemo__param-clue sdl-t-clue">
+                            <div class="mnemo__param-clue-content">
+                                <div class="mnemo__param-clue-div">Прибор:
+                                    <span class="mnemo__param-clue-span">
+                                        Термопара (1000мм)
+                                    </span>
+                                </div>
+                                <div class="mnemo__param-clue-div">Диапазон: <span class="mnemo__param-clue-span">
+                                        0...1300 &#176C
+                                    </span>
+                                </div>
+                                <div class="mnemo__param-clue-div">Градуировка:
+                                    <span class="mnemo__param-clue-span">
+                                        ХА (К)
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="mnemo__param mnemo__param-val-p">
+                    <div class="mnemo__param mnemo__param-val-p mnemo__tooltip brd-transparent">
                         <span class="mnemo__param-text">
                             <#PasspValue PasspType=1 PasspID=204 Precision=1>
                         </span>
                         <span class="mnemo__param-naimenov">кг/м2</span>
+                        <div class="mnemo__param-clue sdl-p-clue">
+                            <div class="mnemo__param-clue-content">
+                                <div class="mnemo__param-clue-div">Прибор:
+                                    <span class="mnemo__param-clue-span">
+                                        ПД
+                                    </span>
+                                </div>
+                                <div class="mnemo__param-clue-div">Диапазон: <span class="mnemo__param-clue-span">
+                                        0...15 кг/м2
+                                    </span>
+                                </div>
+                                <div class="mnemo__param-clue-div">Градуировка:
+                                    <span class="mnemo__param-clue-span">
+                                        4 - 20 мА
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div class="mnemo__param-descr mnemo__param-descr-borov">Боров 6</div>
                 <div class="mnemo__param-flex">
                     <div class="mnemo__param-descr mnemo__param-descr-right">СДП</div>
-                    <div class="mnemo__param mnemo__param-val">
+                    <div class="mnemo__param mnemo__param-val mnemo__tooltip">
                         <span class="mnemo__param-text">
                             <#PasspValue PasspType=1 PasspID=219 Precision=0>
                         </span>
                         <span class="mnemo__param-naimenov">&#176C</span>
+                        <div class="mnemo__param-clue sdp-t-clue">
+                            <div class="mnemo__param-clue-content">
+                                <div class="mnemo__param-clue-div">Прибор:
+                                    <span class="mnemo__param-clue-span">
+                                        Термопара (1000мм)
+                                    </span>
+                                </div>
+                                <div class="mnemo__param-clue-div">Диапазон: <span class="mnemo__param-clue-span">
+                                        0...1300 &#176C
+                                    </span>
+                                </div>
+                                <div class="mnemo__param-clue-div">Градуировка:
+                                    <span class="mnemo__param-clue-span">
+                                        ХА (К)
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="mnemo__param mnemo__param-val-p">
+                    <div class="mnemo__param mnemo__param-val-p mnemo__tooltip brd-transparent">
                         <span class="mnemo__param-text">
                             <#PasspValue PasspType=1 PasspID=205 Precision=1>
                         </span>
                         <span class="mnemo__param-naimenov">кг/м2</span>
+                        <div class="mnemo__param-clue sdp-p-clue">
+                            <div class="mnemo__param-clue-content">
+                                <div class="mnemo__param-clue-div">Прибор:
+                                    <span class="mnemo__param-clue-span">
+                                        ПД
+                                    </span>
+                                </div>
+                                <div class="mnemo__param-clue-div">Диапазон: <span class="mnemo__param-clue-span">
+                                        0...15 кг/м2
+                                    </span>
+                                </div>
+                                <div class="mnemo__param-clue-div">Градуировка:
+                                    <span class="mnemo__param-clue-span">
+                                        4 - 20 мА
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -161,33 +383,105 @@
                 <div class="mnemo__param-descr mnemo__param-descr-borov">Боров 7</div>
                 <div class="mnemo__param-flex">
                     <div class="mnemo__param-descr mnemo__param-descr-left">СБЛ</div>
-                    <div class="mnemo__param mnemo__param-val">
+                    <div class="mnemo__param mnemo__param-val mnemo__tooltip">
                         <span class="mnemo__param-text">
                             <#PasspValue PasspType=1 PasspID=211 Precision=0>
                         </span>
                         <span class="mnemo__param-naimenov">&#176C</span>
+                        <div class="mnemo__param-clue sbl-t-clue">
+                            <div class="mnemo__param-clue-content">
+                                <div class="mnemo__param-clue-div">Прибор:
+                                    <span class="mnemo__param-clue-span">
+                                        Термопара (1000мм)
+                                    </span>
+                                </div>
+                                <div class="mnemo__param-clue-div">Диапазон: <span class="mnemo__param-clue-span">
+                                        0...1300 &#176C
+                                    </span>
+                                </div>
+                                <div class="mnemo__param-clue-div">Градуировка:
+                                    <span class="mnemo__param-clue-span">
+                                        ХА (К)
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="mnemo__param mnemo__param-val-p">
+                    <div class="mnemo__param mnemo__param-val-p mnemo__tooltip brd-transparent">
                         <span class="mnemo__param-text">
                             <#PasspValue PasspType=1 PasspID=14 Precision=1>
                         </span>
                         <span class="mnemo__param-naimenov">кг/м2</span>
+                        <div class="mnemo__param-clue sbl-p-clue">
+                            <div class="mnemo__param-clue-content">
+                                <div class="mnemo__param-clue-div">Прибор:
+                                    <span class="mnemo__param-clue-span">
+                                        ПД
+                                    </span>
+                                </div>
+                                <div class="mnemo__param-clue-div">Диапазон: <span class="mnemo__param-clue-span">
+                                        0...15 кг/м2
+                                    </span>
+                                </div>
+                                <div class="mnemo__param-clue-div">Градуировка:
+                                    <span class="mnemo__param-clue-span">
+                                        4 - 20 мА
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div class="mnemo__param-descr mnemo__param-descr-borov">Боров 8</div>
                 <div class="mnemo__param-flex">
                     <div class="mnemo__param-descr mnemo__param-descr-right">СБП</div>
-                    <div class="mnemo__param mnemo__param-val">
+                    <div class="mnemo__param mnemo__param-val mnemo__tooltip">
                         <span class="mnemo__param-text">
                             <#PasspValue PasspType=1 PasspID=218 Precision=0>
                         </span>
                         <span class="mnemo__param-naimenov">&#176C</span>
+                        <div class="mnemo__param-clue sbp-t-clue">
+                            <div class="mnemo__param-clue-content">
+                                <div class="mnemo__param-clue-div">Прибор:
+                                    <span class="mnemo__param-clue-span">
+                                        Термопара (1000мм)
+                                    </span>
+                                </div>
+                                <div class="mnemo__param-clue-div">Диапазон: <span class="mnemo__param-clue-span">
+                                        0...1300 &#176C
+                                    </span>
+                                </div>
+                                <div class="mnemo__param-clue-div">Градуировка:
+                                    <span class="mnemo__param-clue-span">
+                                        ХА (К)
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="mnemo__param mnemo__param-val-p">
+                    <div class="mnemo__param mnemo__param-val-p mnemo__tooltip brd-transparent">
                         <span class="mnemo__param-text">
                             <#PasspValue PasspType=1 PasspID=16 Precision=1>
                         </span>
                         <span class="mnemo__param-naimenov">кг/м2</span>
+                        <div class="mnemo__param-clue sbp-p-clue">
+                            <div class="mnemo__param-clue-content">
+                                <div class="mnemo__param-clue-div">Прибор:
+                                    <span class="mnemo__param-clue-span">
+                                        ПД
+                                    </span>
+                                </div>
+                                <div class="mnemo__param-clue-div">Диапазон: <span class="mnemo__param-clue-span">
+                                        0...15 кг/м2
+                                    </span>
+                                </div>
+                                <div class="mnemo__param-clue-div">Градуировка:
+                                    <span class="mnemo__param-clue-span">
+                                        4 - 20 мА
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -197,11 +491,29 @@
                 <div class="mnemo__param-descr mnemo__param-descr-borov">Боров 1</div>
                 <div class="mnemo__param-flex">
                     <div class="mnemo__param-descr mnemo__param-descr-left">НДЛ</div>
-                    <div class="mnemo__param mnemo__param-val">
+                    <div class="mnemo__param mnemo__param-val mnemo__tooltip">
                         <span class="mnemo__param-text">
                             <#PasspValue PasspType=1 PasspID=214 Precision=0>
                         </span>
                         <span class="mnemo__param-naimenov">&#176C</span>
+                        <div class="mnemo__param-clue ndl-t-clue">
+                            <div class="mnemo__param-clue-content">
+                                <div class="mnemo__param-clue-div">Прибор:
+                                    <span class="mnemo__param-clue-span">
+                                        Термопара (1000мм)
+                                    </span>
+                                </div>
+                                <div class="mnemo__param-clue-div">Диапазон: <span class="mnemo__param-clue-span">
+                                        0...1300 &#176C
+                                    </span>
+                                </div>
+                                <div class="mnemo__param-clue-div">Градуировка:
+                                    <span class="mnemo__param-clue-span">
+                                        ХА (К)
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                     <!-- <div class="mnemo__param mnemo__param-val-p">
                     <span class="mnemo__param-text">
@@ -213,11 +525,29 @@
                 <div class="mnemo__param-descr mnemo__param-descr-borov">Боров 2</div>
                 <div class="mnemo__param-flex">
                     <div class="mnemo__param-descr mnemo__param-descr-right">НДП</div>
-                    <div class="mnemo__param mnemo__param-val">
+                    <div class="mnemo__param mnemo__param-val mnemo__tooltip">
                         <span class="mnemo__param-text">
                             <#PasspValue PasspType=1 PasspID=221 Precision=0>
                         </span>
                         <span class="mnemo__param-naimenov">&#176C</span>
+                        <div class="mnemo__param-clue ndp-t-clue">
+                            <div class="mnemo__param-clue-content">
+                                <div class="mnemo__param-clue-div">Прибор:
+                                    <span class="mnemo__param-clue-span">
+                                        Термопара (1000мм)
+                                    </span>
+                                </div>
+                                <div class="mnemo__param-clue-div">Диапазон: <span class="mnemo__param-clue-span">
+                                        0...1300 &#176C
+                                    </span>
+                                </div>
+                                <div class="mnemo__param-clue-div">Градуировка:
+                                    <span class="mnemo__param-clue-span">
+                                        ХА (К)
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                     <!-- <div class="mnemo__param mnemo__param-val-p">
                     <span class="mnemo__param-text">
@@ -233,33 +563,105 @@
                 <div class="mnemo__param-descr mnemo__param-descr-borov">Боров 3</div>
                 <div class="mnemo__param-flex">
                     <div class="mnemo__param-descr mnemo__param-descr-left">НБЛ</div>
-                    <div class="mnemo__param mnemo__param-val">
+                    <div class="mnemo__param mnemo__param-val mnemo__tooltip">
                         <span class="mnemo__param-text">
                             <#PasspValue PasspType=1 PasspID=213 Precision=0>
                         </span>
                         <span class="mnemo__param-naimenov">&#176C</span>
+                        <div class="mnemo__param-clue nbl-t-clue">
+                            <div class="mnemo__param-clue-content">
+                                <div class="mnemo__param-clue-div">Прибор:
+                                    <span class="mnemo__param-clue-span">
+                                        Термопара (1000мм)
+                                    </span>
+                                </div>
+                                <div class="mnemo__param-clue-div">Диапазон: <span class="mnemo__param-clue-span">
+                                        0...1300 &#176C
+                                    </span>
+                                </div>
+                                <div class="mnemo__param-clue-div">Градуировка:
+                                    <span class="mnemo__param-clue-span">
+                                        ХА (К)
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="mnemo__param mnemo__param-val-p">
+                    <div class="mnemo__param mnemo__param-val-p mnemo__tooltip brd-transparent">
                         <span class="mnemo__param-text">
                             <#PasspValue PasspType=1 PasspID=3 Precision=1>
                         </span>
                         <span class="mnemo__param-naimenov">кг/м2</span>
+                        <div class="mnemo__param-clue nbl-p-clue">
+                            <div class="mnemo__param-clue-content">
+                                <div class="mnemo__param-clue-div">Прибор:
+                                    <span class="mnemo__param-clue-span">
+                                        ПД
+                                    </span>
+                                </div>
+                                <div class="mnemo__param-clue-div">Диапазон: <span class="mnemo__param-clue-span">
+                                        0...15 кг/м2
+                                    </span>
+                                </div>
+                                <div class="mnemo__param-clue-div">Градуировка:
+                                    <span class="mnemo__param-clue-span">
+                                        4 - 20 мА
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div class="mnemo__param-descr mnemo__param-descr-borov">Боров 4</div>
                 <div class="mnemo__param-flex">
                     <div class="mnemo__param-descr mnemo__param-descr-right">НБП</div>
-                    <div class="mnemo__param mnemo__param-val">
+                    <div class="mnemo__param mnemo__param-val mnemo__tooltip">
                         <span class="mnemo__param-text">
                             <#PasspValue PasspType=1 PasspID=220 Precision=0>
                         </span>
                         <span class="mnemo__param-naimenov">&#176C</span>
+                        <div class="mnemo__param-clue nbp-t-clue">
+                            <div class="mnemo__param-clue-content">
+                                <div class="mnemo__param-clue-div">Прибор:
+                                    <span class="mnemo__param-clue-span">
+                                        Термопара (1000мм)
+                                    </span>
+                                </div>
+                                <div class="mnemo__param-clue-div">Диапазон: <span class="mnemo__param-clue-span">
+                                        0...1300 &#176C
+                                    </span>
+                                </div>
+                                <div class="mnemo__param-clue-div">Градуировка:
+                                    <span class="mnemo__param-clue-span">
+                                        ХА (К)
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="mnemo__param mnemo__param-val-p">
+                    <div class="mnemo__param mnemo__param-val-p mnemo__tooltip brd-transparent">
                         <span class="mnemo__param-text">
                             <#PasspValue PasspType=1 PasspID=5 Precision=1>
                         </span>
                         <span class="mnemo__param-naimenov">кг/м2</span>
+                        <div class="mnemo__param-clue nbp-p-clue">
+                            <div class="mnemo__param-clue-content">
+                                <div class="mnemo__param-clue-div">Прибор:
+                                    <span class="mnemo__param-clue-span">
+                                        ПД
+                                    </span>
+                                </div>
+                                <div class="mnemo__param-clue-div">Диапазон: <span class="mnemo__param-clue-span">
+                                        0...15 кг/м2
+                                    </span>
+                                </div>
+                                <div class="mnemo__param-clue-div">Градуировка:
+                                    <span class="mnemo__param-clue-span">
+                                        4 - 20 мА
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -269,52 +671,141 @@
             <div class="mnemo__param-box db">
                 <div class="mnemo__param-box-db">
                     <div class="mnemo__param-descr mnemo__param-descr-right">ДБ</div>
-                    <div class="mnemo__param mnemo__param-val  vrl-t">
+                    <div class="mnemo__param mnemo__param-val mnemo__tooltip vrl-t brd-bottom-transparent">
                         <span class="mnemo__param-text">
                             <#PasspValue PasspType=1 PasspID=223 Precision=0>
                         </span>
                         <span class="mnemo__param-naimenov">&#176C</span>
+                        <div class="mnemo__param-clue db-t-clue">
+                            <div class="mnemo__param-clue-content">
+                                <div class="mnemo__param-clue-div">Прибор:
+                                    <span class="mnemo__param-clue-span">
+                                        Термопара (1000мм)
+                                    </span>
+                                </div>
+                                <div class="mnemo__param-clue-div">Диапазон: <span class="mnemo__param-clue-span">
+                                        0...1300 &#176C
+                                    </span>
+                                </div>
+                                <div class="mnemo__param-clue-div">Градуировка:
+                                    <span class="mnemo__param-clue-span">
+                                        ХА (К)
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="mnemo__param mnemo__param-val-vozduh">
+                    <div class="mnemo__param mnemo__param-val-vozduh mnemo__tooltip">
                         <span class="mnemo__param-text">
                             <#PasspValue PasspType=1 PasspID=226 Precision=1>
                         </span>
                         <span class="mnemo__param-naimenov">кгс/м2</span>
+                        <div class="mnemo__param-clue db-p-clue">
+                            <div class="mnemo__param-clue-content">
+                                <div class="mnemo__param-clue-div">Прибор:
+                                    <span class="mnemo__param-clue-span">
+                                        ПД
+                                    </span>
+                                </div>
+                                <div class="mnemo__param-clue-div">Диапазон: <span class="mnemo__param-clue-span">
+                                        0...15 кг/м2
+                                    </span>
+                                </div>
+                                <div class="mnemo__param-clue-div">Градуировка:
+                                    <span class="mnemo__param-clue-span">
+                                        4 - 20 мА
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-
             </div>
 
 
             <div class="mnemo__param-box ks">
                 <div class="mnemo__param-descr mnemo__param-descr-right">КС</div>
-                <div class="mnemo__param mnemo__param-val  vrl-t">
+                <div class="mnemo__param mnemo__param-val mnemo__tooltip vrl-t">
                     <span class="mnemo__param-text">
                         <#PasspValue PasspType=1 PasspID=222 Precision=0>
                     </span>
                     <span class="mnemo__param-naimenov">&#176C</span>
+                    <div class="mnemo__param-clue ks-t-clue">
+                        <div class="mnemo__param-clue-content">
+                            <div class="mnemo__param-clue-div">Прибор:
+                                <span class="mnemo__param-clue-span">
+                                    Термопара (1000мм)
+                                </span>
+                            </div>
+                            <div class="mnemo__param-clue-div">Диапазон: <span class="mnemo__param-clue-span">
+                                    0...1300 &#176C
+                                </span>
+                            </div>
+                            <div class="mnemo__param-clue-div">Градуировка:
+                                <span class="mnemo__param-clue-span">
+                                    ХА (К)
+                                </span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
 
             <div class="mnemo__param-box vozduh-left">
                 <div class="mnemo__param-box-vozduh-left">
                     <div class="mnemo__param-descr mnemo__param-descr-vozduh">Воздух левый</div>
-                    <div class="mnemo__param mnemo__param-val-vozduh">
+                    <div class="mnemo__param mnemo__param-val-vozduh mnemo__tooltip">
                         <span class="mnemo__param-text">
                             <#PasspValue PasspType=1 PasspID=224 Precision=1>
                         </span>
                         <span class="mnemo__param-naimenov">кгс/м2</span>
+                        <div class="mnemo__param-clue vozduh-left-clue">
+                            <div class="mnemo__param-clue-content">
+                                <div class="mnemo__param-clue-div">Прибор:
+                                    <span class="mnemo__param-clue-span">
+                                        ПД
+                                    </span>
+                                </div>
+                                <div class="mnemo__param-clue-div">Диапазон: <span class="mnemo__param-clue-span">
+                                        0...15 кг/м2
+                                    </span>
+                                </div>
+                                <div class="mnemo__param-clue-div">Градуировка:
+                                    <span class="mnemo__param-clue-span">
+                                        4 - 20 мА
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
             <div class="mnemo__param-box vozduh-right">
                 <div class="mnemo__param-box-vozduh-right">
                     <div class="mnemo__param-descr mnemo__param-descr-vozduh">Воздух правый</div>
-                    <div class="mnemo__param mnemo__param-val-vozduh">
+                    <div class="mnemo__param mnemo__param-val-vozduh mnemo__tooltip">
                         <span class="mnemo__param-text">
                             <#PasspValue PasspType=1 PasspID=225 Precision=1>
                         </span>
                         <span class="mnemo__param-naimenov">кгс/м2</span>
+                        <div class="mnemo__param-clue vozduh-right-clue">
+                            <div class="mnemo__param-clue-content">
+                                <div class="mnemo__param-clue-div">Прибор:
+                                    <span class="mnemo__param-clue-span">
+                                        ПД
+                                    </span>
+                                </div>
+                                <div class="mnemo__param-clue-div">Диапазон: <span class="mnemo__param-clue-span">
+                                        0...15 кг/м2
+                                    </span>
+                                </div>
+                                <div class="mnemo__param-clue-div">Градуировка:
+                                    <span class="mnemo__param-clue-span">
+                                        4 - 20 мА
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

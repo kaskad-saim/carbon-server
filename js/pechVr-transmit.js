@@ -51,6 +51,15 @@ window.addEventListener('load', () => {
 
   const underPressureSelectorsVr2 = ['.bot-vr2-razr-topka', '.bot-vr2-razr-kotel', '.bot-vr2-razr-niz-kam'];
 
+  // Исполнительные механизмы
+
+  const imSelectorsVr1 = ['.bot-vr1-im-kotla'];
+  const imSelectorsVr2 = ['.bot-vr2-im-kotla'];
+
+  // Мощность горелки
+  const gorelkaSelectorsVr1 = ['.bot-vr1-mosh-gorelki'];
+  const gorelkaSelectorsVr2 = ['.bot-vr2-mosh-gorelki'];
+
   const allowedOrigins = ['http://169.254.0.167:3001'];
 
   // const allowedOrigins = ['http://169.254.7.86:3001', 'http://169.254.0.167:3001', 'http://169.254.6.19:50'];
@@ -106,6 +115,14 @@ window.addEventListener('load', () => {
   // Отправка значений разрежения
   postValuesVr1(underPressureSelectorsVr1, 'underpressure');
   postValuesVr2(underPressureSelectorsVr2, 'underpressure');
+
+  // Отправка значений исполнительного механизма
+  postValuesVr1(imSelectorsVr1, 'im');
+  postValuesVr2(imSelectorsVr2, 'im');
+
+  // Отправка показаний мощности горелки
+  postValuesVr1(gorelkaSelectorsVr1, 'gorelka');
+  postValuesVr2(gorelkaSelectorsVr2, 'gorelka');
 
   // Отправка текущего времени
   const timestamp = new Date().toLocaleString();

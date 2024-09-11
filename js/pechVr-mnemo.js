@@ -470,66 +470,69 @@ hoverNoneBtn.addEventListener('click', () => {
   toggleBtnText();
 });
 
+
 // --------------------Модальное окно--------------------
+// Открытие модального окна
+const openModal = (modalId) => {
+  const modal = document.getElementById(modalId);
+  if (modal) {
+    modal.classList.add('enabled');
+  }
+};
 
-// const btnModal = document.querySelector('.btn-modal');
-// const modalBackground = document.querySelector('.modal-js');
-// const modalClose = document.querySelector('.mnemo__modal-close');
-// const modalActive = document.querySelector('.mnemo__modal-active');
+// Закрытие модального окна
+const closeModal = (modalId) => {
+  const modal = document.getElementById(modalId);
+  if (modal) {
+    modal.classList.remove('enabled');
+  }
+};
 
-// const accordionBtn = document.querySelectorAll('.modal__accordion');
-// const accordionTitle = document.querySelectorAll('.modal__accordion-title');
-// const accordionContent = document.querySelectorAll('.modal__accordion-content');
+// Обработчик клика по кнопкам
+document.querySelectorAll('.modal-btn').forEach((button) => {
+  button.addEventListener('click', function () {
+    const modalId = this.getAttribute('data-modal-target');
+    openModal(modalId);
+  });
+});
 
-// btnModal.addEventListener('click', () => {
-//   modalBackground.classList.add('enabled');
-//   modalActive.classList.add('enabled');
-// });
+// Обработчик клика по кнопкам закрытия
+document.querySelectorAll('.mnemo__modal-close').forEach((closeButton) => {
+  closeButton.addEventListener('click', function () {
+    const modal = this.closest('.mnemo__modal-background');
+    if (modal) {
+      closeModal(modal.id);
+    }
+  });
+});
 
-// modalClose.addEventListener('click', () => {
-//   modalBackground.classList.remove('enabled');
-//   modalActive.classList.remove('enabled');
-// });
+const accordionTitles = document.querySelectorAll('.modal__accordion-title');
+const accordionContents = document.querySelectorAll('.modal__accordion-content');
 
-// modalBackground.addEventListener('click', (event) => {
-//   if (event.target === modalBackground) {
-//     modalBackground.classList.remove('enabled');
-//     modalActive.classList.remove('enabled');
-//   }
-// });
+const closeAllAccordions = () => {
+  accordionContents.forEach((content) => {
+    content.style.maxHeight = null;
+  });
+  accordionTitles.forEach((title) => {
+    title.classList.remove('enabled');
+  });
+};
 
-// const dropDownDescrNull = (array) => {
-//   for (let i = 0; i < array.length; i++) {
-//     const el = array[i];
-//     el.style.maxHeight = null;
-//   }
-// };
+accordionTitles.forEach((title) => {
+  title.addEventListener('click', (e) => {
+    e.preventDefault();
+    const content = title.nextElementSibling;
 
-// for (let i = 0; i < accordionTitle.length; i++) {
-//   const el = accordionTitle[i];
-
-//   el.addEventListener('click', (e) => {
-//     e.preventDefault();
-//     let contentNext = el.nextElementSibling;
-
-//     if (contentNext.style.maxHeight) {
-//       dropDownDescrNull(accordionContent);
-//     } else {
-//       dropDownDescrNull(accordionContent);
-//       contentNext.style.maxHeight = contentNext.scrollHeight + 'px';
-//     }
-
-//     if (!el.classList.contains('enabled')) {
-//       for (let i = 0; i < accordionTitle.length; i++) {
-//         let item = accordionTitle[i];
-//         item.classList.remove('enabled');
-//       }
-//       el.classList.add('enabled');
-//     } else {
-//       el.classList.remove('enabled');
-//     }
-//   });
-// }
+    if (content.style.maxHeight) {
+      content.style.maxHeight = null;
+      title.classList.remove('enabled');
+    } else {
+      closeAllAccordions();
+      content.style.maxHeight = content.scrollHeight + 'px';
+      title.classList.add('enabled');
+    }
+  });
+});
 
 // Password
 
@@ -580,3 +583,9 @@ hoverNoneBtn.addEventListener('click', () => {
 
 // downloadForm(downloadPassword2, windowPassword2, formPassword2);
 // formValue(downloadContent2, formPassword2, windowPassword2, passwordDelta, 2, passwordLabel2, passwordInput2);
+
+
+
+
+
+// для лаборатории

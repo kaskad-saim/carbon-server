@@ -37,6 +37,13 @@
             </thead>
             <tbody>
               <tr class="table__tr">
+                <td class="table__td table__td--object table__left">Время сервера</td>
+                <td class="table__td table__td--object table__right bot-vr-time" id="server-time">
+                  <!-- оставить в слитном виде в строчку -->
+                  <#Date><#Time>
+                </td>
+              </tr>
+              <tr class="table__tr">
                 <td class="table__td table__td--object table__left">Температура 1-СК</td>
                 <td class="table__td table__td--object table__right temper-1-skolz-vr1 bot-vr1-temper-1-skolz">
                   <#PasspValue PasspType=1 PasspID=24 Precision=0>
@@ -199,7 +206,7 @@
             <tbody>
               <tr class="table__tr">
                 <td class="table__td table__td--object table__left">Температура 1-СК</td>
-                <td class="table__td table__td--object table__right temper-1-skolz-vr2 bot-vr2-temper-1-skolz">
+                <td class="table__td table__td--object table__right bot-vr2-temper-1-skolz">
                   <#PasspValue PasspType=1 PasspID=55 Precision=0>
                 </td>
               </tr>
@@ -346,9 +353,6 @@
         </li>
       </ul>
     </div>
-
-
-
 
     <script src="http://techsite4/kaskad/js/pechVrTelegram.js"></script>
     <script src="http://techsite4/kaskad/js/pechVr-transmit.js"></script>

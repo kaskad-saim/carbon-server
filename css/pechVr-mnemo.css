@@ -133,6 +133,7 @@ body::-webkit-scrollbar-thumb {
 }
 
 .mnemo {
+  margin-top: 50px;
   position: relative;
   width: 1316px;
   /* margin: 0 auto; */
@@ -442,8 +443,8 @@ body::-webkit-scrollbar-thumb {
 }
 
 .avarini-sbros-text {
-  top: 1%;
-  left: 29%;
+  top: 4%;
+  left: 41%;
 }
 
 .par-v-otdelenii-activatsi-text {
@@ -1126,7 +1127,7 @@ body::-webkit-scrollbar-thumb {
 /* Всплывающие подсказки */
 .mnemo__param-box--btns {
   position: absolute;
-  top: -5px;
+  top: -40px;
   left: 0;
   z-index: 1;
   display: flex;
@@ -1420,6 +1421,9 @@ body::-webkit-scrollbar-thumb {
   cursor: pointer;
 }
 
+.modal-btn {
+  border-left: none;
+}
 
 .mnemo__modal-background {
   position: fixed;
@@ -1438,6 +1442,30 @@ body::-webkit-scrollbar-thumb {
   z-index: 3;
   transition: opacity .5s ease-in-out;
 }
+
+/* .mnemo__modal-start {
+  padding: 20px;
+  position: absolute;
+  max-width: 850px;
+  width: 100%;
+  top: 50%;
+  left: 50%;
+  z-index: 1;
+  transform: translate(-50%, -50%);
+  border-radius: 10px;
+  background-color: rgb(255, 255, 255);
+  box-shadow: rgba(0, 0, 0, 0.6) 0px 3px 6px, rgba(0, 0, 0, 0.7) 0px 3px 6px;
+  cursor: default;
+}
+
+.mnemo__modal-descr-container {
+  max-height: 600px;
+  overflow-y: auto;
+}
+
+.mnemo__modal-start.enabled {
+  transition: height .4s ease-in-out;
+} */
 
 .mnemo__modal-active {
   padding: 20px;
@@ -1489,12 +1517,13 @@ body::-webkit-scrollbar-thumb {
 
 .mnemo__modal-close {
   position: absolute;
-  top: 0;
-  right: 0;
-  z-index: 1;
-  width: 35px;
-  height: 35px;
+  top: 2px;
+  right: 5px;
+  z-index: 5;
+  width: 20px;
+  height: 20px;
   transition: opacity .3s ease-in-out;
+  cursor: pointer;
 }
 
 .mnemo__modal-close:hover {
@@ -1504,6 +1533,33 @@ body::-webkit-scrollbar-thumb {
 .mnemo__modal-close:active {
   opacity: 0.5;
 }
+
+/* .krest {
+  position: relative;
+  transform: rotate(45deg);
+}
+
+.line-1 {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 1;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 2px;
+  background-color: green;
+}
+
+.line-2 {
+  transform: translate(-50%, -50%) rotate(90deg);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 1;
+  width: 100%;
+  height: 2px;
+  background-color: green;
+} */
 
 .modal-content__box {
   margin-bottom: 20px;
@@ -1777,6 +1833,17 @@ body::-webkit-scrollbar-thumb {
   animation-play-state: paused;
 }
 
+@keyframes colorRedLevel {
+  0% {
+    background-color: #00bfff;
+  }
+
+  100% {
+    background-color: red;
+  }
+}
+
+
 
 
 /* for telegram */
@@ -1798,19 +1865,15 @@ body::-webkit-scrollbar-thumb {
   animation-play-state: paused;
 }
 
-@keyframes colorRedLevel {
-  0% {
-    background-color: #00bfff;
-  }
-
-  100% {
-    background-color: red;
-  }
+/* for laboratory */
+.laboratory__btn {
+  border-left: none;
 }
+
+
 
 @media (max-width: 1280px) {
   .mnemo {
-    margin-top: 50px;
     position: relative;
     width: 976px;
   }
@@ -2083,10 +2146,6 @@ body::-webkit-scrollbar-thumb {
 
   .niz-zagr-kam-text {
     bottom: 32%;
-  }
-
-  .mnemo__param-box--btns {
-    top: -40px;
   }
 
   .mnemo__param-box--btn {

@@ -531,52 +531,60 @@ accordionTitles.forEach((title) => {
   });
 });
 
-// Password
+document.addEventListener('DOMContentLoaded', () => {
+  const form = document.querySelector('.laboratory__form');
+  const input = document.getElementById('volatile-substances');
+  const timeCell = document.querySelector('.laboratory__table-td--mnemo-time'); // Ячейка для времени
+  const valueCell = document.querySelector('.laboratory__table-td--mnemo-val'); // Ячейка для значения
 
-// const downloadPassword1 = document.querySelector('.download-password-1');
-// const windowPassword1 = document.querySelector('.password-window-1');
-// const formPassword1 = document.querySelector('.password-form-1');
-// const passwordMK500 = 'pechVR';
-// const downloadContent1 = document.querySelector('.download-content-1');
-// const passwordLabel1 = document.querySelector('.password-label-1');
-// const passwordInput1 = document.querySelector('.password-input-1');
+  // Функция для получения последних данных
+  const fetchLastData = () => {
+    fetch('http://169.254.0.156:3000/last')
+      .then((response) => {
+        if (!response.ok) throw new Error('Ошибка при получении данных');
+        return response.json();
+      })
+      .then(({ value, createdAt }) => {
+        valueCell.textContent = value; // Установка значения
+        timeCell.textContent = new Date(createdAt).toLocaleString(); // Установка времени в удобном формате
+      })
+      .catch((error) => console.error('Ошибка:', error));
+  };
 
-// const downloadForm = (downloadPassword, passwordWindow, form) => {
-//   downloadPassword.addEventListener('click', (e) => {
-//     e.preventDefault();
-//     downloadPassword.classList.add('active');
-//     passwordWindow.classList.add('active');
-//     form.classList.add('active');
-//   });
-// };
+  // Получаем последние данные при загрузке страницы
+  fetchLastData();
 
-// const formValue = (content, form, passwordWindow, passwordValue, nameInput, labelbox, inputbox) => {
-//   form.addEventListener('submit', (e) => {
-//     e.preventDefault();
-//     const password = form.querySelector(`[name="password-${nameInput}"]`);
-//     const value = {
-//       password: password.value,
-//     };
-//     if (value.password === passwordValue) {
-//       passwordWindow.classList.remove('active');
-//       content.classList.add('active');
-//     } else {
-//       labelbox.classList.add('active');
-//       inputbox.classList.add('error');
-//     }
-//   });
-// };
+  form.addEventListener('submit', (event) => {
+    event.preventDefault();
 
-// downloadForm(downloadPassword1, windowPassword1, formPassword1);
-// formValue(downloadContent1, formPassword1, windowPassword1, passwordMK500, 1, passwordLabel1, passwordInput1);
+    // Получаем значение из поля ввода
+    const value = input.value.trim(); // Убираем лишние пробелы
 
-// const downloadPassword2 = document.querySelector('.download-password-2');
-// const windowPassword2 = document.querySelector('.password-window-2');
-// const formPassword2 = document.querySelector('.password-form-2');
-// const passwordDelta = 'pechVR';
-// const downloadContent2 = document.querySelector('.download-content-2');
-// const passwordLabel2 = document.querySelector('.password-label-2');
-// const passwordInput2 = document.querySelector('.password-input-2');
+    if (value) {
+      console.log('Отправленное значение:', value);
 
-// downloadForm(downloadPassword2, windowPassword2, formPassword2);
-// formValue(downloadContent2, formPassword2, windowPassword2, passwordDelta, 2, passwordLabel2, passwordInput2);
+      // Отправляем значение на сервер
+      fetch('http://169.254.0.156:3000/submit', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ value }),
+      })
+        .then((response) => {
+          if (!response.ok) throw new Error('Сетевая ошибка');
+          return response.json();
+        })
+        .then(({ value, createdAt }) => {
+          console.log('Ответ сервера:', { value, createdAt });
+
+          // Обновление значений в таблице
+          valueCell.textContent = value; // Установка значения
+          timeCell.textContent = new Date(createdAt).toLocaleString(); // Установка времени в удобном формате
+        })
+        .catch((error) => console.error('Ошибка:', error));
+    } else {
+      console.error('Введите значение');
+    }
+  });
+});

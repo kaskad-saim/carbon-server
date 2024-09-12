@@ -2023,7 +2023,7 @@ body::-webkit-scrollbar-thumb {
 }
 
 .laboratory__table--mnemo {
-  max-width: 250px;
+  max-width: 275px;
   position: absolute;
   top: 25.5%;
   left: 7.5%;

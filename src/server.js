@@ -39,11 +39,27 @@ app.post('/submit', async (req, res) => {
 
     console.log('Полученное значение:', value);
 
-    // Отправляем ответ клиенту
-    res.json({ message: 'Данные успешно получены и сохранены в базе данных', value });
+    // Отправляем ответ клиенту с значением и временем
+    res.json({ message: 'Данные успешно получены и сохранены в базе данных', value, createdAt: newData.createdAt });
   } catch (error) {
     console.error('Ошибка при сохранении данных:', error);
     res.status(500).json({ message: 'Произошла ошибка при сохранении данных' });
+  }
+});
+
+// Обработка GET-запроса на /last
+app.get('/last', async (req, res) => {
+  try {
+    // Получаем последнее значение из базы данных
+    const lastData = await DataModel.findOne().sort({ createdAt: -1 }).exec();
+    if (lastData) {
+      res.json({ value: lastData.value, createdAt: lastData.createdAt });
+    } else {
+      res.status(404).json({ message: 'Данные не найдены' });
+    }
+  } catch (error) {
+    console.error('Ошибка при получении данных:', error);
+    res.status(500).json({ message: 'Произошла ошибка при получении данных' });
   }
 });
 

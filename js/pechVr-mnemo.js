@@ -531,60 +531,58 @@ accordionTitles.forEach((title) => {
   });
 });
 
-document.addEventListener('DOMContentLoaded', () => {
-  const form = document.querySelector('.laboratory__form');
-  const input = document.getElementById('volatile-substances');
-  const timeCell = document.querySelector('.laboratory__table-td--mnemo-time'); // Ячейка для времени
-  const valueCell = document.querySelector('.laboratory__table-td--mnemo-val'); // Ячейка для значения
+const form = document.querySelector('.laboratory__form');
+const input = document.getElementById('volatile-substances');
+const timeCell = document.querySelector('.laboratory__table-td--mnemo-time'); // Ячейка для времени
+const valueCell = document.querySelector('.laboratory__table-td--mnemo-val'); // Ячейка для значения
 
-  // Функция для получения последних данных
-  const fetchLastData = () => {
-    fetch('http://169.254.0.156:3000/last')
+// Функция для получения последних данных
+const fetchLastData = () => {
+  fetch('http://169.254.0.156:3000/last')
+    .then((response) => {
+      if (!response.ok) throw new Error('Ошибка при получении данных');
+      return response.json();
+    })
+    .then(({ value, createdAt }) => {
+      valueCell.textContent = value; // Установка значения
+      timeCell.textContent = new Date(createdAt).toLocaleString(); // Установка времени в удобном формате
+    })
+    .catch((error) => console.error('Ошибка:', error));
+};
+
+// Получаем последние данные при загрузке страницы
+fetchLastData();
+
+form.addEventListener('submit', (event) => {
+  event.preventDefault();
+
+  // Получаем значение из поля ввода
+  const value = input.value.trim(); // Убираем лишние пробелы
+
+  if (value) {
+    console.log('Отправленное значение:', value);
+
+    // Отправляем значение на сервер
+    fetch('http://169.254.0.156:3000/submit', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ value }),
+    })
       .then((response) => {
-        if (!response.ok) throw new Error('Ошибка при получении данных');
+        if (!response.ok) throw new Error('Сетевая ошибка');
         return response.json();
       })
       .then(({ value, createdAt }) => {
+        console.log('Ответ сервера:', { value, createdAt });
+
+        // Обновление значений в таблице
         valueCell.textContent = value; // Установка значения
         timeCell.textContent = new Date(createdAt).toLocaleString(); // Установка времени в удобном формате
       })
       .catch((error) => console.error('Ошибка:', error));
-  };
-
-  // Получаем последние данные при загрузке страницы
-  fetchLastData();
-
-  form.addEventListener('submit', (event) => {
-    event.preventDefault();
-
-    // Получаем значение из поля ввода
-    const value = input.value.trim(); // Убираем лишние пробелы
-
-    if (value) {
-      console.log('Отправленное значение:', value);
-
-      // Отправляем значение на сервер
-      fetch('http://169.254.0.156:3000/submit', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ value }),
-      })
-        .then((response) => {
-          if (!response.ok) throw new Error('Сетевая ошибка');
-          return response.json();
-        })
-        .then(({ value, createdAt }) => {
-          console.log('Ответ сервера:', { value, createdAt });
-
-          // Обновление значений в таблице
-          valueCell.textContent = value; // Установка значения
-          timeCell.textContent = new Date(createdAt).toLocaleString(); // Установка времени в удобном формате
-        })
-        .catch((error) => console.error('Ошибка:', error));
-    } else {
-      console.error('Введите значение');
-    }
-  });
+  } else {
+    console.error('Введите значение');
+  }
 });

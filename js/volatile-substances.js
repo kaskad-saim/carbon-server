@@ -1,14 +1,12 @@
-// для лаборатории
-document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener('DOMContentLoaded', () => {
   const form = document.querySelector('.laboratory__form');
   const input = document.getElementById('volatile-substances');
 
-  form.addEventListener('submit', function (event) {
-    // Предотвращаем стандартное поведение формы
+  form.addEventListener('submit', (event) => {
     event.preventDefault();
 
     // Получаем значение из поля ввода
-    const value = input.value;
+    const value = input.value.trim(); // Убираем лишние пробелы
 
     if (value) {
       console.log('Отправленное значение:', value);
@@ -19,20 +17,14 @@ document.addEventListener('DOMContentLoaded', function () {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ value: value }),
+        body: JSON.stringify({ value }),
       })
         .then((response) => {
-          if (!response.ok) {
-            throw new Error('Сетевая ошибка');
-          }
+          if (!response.ok) throw new Error('Сетевая ошибка');
           return response.json();
         })
-        .then((data) => {
-          console.log('Ответ сервера:', data);
-        })
-        .catch((error) => {
-          console.error('Ошибка:', error);
-        });
+        .then((data) => console.log('Ответ сервера:', data))
+        .catch((error) => console.error('Ошибка:', error));
     } else {
       console.error('Введите значение');
     }

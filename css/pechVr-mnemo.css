@@ -86,6 +86,7 @@
 
 body {
   font-family: 'Bitter', sans-serif;
+  margin-left: 0;
 }
 
 body::-webkit-scrollbar {
@@ -130,6 +131,7 @@ body::-webkit-scrollbar-thumb {
 .content {
   position: relative;
   max-width: 1450px;
+  padding-left: 10px;
 }
 
 .mnemo {
@@ -1870,7 +1872,174 @@ body::-webkit-scrollbar-thumb {
   border-left: none;
 }
 
+.mnemo__modal-body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 
+.laboratory__table {
+  position: static;
+  max-width: fit-content;
+  min-width: 450px;
+}
+
+.laboratory__table-td {
+  animation-play-state: paused;
+  font-size: 16px;
+  line-height: 20px;
+}
+
+.laboratory__table-th {
+  font-size: 18px;
+  line-height: 22px;
+}
+
+.laboratory__table-title {
+  margin-top: 15px;
+  margin-bottom: 10px;
+  font-size: 24px;
+  line-height: 32px;
+  font-weight: 600;
+  color: green;
+}
+
+.laboratory__form {
+  width: 100%;
+  margin-top: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  max-width: 450px;
+}
+
+.laboratory__form-item {
+  position: relative;
+  width: 100%;
+}
+
+.laboratory__form-label {
+  font-size: 18px;
+  line-height: 24px;
+  font-weight: 600;
+  color: green;
+}
+
+.laboratory__form-input {
+  margin-top: 5px;
+  display: block;
+  width: 100%;
+  height: 35px;
+  padding: 4px 10px;
+  font-size: 14px;
+  font-weight: 400;
+  color: #212529;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid grey;
+  transition: border .3s ease-in-out, box-shadow .3s ease-in-out;
+}
+
+.laboratory__form-error {
+  display: none;
+  position: absolute;
+  bottom: -15px;
+  left: 0;
+  z-index: 1;
+  font-size: 12px;
+  line-height: 12px;
+  font-weight: 600;
+  color: red;
+  font-style: italic;
+}
+
+.laboratory__form-input.error {
+  border: 1px solid red;
+  box-shadow: 0 0 0 0.2rem rgba(255, 69, 58, 0.25);
+}
+
+.laboratory__form-error.active {
+  display: block;
+}
+
+.laboratory__form-input[type="number"]::-webkit-outer-spin-button,
+.laboratory__form-input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+
+.laboratory__form-input::placeholder {
+  font-family: 'Bitter', sans-serif;
+  color: grey;
+}
+
+.laboratory__form-input:hover {
+  border: 1px solid green;
+  outline: 0;
+  box-shadow: 0 0 0 0.2rem rgba(61, 158, 107, 0.25);
+}
+
+.laboratory__form-input:active {
+  border: 1px solid green;
+  outline: 0;
+  box-shadow: 0 0 0 0.2rem rgba(61, 158, 107, 0.25);
+}
+
+.laboratory__form-input:focus {
+  color: #212529;
+  background-color: #fff;
+  border: 1px solid green;
+  outline: 0;
+  box-shadow: 0 0 0 0.2rem rgba(61, 158, 107, 0.25);
+}
+
+.laboratory__form-input:disabled {
+  background-color: #f5f5f5;
+  opacity: 1;
+}
+
+.laboratory__form-btn {
+  margin-left: 10px;
+  height: 35px;
+  padding: 5px 30px;
+  font-size: 16px;
+  line-height: 22px;
+  font-weight: 600;
+  background-color: white;
+  color: green;
+  border: 1px solid green;
+  transition: color .3s ease-in-out, background-color .3s ease-in-out;
+}
+
+.laboratory__form-btn:hover {
+  color: white;
+  background-color: green;
+}
+
+.laboratory__descr {
+  font-size: 16px;
+  line-height: 22px;
+  font-weight: 400;
+  color: black;
+}
+
+.laboratory__table--mnemo {
+  max-width: 250px;
+  position: absolute;
+  top: 25.5%;
+  left: 7.5%;
+  z-index: 1;
+}
+
+.laboratory__table-td--mnemo {
+  animation-play-state: paused;
+  font-size: 12px;
+  line-height: 16px;
+}
+
+.laboratory__table-th--mnemo {
+  font-size: 14px;
+  line-height: 19px;
+}
 
 @media (max-width: 1280px) {
   .mnemo {
@@ -2201,5 +2370,9 @@ body::-webkit-scrollbar-thumb {
   .mnemo__modal-box--btn {
     font-size: 14px;
     line-height: 19px;
+  }
+
+  .laboratory__table--mnemo {
+    max-width: 250px;
   }
 }

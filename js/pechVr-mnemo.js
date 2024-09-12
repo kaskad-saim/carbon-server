@@ -30,7 +30,7 @@ const animationPaused = (param) => {
 };
 
 //табличка с параметрами которые не соответствуют тoifребованиям
-const tableTbody = document.querySelector('.table__tbody');
+const tableTbody = document.querySelector('.table__tbody-params');
 
 const addRowIfRunning = (param, description) => {
   if (param.style.animationPlayState === 'running') {
@@ -470,9 +470,7 @@ hoverNoneBtn.addEventListener('click', () => {
   toggleBtnText();
 });
 
-
 // --------------------Модальное окно--------------------
-// Открытие модального окна
 const openModal = (modalId) => {
   const modal = document.getElementById(modalId);
   if (modal) {
@@ -480,7 +478,6 @@ const openModal = (modalId) => {
   }
 };
 
-// Закрытие модального окна
 const closeModal = (modalId) => {
   const modal = document.getElementById(modalId);
   if (modal) {
@@ -583,9 +580,3 @@ accordionTitles.forEach((title) => {
 
 // downloadForm(downloadPassword2, windowPassword2, formPassword2);
 // formValue(downloadContent2, formPassword2, windowPassword2, passwordDelta, 2, passwordLabel2, passwordInput2);
-
-
-
-
-
-// для лаборатории

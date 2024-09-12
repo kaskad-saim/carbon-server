@@ -535,6 +535,7 @@ const form = document.querySelector('.laboratory__form');
 const input = document.getElementById('volatile-substances');
 const timeCell = document.querySelector('.laboratory__table-td--mnemo-time'); // Ячейка для времени
 const valueCell = document.querySelector('.laboratory__table-td--mnemo-val'); // Ячейка для значения
+const errorSpan = document.querySelector('.laboratory__form-error'); // Спан для ошибок
 
 // Функция для получения последних данных
 const fetchLastData = () => {
@@ -544,10 +545,20 @@ const fetchLastData = () => {
       return response.json();
     })
     .then(({ value, createdAt }) => {
-      valueCell.textContent = value; // Установка значения
-      timeCell.textContent = new Date(createdAt).toLocaleString(); // Установка времени в удобном формате
+      // Проверка на наличие данных
+      if (value !== undefined && createdAt !== undefined) {
+        valueCell.textContent = value; // Установка значения
+        timeCell.textContent = new Date(createdAt).toLocaleString(); // Установка времени в удобном формате
+      } else {
+        valueCell.textContent = 'Нет данных';
+        timeCell.textContent = 'Нет данных';
+      }
     })
-    .catch((error) => console.error('Ошибка:', error));
+    .catch((error) => {
+      console.error('Ошибка:', error);
+      valueCell.textContent = 'Нет данных';
+      timeCell.textContent = 'Нет данных';
+    });
 };
 
 // Получаем последние данные при загрузке страницы
@@ -557,32 +568,56 @@ form.addEventListener('submit', (event) => {
   event.preventDefault();
 
   // Получаем значение из поля ввода
-  const value = input.value.trim(); // Убираем лишние пробелы
+  let value = input.value.trim(); // Убираем лишние пробелы
 
-  if (value) {
-    console.log('Отправленное значение:', value);
-
-    // Отправляем значение на сервер
-    fetch('http://169.254.0.156:3000/submit', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({ value }),
-    })
-      .then((response) => {
-        if (!response.ok) throw new Error('Сетевая ошибка');
-        return response.json();
-      })
-      .then(({ value, createdAt }) => {
-        console.log('Ответ сервера:', { value, createdAt });
-
-        // Обновление значений в таблице
-        valueCell.textContent = value; // Установка значения
-        timeCell.textContent = new Date(createdAt).toLocaleString(); // Установка времени в удобном формате
-      })
-      .catch((error) => console.error('Ошибка:', error));
-  } else {
-    console.error('Введите значение');
+  // Проверка на пустое значение
+  if (!value) {
+    errorSpan.textContent = 'Введите значение';
+    errorSpan.classList.add('active');
+    input.classList.add('error');
+    return; // Прерываем выполнение
   }
+
+  // Заменяем запятую на точку для корректного десятичного значения
+  value = value.replace(',', '.');
+
+  // Проверка на корректный ввод (число)
+  if (isNaN(value)) {
+    errorSpan.textContent = 'Некорректный ввод';
+    errorSpan.classList.add('active');
+    input.classList.add('error');
+    return; // Прерываем выполнение
+  }
+
+  // Очистка сообщений об ошибках при корректном вводе
+  errorSpan.textContent = '';
+  errorSpan.classList.remove('active');
+  input.classList.remove('error');
+
+  // Если всё в порядке, отправляем значение на сервер
+  console.log('Отправленное значение:', value);
+  fetch('http://169.254.0.156:3000/submit', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({ value }),
+  })
+    .then((response) => {
+      if (!response.ok) throw new Error('Сетевая ошибка');
+      return response.json();
+    })
+    .then(({ value, createdAt }) => {
+      console.log('Ответ сервера:', { value, createdAt });
+
+      // Обновление значений в таблице
+      if (value !== undefined && createdAt !== undefined) {
+        valueCell.textContent = value; // Установка значения
+        timeCell.textContent = new Date(createdAt).toLocaleString(); // Установка времени
+      }
+      closeModal('lab-modal'); // Закрываем модалку
+    })
+    .catch((error) => {
+      console.error('Ошибка:', error);
+    });
 });

@@ -558,6 +558,13 @@ const fetchLastData = () => {
       console.error('Ошибка:', error);
       valueCell.textContent = 'Нет данных';
       timeCell.textContent = 'Нет данных';
+
+      // Если нет связи с сервером, блокируем ввод
+      if (error.message.includes('Failed to fetch')) {
+        input.setAttribute('readonly', true);
+        errorSpan.textContent = 'Нет связи с сервером';
+        errorSpan.classList.add('active');
+      }
     });
 };
 
@@ -619,5 +626,15 @@ form.addEventListener('submit', (event) => {
     })
     .catch((error) => {
       console.error('Ошибка:', error);
+
+      // Если это ошибка сети, то выводим сообщение
+      if (error.message.includes('Failed to fetch')) {
+        errorSpan.textContent = 'Нет связи с сервером';
+        errorSpan.classList.add('active');
+        input.setAttribute('readonly', true); // Блокируем ввод
+      } else {
+        errorSpan.textContent = 'Ошибка при отправке данных';
+        errorSpan.classList.add('active');
+      }
     });
 });

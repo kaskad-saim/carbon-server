@@ -533,6 +533,7 @@ accordionTitles.forEach((title) => {
 
 const form = document.querySelector('.laboratory__form');
 const input = document.getElementById('volatile-substances');
+const passwordInput = document.querySelector('#volatile-substances-password');
 const timeCell = document.querySelector('.laboratory__table-td--mnemo-time'); // Ячейка для времени
 const valueCell = document.querySelector('.laboratory__table-td--mnemo-val'); // Ячейка для значения
 const errorSpan = document.querySelector('.laboratory__form-error'); // Спан для ошибок
@@ -568,77 +569,6 @@ const fetchLastData = () => {
     });
 };
 
-// Получаем последние данные при загрузке страницы
-fetchLastData();
-
-form.addEventListener('submit', (event) => {
-  event.preventDefault();
-
-  // Получаем значение из поля ввода
-  let value = input.value.trim(); // Убираем лишние пробелы
-
-  // Проверка на пустое значение
-  if (!value) {
-    errorSpan.textContent = 'Введите значение';
-    errorSpan.classList.add('active');
-    input.classList.add('error');
-    return; // Прерываем выполнение
-  }
-
-  // Заменяем запятую на точку для корректного десятичного значения
-  value = value.replace(',', '.');
-
-  // Проверка на корректный ввод (число)
-  if (isNaN(value)) {
-    errorSpan.textContent = 'Некорректный ввод';
-    errorSpan.classList.add('active');
-    input.classList.add('error');
-    return; // Прерываем выполнение
-  }
-
-  // Очистка сообщений об ошибках при корректном вводе
-  errorSpan.textContent = '';
-  errorSpan.classList.remove('active');
-  input.classList.remove('error');
-
-  // Если всё в порядке, отправляем значение на сервер
-  console.log('Отправленное значение:', value);
-  fetch('http://169.254.0.156:3000/submit', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify({ value }),
-  })
-    .then((response) => {
-      if (!response.ok) throw new Error('Сетевая ошибка');
-      return response.json();
-    })
-    .then(({ value, createdAt }) => {
-      console.log('Ответ сервера:', { value, createdAt });
-
-      // Обновление значений в таблице
-      if (value !== undefined && createdAt !== undefined) {
-        valueCell.textContent = value; // Установка значения
-        timeCell.textContent = new Date(createdAt).toLocaleString(); // Установка времени
-      }
-      closeModal('lab-modal'); // Закрываем модалку
-    })
-    .catch((error) => {
-      console.error('Ошибка:', error);
-
-      // Если это ошибка сети, то выводим сообщение
-      if (error.message.includes('Failed to fetch')) {
-        errorSpan.textContent = 'Нет связи с сервером';
-        errorSpan.classList.add('active');
-        input.setAttribute('readonly', true); // Блокируем ввод
-      } else {
-        errorSpan.textContent = 'Ошибка при отправке данных';
-        errorSpan.classList.add('active');
-      }
-    });
-});
-
 const tableBody = document.querySelector('.table__tbody');
 
 // Получение текущей даты и времени
@@ -656,10 +586,12 @@ const fetchLastDayData = () => {
       tableBody.innerHTML = '';
 
       // Фильтрация и сортировка данных
-      const filteredData = data.filter(item => {
-        const itemTime = new Date(item.createdAt);
-        return itemTime >= new Date(now.getTime() - (24 * 60 * 60 * 1000));
-      }).sort((a, b) => new Date(a.createdAt) - new Date(b.createdAt)); // Сортировка по времени (старые записи вверху)
+      const filteredData = data
+        .filter((item) => {
+          const itemTime = new Date(item.createdAt);
+          return itemTime >= new Date(now.getTime() - 24 * 60 * 60 * 1000);
+        })
+        .sort((a, b) => new Date(a.createdAt) - new Date(b.createdAt)); // Сортировка по времени (старые записи вверху)
 
       // Обновление таблицы с новыми данными
       filteredData.forEach((item) => {
@@ -690,5 +622,96 @@ const fetchLastDayData = () => {
     });
 };
 
+form.addEventListener('submit', (event) => {
+  event.preventDefault();
+
+  // Получаем значения из полей ввода
+  let value = input.value.trim(); // Убираем лишние пробелы
+  let password = passwordInput.value.trim();
+
+  // Проверка на пустое значение в поле "летучие вещества"
+  if (!value) {
+    errorSpan.textContent = 'Введите значение';
+    errorSpan.classList.add('active');
+    input.classList.add('error');
+    return; // Прерываем выполнение
+  }
+
+  // Проверка на пустое значение в поле "пароль"
+  if (password !== '123') {
+    errorSpan.textContent = 'Неверный пароль';
+    errorSpan.classList.add('active');
+    passwordInput.classList.add('error');
+    return; // Прерываем выполнение
+  }
+
+  // Заменяем запятую на точку для корректного десятичного значения
+  value = value.replace(',', '.');
+
+  // Проверка на корректный ввод (число)
+  if (isNaN(value)) {
+    errorSpan.textContent = 'Некорректный ввод';
+    errorSpan.classList.add('active');
+    input.classList.add('error');
+    return; // Прерываем выполнение
+  }
+
+  // Очистка сообщений об ошибках при корректном вводе
+  errorSpan.textContent = '';
+  errorSpan.classList.remove('active');
+  input.classList.remove('error');
+  passwordInput.classList.remove('error');
+
+  // Если всё в порядке, отправляем значение на сервер
+  console.log('Отправленное значение:', value);
+  fetch('http://169.254.0.156:3000/submit', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({ value }),
+  })
+    .then((response) => {
+      if (!response.ok) throw new Error('Сетевая ошибка');
+      return response.json();
+    })
+    .then(({ value, createdAt }) => {
+      console.log('Ответ сервера:', { value, createdAt });
+
+      // Очистка полей ввода
+      input.value = '';
+      passwordInput.value = '';
+      errorSpan.textContent = '';
+      errorSpan.classList.remove('active');
+      input.classList.remove('error');
+      passwordInput.classList.remove('error');
+
+      // Обновление значений в таблице
+      if (value !== undefined && createdAt !== undefined) {
+        valueCell.textContent = value; // Установка значения
+        timeCell.textContent = new Date(createdAt).toLocaleString(); // Установка времени
+      }
+      // Вызов функции для обновления данных за последние сутки
+      fetchLastDayData();
+      closeModal('lab-modal'); // Закрываем модалку
+    })
+    .catch((error) => {
+      console.error('Ошибка:', error);
+
+      // Если это ошибка сети, то выводим сообщение
+      if (error.message.includes('Failed to fetch')) {
+        errorSpan.textContent = 'Нет связи с сервером';
+        errorSpan.classList.add('active');
+        input.setAttribute('readonly', true); // Блокируем ввод
+      } else {
+        errorSpan.textContent = 'Ошибка при отправке данных';
+        errorSpan.classList.add('active');
+      }
+    });
+});
+
 // Вызов функции для получения данных при загрузке страницы
 fetchLastDayData();
+
+// Получаем последние данные при загрузке страницы
+fetchLastData();

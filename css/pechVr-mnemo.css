@@ -128,6 +128,10 @@ body::-webkit-scrollbar-thumb {
   border-image: initial;
 }
 
+.descr-reset {
+  margin: 0;
+}
+
 .content {
   position: relative;
   max-width: 1450px;
@@ -1876,12 +1880,15 @@ body::-webkit-scrollbar-thumb {
   display: flex;
   flex-direction: column;
   align-items: center;
+  max-height: 400px;
+  overflow-y: auto;
 }
 
 .laboratory__table {
   position: static;
   max-width: fit-content;
   min-width: 450px;
+
 }
 
 .laboratory__table-td {
@@ -1918,9 +1925,13 @@ body::-webkit-scrollbar-thumb {
   width: 100%;
 }
 
+.laboratory__form-item:first-child {
+  margin-right: 10px;
+}
+
 .laboratory__form-label {
-  font-size: 18px;
-  line-height: 24px;
+  font-size: 14px;
+  line-height: 18px;
   font-weight: 600;
   color: green;
 }
@@ -1929,7 +1940,7 @@ body::-webkit-scrollbar-thumb {
   margin-top: 5px;
   display: block;
   width: 100%;
-  height: 35px;
+  height: 25px;
   padding: 4px 10px;
   font-size: 14px;
   font-weight: 400;
@@ -1999,10 +2010,10 @@ body::-webkit-scrollbar-thumb {
 
 .laboratory__form-btn {
   margin-left: 10px;
-  height: 35px;
-  padding: 5px 30px;
-  font-size: 16px;
-  line-height: 22px;
+  height: 25px;
+  padding: 2px 10px;
+  font-size: 14px;
+  line-height: 18px;
   font-weight: 600;
   background-color: white;
   color: green;
@@ -2016,6 +2027,7 @@ body::-webkit-scrollbar-thumb {
 }
 
 .laboratory__descr {
+  margin-top: 10px;
   font-size: 16px;
   line-height: 22px;
   font-weight: 400;

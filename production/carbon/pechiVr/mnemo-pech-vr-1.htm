@@ -32,37 +32,37 @@
           </button>
         </div>
         <div class="mnemo__modal-body">
+          <p class="laboratory__descr descr-reset">
+            Введите значение которое хотите записать в базу данных и нажмите кнопку <strong>Принять</strong>.
+          </p>
+          <form class="laboratory__form">
+            <div class="laboratory__form-item">
+              <label class="laboratory__form-label" for="volatile-substances">Летучие в-ва </label>
+              <input class="laboratory__form-input" type="text" id="volatile-substances">
+              <span class="laboratory__form-error" id="error-volatile-substances"></span>
+            </div>
+            <div class="laboratory__form-item">
+              <label class="laboratory__form-label" for="volatile-substances-password">Пароль </label>
+              <input class="laboratory__form-input" type="password" id="volatile-substances-password">
+              <span class="laboratory__form-error" id="error-volatile-substances"></span>
+            </div>
+            <button class="laboratory__form-btn btn-reset" type="submit">Принять</button>
+          </form>
           <table class="table laboratory__table">
             <caption class="table__title laboratory__table-title">Значения за последние сутки</caption>
-            <thead class="table__thead">
+            <thead class="table__thead laboratory__table-thead">
               <tr class="table__tr">
                 <th class="table__th laboratory__table-th table__left">Дата/время</th>
                 <th class="table__th laboratory__table-th ">Летучие вещества</th>
               </tr>
             </thead>
-            <tbody class="table__tbody">
-              <tr class="table__tr">
-                <td class="table__td laboratory__table-td laboratory__table-td--time table__left">11.09.2024 14:00</td>
-                <td class="table__td laboratory__table-td laboratory__table-td--val table__right">8.7</td>
-              </tr>
-              <tr class="table__tr">
-                <td class="table__td laboratory__table-td laboratory__table-td--time table__left">11.09.2024 14:00</td>
-                <td class="table__td laboratory__table-td laboratory__table-td--val table__right">8.7</td>
-              </tr>
+            <tbody class="table__tbody laboratory__table-tbody">
+
             </tbody>
           </table>
-          <form class="laboratory__form">
-            <div class="laboratory__form-item">
-              <label class="laboratory__form-label" for="volatile-substances">Летучие вещества </label>
-              <input class="laboratory__form-input" type="text" id="volatile-substances" placeholder="Введите значение">
-              <span class="laboratory__form-error"></span>
-            </div>
-            <button class="laboratory__form-btn btn-reset" type="submit">Принять</button>
-          </form>
-          <p class="laboratory__descr descr-reset">
-            Введите значение которое хотите записать в базу данных и нажмите кнопку <strong>Принять</strong>. <br> В
-            таблице указаны последние записанные значения за сутки.
-          </p>
+
+
+
         </div>
         <div>
 

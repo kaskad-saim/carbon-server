@@ -538,88 +538,80 @@ const timeCell = document.querySelector('.laboratory__table-td--mnemo-time'); //
 const valueCell = document.querySelector('.laboratory__table-td--mnemo-val'); // Ячейка для значения
 const errorSpan = document.querySelector('.laboratory__form-error'); // Спан для ошибок
 
-// Функция для получения последних данных
-const fetchLastData = () => {
-  fetch('http://169.254.0.156:3000/last')
-    .then((response) => {
-      if (!response.ok) throw new Error('Ошибка при получении данных');
-      return response.json();
-    })
-    .then(({ value, createdAt }) => {
-      // Проверка на наличие данных
-      if (value !== undefined && createdAt !== undefined) {
-        valueCell.textContent = value; // Установка значения
-        timeCell.textContent = new Date(createdAt).toLocaleString(); // Установка времени в удобном формате
-      } else {
-        valueCell.textContent = 'Нет данных';
-        timeCell.textContent = 'Нет данных';
-      }
-    })
-    .catch((error) => {
-      console.error('Ошибка:', error);
-      valueCell.textContent = 'Нет данных';
-      timeCell.textContent = 'Нет данных';
+// Функция для выполнения запроса и обработки данных
+const fetchData = async (url) => {
+  try {
+    const response = await fetch(url);
+    if (!response.ok) throw new Error('Ошибка при получении данных');
+    return await response.json();
+  } catch (error) {
+    console.error('Ошибка:', error);
+    return null; // Возвращаем null в случае ошибки
+  }
+};
 
-      // Если нет связи с сервером, блокируем ввод
-      if (error.message.includes('Failed to fetch')) {
-        input.setAttribute('readonly', true);
-        errorSpan.textContent = 'Нет связи с сервером';
-        errorSpan.classList.add('active');
-      }
-    });
+// Установка данных в ячейки
+const setCellData = (valueCell, timeCell, value, createdAt) => {
+  if (value !== undefined && createdAt !== undefined) {
+    valueCell.textContent = value;
+    timeCell.textContent = new Date(createdAt).toLocaleString();
+  } else {
+    valueCell.textContent = 'Нет данных';
+    timeCell.textContent = 'Нет данных';
+  }
+};
+
+// Функция для получения последних данных
+const fetchLastData = async () => {
+  const data = await fetchData('http://169.254.0.156:3000/last');
+  setCellData(valueCell, timeCell, data?.value, data?.createdAt);
+
+  // Блокировка ввода и отображение ошибки при отсутствии связи с сервером
+  if (!data && error.message.includes('Failed to fetch')) {
+    input.setAttribute('readonly', true);
+    errorSpan.textContent = 'Нет связи с сервером';
+    errorSpan.classList.add('active');
+  }
 };
 
 const tableBody = document.querySelector('.table__tbody');
-
-// Получение текущей даты и времени
 const now = new Date();
 
 // Функция для получения данных за последние 24 часа и обновления таблицы
-const fetchLastDayData = () => {
-  fetch('http://169.254.0.156:3000/last-day')
-    .then((response) => {
-      if (!response.ok) throw new Error('Ошибка при получении данных');
-      return response.json();
-    })
-    .then((data) => {
-      // Очистка текущего содержимого таблицы
-      tableBody.innerHTML = '';
+const fetchLastDayData = async () => {
+  const data = await fetchData('http://169.254.0.156:3000/last-day');
 
-      // Фильтрация и сортировка данных
-      const filteredData = data
-        .filter((item) => {
-          const itemTime = new Date(item.createdAt);
-          return itemTime >= new Date(now.getTime() - 24 * 60 * 60 * 1000);
-        })
-        .sort((a, b) => new Date(a.createdAt) - new Date(b.createdAt)); // Сортировка по времени (старые записи вверху)
+  if (data) {
+    // Очистка текущего содержимого таблицы
+    tableBody.innerHTML = '';
 
-      // Обновление таблицы с новыми данными
-      filteredData.forEach((item) => {
+    const filteredData = data
+      .filter((item) => {
         const itemTime = new Date(item.createdAt);
+        return itemTime >= new Date(now.getTime() - 24 * 60 * 60 * 1000);
+      })
+      .sort((a, b) => new Date(a.createdAt) - new Date(b.createdAt));
 
-        const row = document.createElement('tr');
-        row.classList.add('table__tr');
+    // Обновление таблицы с новыми данными
+    filteredData.forEach((item) => {
+      const row = document.createElement('tr');
+      row.classList.add('table__tr');
 
-        // Создание ячейки для времени
-        const timeCell = document.createElement('td');
-        timeCell.classList.add('table__td', 'laboratory__table-td', 'laboratory__table-td--time', 'table__left');
-        timeCell.textContent = itemTime.toLocaleString();
-        row.appendChild(timeCell);
+      const timeCell = document.createElement('td');
+      timeCell.classList.add('table__td', 'laboratory__table-td', 'laboratory__table-td--time', 'table__left');
+      timeCell.textContent = new Date(item.createdAt).toLocaleString();
+      row.appendChild(timeCell);
 
-        // Создание ячейки для значения
-        const valueCell = document.createElement('td');
-        valueCell.classList.add('table__td', 'laboratory__table-td', 'laboratory__table-td--val', 'table__right');
-        valueCell.textContent = item.value;
-        row.appendChild(valueCell);
+      const valueCell = document.createElement('td');
+      valueCell.classList.add('table__td', 'laboratory__table-td', 'laboratory__table-td--val', 'table__right');
+      valueCell.textContent = item.value;
+      row.appendChild(valueCell);
 
-        // Добавление строки в таблицу
-        tableBody.appendChild(row);
-      });
-    })
-    .catch((error) => {
-      console.error('Ошибка:', error);
-      // Обработка ошибок при получении данных
+      tableBody.appendChild(row);
     });
+  } else {
+    console.error('Ошибка получения данных за последние 24 часа');
+  }
 };
 
 form.addEventListener('submit', (event) => {
@@ -629,46 +621,56 @@ form.addEventListener('submit', (event) => {
   let value = input.value.trim(); // Убираем лишние пробелы
   let password = passwordInput.value.trim();
 
+  // Получаем спаны для ошибок
+  const errorSpanValue = document.getElementById('error-volatile-substances');
+  const errorSpanPassword = document.getElementById('error-volatile-substances-password');
+
+  // Функция для отображения ошибок
+  const showError = (inputElement, errorSpan, message) => {
+    errorSpan.textContent = message;
+    errorSpan.classList.add('active');
+    inputElement.classList.add('error');
+  };
+
+  // Функция для очистки ошибок
+  const clearErrors = () => {
+    errorSpanValue.textContent = '';
+    errorSpanValue.classList.remove('active');
+    input.classList.remove('error');
+    errorSpanPassword.textContent = '';
+    errorSpanPassword.classList.remove('active');
+    passwordInput.classList.remove('error');
+  };
+
+  // Очистка ошибок перед новой проверкой
+  clearErrors();
+
   // Проверка на пустое значение в поле "летучие вещества"
   if (!value) {
-    errorSpan.textContent = 'Введите значение';
-    errorSpan.classList.add('active');
-    input.classList.add('error');
-    return; // Прерываем выполнение
-  }
-
-  // Проверка на пустое значение в поле "пароль"
-  if (password !== '123') {
-    errorSpan.textContent = 'Неверный пароль';
-    errorSpan.classList.add('active');
-    passwordInput.classList.add('error');
+    showError(input, errorSpanValue, 'Введите значение');
     return; // Прерываем выполнение
   }
 
   // Заменяем запятую на точку для корректного десятичного значения
   value = value.replace(',', '.');
 
-  // Проверка на корректный ввод (число)
-  if (isNaN(value)) {
-    errorSpan.textContent = 'Некорректный ввод';
-    errorSpan.classList.add('active');
-    input.classList.add('error');
+  // Проверка на корректный ввод (число) и диапазон от 0 до 16
+  if (isNaN(value) || value < 0 || value > 16) {
+    showError(input, errorSpanValue, 'Введите число от 0 до 16');
     return; // Прерываем выполнение
   }
 
-  // Очистка сообщений об ошибках при корректном вводе
-  errorSpan.textContent = '';
-  errorSpan.classList.remove('active');
-  input.classList.remove('error');
-  passwordInput.classList.remove('error');
+  // Проверка на неверный пароль
+  if (password !== '123') {
+    showError(passwordInput, errorSpanPassword, 'Неверный пароль');
+    return; // Прерываем выполнение
+  }
 
   // Если всё в порядке, отправляем значение на сервер
   console.log('Отправленное значение:', value);
   fetch('http://169.254.0.156:3000/submit', {
     method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-    },
+    headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ value }),
   })
     .then((response) => {
@@ -677,35 +679,27 @@ form.addEventListener('submit', (event) => {
     })
     .then(({ value, createdAt }) => {
       console.log('Ответ сервера:', { value, createdAt });
-
       // Очистка полей ввода
       input.value = '';
       passwordInput.value = '';
-      errorSpan.textContent = '';
-      errorSpan.classList.remove('active');
-      input.classList.remove('error');
-      passwordInput.classList.remove('error');
+      clearErrors(); // Очищаем ошибки
 
       // Обновление значений в таблице
       if (value !== undefined && createdAt !== undefined) {
-        valueCell.textContent = value; // Установка значения
-        timeCell.textContent = new Date(createdAt).toLocaleString(); // Установка времени
+        valueCell.textContent = value;
+        timeCell.textContent = new Date(createdAt).toLocaleString();
       }
-      // Вызов функции для обновления данных за последние сутки
-      fetchLastDayData();
+      fetchLastDayData(); // Вызов функции для обновления данных за последние сутки
       closeModal('lab-modal'); // Закрываем модалку
     })
     .catch((error) => {
       console.error('Ошибка:', error);
-
       // Если это ошибка сети, то выводим сообщение
       if (error.message.includes('Failed to fetch')) {
-        errorSpan.textContent = 'Нет связи с сервером';
-        errorSpan.classList.add('active');
+        showError(input, errorSpanValue, 'Нет связи с сервером');
         input.setAttribute('readonly', true); // Блокируем ввод
       } else {
-        errorSpan.textContent = 'Ошибка при отправке данных';
-        errorSpan.classList.add('active');
+        showError(input, errorSpanValue, 'Ошибка при отправке данных');
       }
     });
 });

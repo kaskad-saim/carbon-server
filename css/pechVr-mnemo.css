@@ -2027,7 +2027,9 @@ body::-webkit-scrollbar-thumb {
 }
 
 .laboratory__descr {
+  max-width: 450px;
   margin-top: 10px;
+  text-align: center;
   font-size: 16px;
   line-height: 22px;
   font-weight: 400;
@@ -2035,7 +2037,7 @@ body::-webkit-scrollbar-thumb {
 }
 
 .laboratory__table--mnemo {
-  max-width: 275px;
+  max-width: 280px;
   position: absolute;
   top: 25.5%;
   left: 7.5%;
@@ -2394,7 +2396,7 @@ body::-webkit-scrollbar-thumb {
   }
 
   .laboratory__table--mnemo {
-    max-width: 275px;
+    max-width: 280px;
   }
 
   .laboratory__table-th--mnemo {

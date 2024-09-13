@@ -11,7 +11,6 @@
 <#Refresh Content=60>
 
   <body>
-
     <!-- модалка для лаборатории -->
     <div class="mnemo__modal-background modal-js" id="lab-modal">
       <div class="mnemo__modal-active">
@@ -53,7 +52,7 @@
             <thead class="table__thead laboratory__table-thead">
               <tr class="table__tr">
                 <th class="table__th laboratory__table-th table__left">Дата/время</th>
-                <th class="table__th laboratory__table-th ">Летучие вещества</th>
+                <th class="table__th laboratory__table-th ">Летучие вещества, %</th>
               </tr>
             </thead>
             <tbody class="table__tbody laboratory__table-tbody">
@@ -259,7 +258,7 @@
           <thead class="table__thead">
             <tr class="table__tr">
               <th class="table__th laboratory__table-th--mnemo table__left">Дата/время</th>
-              <th class="table__th laboratory__table-th--mnemo ">Летучие в-ва</th>
+              <th class="table__th laboratory__table-th--mnemo ">Летучие в-ва, %</th>
             </tr>
           </thead>
           <tbody class="table__tbody">
@@ -1017,8 +1016,14 @@
     </div>
 
 
-    <script src="../js/levels.js"></script>
-    <script src="../js/pechVr-mnemo.js"></script>
+    <script src="../js/pechiVr/components/levels.js"></script>
+    <script src="../js/pechiVr/components/accordion.js"></script>
+    <script src="../js/pechiVr/components/tooltips.js"></script>
+    <script src="../js/pechiVr/components/ventilator.js"></script>
+    <script src="../js/pechiVr/components/im.js"></script>
+    <script type="module" src="../js/pechiVr/components/modal.js"></script>
+    <script type="module" src="../js/pechiVr/laboratory.js"></script>
+    <script type="module" src="../js/pechiVr/pechVr-mnemo.js"></script>
   </body>
 
 </html>

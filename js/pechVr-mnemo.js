@@ -638,3 +638,57 @@ form.addEventListener('submit', (event) => {
       }
     });
 });
+
+const tableBody = document.querySelector('.table__tbody');
+
+// Получение текущей даты и времени
+const now = new Date();
+
+// Функция для получения данных за последние 24 часа и обновления таблицы
+const fetchLastDayData = () => {
+  fetch('http://169.254.0.156:3000/last-day')
+    .then((response) => {
+      if (!response.ok) throw new Error('Ошибка при получении данных');
+      return response.json();
+    })
+    .then((data) => {
+      // Очистка текущего содержимого таблицы
+      tableBody.innerHTML = '';
+
+      // Фильтрация и сортировка данных
+      const filteredData = data.filter(item => {
+        const itemTime = new Date(item.createdAt);
+        return itemTime >= new Date(now.getTime() - (24 * 60 * 60 * 1000));
+      }).sort((a, b) => new Date(a.createdAt) - new Date(b.createdAt)); // Сортировка по времени (старые записи вверху)
+
+      // Обновление таблицы с новыми данными
+      filteredData.forEach((item) => {
+        const itemTime = new Date(item.createdAt);
+
+        const row = document.createElement('tr');
+        row.classList.add('table__tr');
+
+        // Создание ячейки для времени
+        const timeCell = document.createElement('td');
+        timeCell.classList.add('table__td', 'laboratory__table-td', 'laboratory__table-td--time', 'table__left');
+        timeCell.textContent = itemTime.toLocaleString();
+        row.appendChild(timeCell);
+
+        // Создание ячейки для значения
+        const valueCell = document.createElement('td');
+        valueCell.classList.add('table__td', 'laboratory__table-td', 'laboratory__table-td--val', 'table__right');
+        valueCell.textContent = item.value;
+        row.appendChild(valueCell);
+
+        // Добавление строки в таблицу
+        tableBody.appendChild(row);
+      });
+    })
+    .catch((error) => {
+      console.error('Ошибка:', error);
+      // Обработка ошибок при получении данных
+    });
+};
+
+// Вызов функции для получения данных при загрузке страницы
+fetchLastDayData();

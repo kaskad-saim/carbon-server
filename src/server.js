@@ -63,6 +63,28 @@ app.get('/last', async (req, res) => {
   }
 });
 
+// Обработка GET-запроса на /last-day для получения данных за последние 24 часа
+app.get('/last-day', async (req, res) => {
+  const now = new Date(); // Текущая дата и время
+  const twentyFourHoursAgo = new Date(now.getTime() - (24 * 60 * 60 * 1000)); // Дата 24 часа назад
+
+  try {
+    // Получаем все записи, сделанные за последние 24 часа
+    const lastDayData = await DataModel.find({
+      createdAt: { $gte: twentyFourHoursAgo } // Фильтруем записи по дате
+    }).sort({ createdAt: -1 }).exec();
+
+    if (lastDayData.length > 0) {
+      res.json(lastDayData); // Отправляем массив записей клиенту
+    } else {
+      res.status(404).json({ message: 'Данные не найдены за последние сутки' });
+    }
+  } catch (error) {
+    console.error('Ошибка при получении данных:', error);
+    res.status(500).json({ message: 'Произошла ошибка при получении данных' });
+  }
+});
+
 // Запуск сервера
 app.listen(PORT, () => {
   console.log(`Сервер запущен на http://localhost:${PORT}`);

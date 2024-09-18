@@ -41,6 +41,11 @@
               <span class="laboratory__form-error" id="error-volatile-substances"></span>
             </div>
             <div class="laboratory__form-item">
+              <label class="laboratory__form-label" for="input-time">Время</label>
+              <input class="laboratory__form-input" type="time" id="input-time">
+              <span class="laboratory__form-error" id="error-input-time"></span>
+            </div>
+            <div class="laboratory__form-item">
               <label class="laboratory__form-label" for="volatile-substances-password">Пароль </label>
               <input class="laboratory__form-input" type="password" id="volatile-substances-password">
               <span class="laboratory__form-error" id="error-volatile-substances-password"></span>
@@ -51,7 +56,7 @@
             <caption class="table__title laboratory__table-title">Значения за последние сутки</caption>
             <thead class="table__thead laboratory__table-thead">
               <tr class="table__tr">
-                <th class="table__th laboratory__table-th table__left">Дата/время</th>
+                <th class="table__th laboratory__table-th table__left">Время</th>
                 <th class="table__th laboratory__table-th ">Летучие вещества, %</th>
               </tr>
             </thead>
@@ -59,9 +64,6 @@
 
             </tbody>
           </table>
-
-
-
         </div>
         <div>
 
@@ -257,7 +259,7 @@
         <table class="table laboratory__table--mnemo">
           <thead class="table__thead">
             <tr class="table__tr">
-              <th class="table__th laboratory__table-th--mnemo table__left">Дата/время</th>
+              <th class="table__th laboratory__table-th--mnemo table__left">Время</th>
               <th class="table__th laboratory__table-th--mnemo ">Летучие в-ва, %</th>
             </tr>
           </thead>

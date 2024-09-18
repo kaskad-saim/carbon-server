@@ -1887,17 +1887,18 @@ body::-webkit-scrollbar-thumb {
 .laboratory__table {
   position: static;
   max-width: fit-content;
-  min-width: 450px;
-
+  min-width: 520px;
 }
 
 .laboratory__table-td {
   animation-play-state: paused;
   font-size: 16px;
   line-height: 20px;
+  text-align: center;
 }
 
 .laboratory__table-th {
+  text-align: center;
   font-size: 18px;
   line-height: 22px;
 }
@@ -1917,7 +1918,7 @@ body::-webkit-scrollbar-thumb {
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
-  max-width: 450px;
+  max-width: 520px;
 }
 
 .laboratory__form-item {
@@ -1925,7 +1926,7 @@ body::-webkit-scrollbar-thumb {
   width: 100%;
 }
 
-.laboratory__form-item:first-child {
+.laboratory__form-item:not(:last-child) {
   margin-right: 10px;
 }
 
@@ -2037,7 +2038,7 @@ body::-webkit-scrollbar-thumb {
 }
 
 .laboratory__table--mnemo {
-  max-width: 280px;
+  max-width: 285px;
   position: absolute;
   top: 25.5%;
   left: 7.5%;
@@ -2050,15 +2051,18 @@ body::-webkit-scrollbar-thumb {
   line-height: 16px;
   padding-top: 5px;
   padding-bottom: 5px;
+  text-align: center;
 }
 
 .laboratory__table-th--mnemo {
+  text-align: center;
   font-size: 15px;
   line-height: 19px;
   font-weight: 400;
 }
 
 .laboratory__table-td--mnemo {
+  text-align: center;
   font-size: 15px;
   line-height: 19px;
   font-weight: 600;
@@ -2396,7 +2400,7 @@ body::-webkit-scrollbar-thumb {
   }
 
   .laboratory__table--mnemo {
-    max-width: 280px;
+    max-width: 285px;
   }
 
   .laboratory__table-th--mnemo {

@@ -1,11 +1,26 @@
-import { closeModal } from "./components/modal.js";
+import { closeModal } from './components/modal.js';
 
 const form = document.querySelector('.laboratory__form');
 const input = document.getElementById('volatile-substances');
+const inputTime = document.getElementById('input-time'); // Поле для времени
 const passwordInput = document.querySelector('#volatile-substances-password');
 const timeCell = document.querySelector('.laboratory__table-td--mnemo-time'); // Ячейка для времени
 const valueCell = document.querySelector('.laboratory__table-td--mnemo-val'); // Ячейка для значения
 const errorSpan = document.querySelector('.laboratory__form-error'); // Спан для ошибок
+
+// Функция для блокировки инпутов
+const disableInputs = () => {
+  input.setAttribute('readonly', true);
+  inputTime.setAttribute('readonly', true);
+  passwordInput.setAttribute('readonly', true);
+};
+
+// Функция для разблокировки инпутов
+const enableInputs = () => {
+  input.removeAttribute('readonly');
+  inputTime.removeAttribute('readonly');
+  passwordInput.removeAttribute('readonly');
+};
 
 // Функция для выполнения запроса и обработки данных
 const fetchData = async (url) => {
@@ -15,15 +30,15 @@ const fetchData = async (url) => {
     return await response.json();
   } catch (error) {
     console.error('Ошибка:', error);
-    return null; // Возвращаем null в случае ошибки
+    throw error; // Перебрасываем ошибку для обработки в вызывающей функции
   }
 };
 
 // Установка данных в ячейки
-const setCellData = (valueCell, timeCell, value, createdAt) => {
-  if (value !== undefined && createdAt !== undefined) {
+const setCellData = (valueCell, timeCell, value, time) => {
+  if (value !== undefined && time !== undefined && value !== null && time !== null) {
     valueCell.textContent = value;
-    timeCell.textContent = new Date(createdAt).toLocaleString();
+    timeCell.textContent = time;
   } else {
     valueCell.textContent = 'Нет данных';
     timeCell.textContent = 'Нет данных';
@@ -32,54 +47,77 @@ const setCellData = (valueCell, timeCell, value, createdAt) => {
 
 // Функция для получения последних данных
 const fetchLastData = async () => {
-  const data = await fetchData('http://169.254.0.156:3000/last');
-  setCellData(valueCell, timeCell, data?.value, data?.createdAt);
-
-  // Блокировка ввода и отображение ошибки при отсутствии связи с сервером
-  if (!data && error.message.includes('Failed to fetch')) {
-    input.setAttribute('readonly', true);
+  try {
+    const data = await fetchData('http://169.254.0.156:3000/last');
+    if (data && data.value !== null && data.time !== null) {
+      setCellData(valueCell, timeCell, data.value, data.time);
+    } else {
+      // Если данных нет в базе данных
+      setCellData(valueCell, timeCell, 'Нет данных', 'Нет данных');
+    }
+    enableInputs();
+    errorSpan.textContent = '';
+    errorSpan.classList.remove('active');
+  } catch (error) {
+    console.error('Ошибка при получении последних данных:', error);
+    setCellData(valueCell, timeCell, 'Нет связи с сервером', 'Нет связи с сервером');
     errorSpan.textContent = 'Нет связи с сервером';
     errorSpan.classList.add('active');
+    disableInputs();
   }
 };
 
-const tableBody = document.querySelector('.table__tbody');
-const now = new Date();
+const tableBody = document.querySelector('.laboratory__table-tbody'); // Таблица с данными за сутки
 
 // Функция для получения данных за последние 24 часа и обновления таблицы
 const fetchLastDayData = async () => {
-  const data = await fetchData('http://169.254.0.156:3000/last-day');
+  try {
+    const data = await fetchData('http://169.254.0.156:3000/last-day');
+    if (data && data.length > 0) {
+      tableBody.innerHTML = '';
+      data.forEach((item) => {
+        const row = document.createElement('tr');
+        row.classList.add('table__tr');
 
-  if (data) {
-    // Очистка текущего содержимого таблицы
-    tableBody.innerHTML = '';
+        const timeCellElement = document.createElement('td');
+        timeCellElement.classList.add('table__td', 'laboratory__table-td', 'laboratory__table-td--time', 'table__left');
+        timeCellElement.textContent = item.time || 'Нет данных';
+        row.appendChild(timeCellElement);
 
-    const filteredData = data
-      .filter((item) => {
-        const itemTime = new Date(item.createdAt);
-        return itemTime >= new Date(now.getTime() - 24 * 60 * 60 * 1000);
-      })
-      .sort((a, b) => new Date(a.createdAt) - new Date(b.createdAt));
+        const valueCellElement = document.createElement('td');
+        valueCellElement.classList.add(
+          'table__td',
+          'laboratory__table-td',
+          'laboratory__table-td--val',
+          'table__right'
+        );
+        valueCellElement.textContent = item.value || 'Нет данных';
+        row.appendChild(valueCellElement);
 
-    // Обновление таблицы с новыми данными
-    filteredData.forEach((item) => {
-      const row = document.createElement('tr');
-      row.classList.add('table__tr');
-
-      const timeCell = document.createElement('td');
-      timeCell.classList.add('table__td', 'laboratory__table-td', 'laboratory__table-td--time', 'table__left');
-      timeCell.textContent = new Date(item.createdAt).toLocaleString();
-      row.appendChild(timeCell);
-
-      const valueCell = document.createElement('td');
-      valueCell.classList.add('table__td', 'laboratory__table-td', 'laboratory__table-td--val', 'table__right');
-      valueCell.textContent = item.value;
-      row.appendChild(valueCell);
-
-      tableBody.appendChild(row);
-    });
-  } else {
-    console.error('Ошибка получения данных за последние 24 часа');
+        tableBody.appendChild(row);
+      });
+    } else {
+      // Если данных нет в базе данных
+      tableBody.innerHTML = `
+        <tr class="table__tr">
+          <td class="table__td laboratory__table-td--mnemo table__left">Нет данных</td>
+          <td class="table__td laboratory__table-td--mnemo table__right">Нет данных</td>
+        </tr>`;
+    }
+    enableInputs();
+    errorSpan.textContent = '';
+    errorSpan.classList.remove('active');
+  } catch (error) {
+    console.error('Ошибка при получении данных за последние сутки:', error);
+    // В случае отсутствия связи с сервером, отображаем две ячейки с текстом 'Нет связи с сервером'
+    tableBody.innerHTML = `
+      <tr class="table__tr">
+        <td class="table__td laboratory__table-td laboratory__table-td--time table__left">Нет связи с сервером</td>
+        <td class="table__td laboratory__table-td laboratory__table-td--val table__right">Нет связи с сервером</td>
+      </tr>`;
+    errorSpan.textContent = 'Нет связи с сервером';
+    errorSpan.classList.add('active');
+    disableInputs();
   }
 };
 
@@ -88,10 +126,12 @@ form.addEventListener('submit', (event) => {
 
   // Получаем значения из полей ввода
   let value = input.value.trim(); // Убираем лишние пробелы
+  let time = inputTime.value.trim(); // Получаем введенное время
   let password = passwordInput.value.trim();
 
   // Получаем спаны для ошибок
   const errorSpanValue = document.getElementById('error-volatile-substances');
+  const errorSpanTime = document.getElementById('error-input-time');
   const errorSpanPassword = document.getElementById('error-volatile-substances-password');
 
   // Функция для отображения ошибок
@@ -106,6 +146,9 @@ form.addEventListener('submit', (event) => {
     errorSpanValue.textContent = '';
     errorSpanValue.classList.remove('active');
     input.classList.remove('error');
+    errorSpanTime.textContent = '';
+    errorSpanTime.classList.remove('active');
+    inputTime.classList.remove('error');
     errorSpanPassword.textContent = '';
     errorSpanPassword.classList.remove('active');
     passwordInput.classList.remove('error');
@@ -117,6 +160,12 @@ form.addEventListener('submit', (event) => {
   // Проверка на пустое значение в поле "летучие вещества"
   if (!value) {
     showError(input, errorSpanValue, 'Введите значение');
+    return; // Прерываем выполнение
+  }
+
+  // Проверка на пустое значение в поле "время"
+  if (!time) {
+    showError(inputTime, errorSpanTime, 'Введите время');
     return; // Прерываем выполнение
   }
 
@@ -135,28 +184,27 @@ form.addEventListener('submit', (event) => {
     return; // Прерываем выполнение
   }
 
-  // Если всё в порядке, отправляем значение на сервер
-  console.log('Отправленное значение:', value);
+  // Если всё в порядке, отправляем значение и время на сервер
   fetch('http://169.254.0.156:3000/submit', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ value }),
+    body: JSON.stringify({ value, time }),
   })
     .then((response) => {
       if (!response.ok) throw new Error('Сетевая ошибка');
       return response.json();
     })
-    .then(({ value, createdAt }) => {
-      console.log('Ответ сервера:', { value, createdAt });
+    .then(({ value, time }) => {
       // Очистка полей ввода
       input.value = '';
+      inputTime.value = '';
       passwordInput.value = '';
       clearErrors(); // Очищаем ошибки
 
       // Обновление значений в таблице
-      if (value !== undefined && createdAt !== undefined) {
+      if (value !== undefined && time !== undefined) {
         valueCell.textContent = value;
-        timeCell.textContent = new Date(createdAt).toLocaleString();
+        timeCell.textContent = time;
       }
       fetchLastDayData(); // Вызов функции для обновления данных за последние сутки
       closeModal('lab-modal'); // Закрываем модалку
@@ -164,17 +212,15 @@ form.addEventListener('submit', (event) => {
     .catch((error) => {
       console.error('Ошибка:', error);
       // Если это ошибка сети, то выводим сообщение
-      if (error.message.includes('Failed to fetch')) {
+      if (error.message.includes('Failed to fetch') || error.message.includes('Сетевая ошибка')) {
         showError(input, errorSpanValue, 'Нет связи с сервером');
-        input.setAttribute('readonly', true); // Блокируем ввод
+        disableInputs(); // Блокируем ввод
       } else {
         showError(input, errorSpanValue, 'Ошибка при отправке данных');
       }
     });
 });
 
-// Вызов функции для получения данных при загрузке страницы
-fetchLastDayData();
-
-// Получаем последние данные при загрузке страницы
+// Вызов функций для получения данных при загрузке страницы
 fetchLastData();
+fetchLastDayData();

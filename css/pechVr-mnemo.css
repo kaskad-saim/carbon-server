@@ -2038,10 +2038,10 @@ body::-webkit-scrollbar-thumb {
 }
 
 .laboratory__table--mnemo {
-  max-width: 285px;
+  max-width: 311px;
   position: absolute;
-  top: 25.5%;
-  left: 7.5%;
+  top: 25%;
+  left: 7%;
   z-index: 1;
 }
 

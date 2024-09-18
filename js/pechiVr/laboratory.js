@@ -3,9 +3,12 @@ import { closeModal } from './components/modal.js';
 const form = document.querySelector('.laboratory__form');
 const input = document.getElementById('volatile-substances');
 const inputTime = document.getElementById('input-time'); // Поле для времени
-const passwordInput = document.querySelector('#volatile-substances-password');
+const passwordInput = document.getElementById('volatile-substances-password');
+
+const dateCell = document.querySelector('.laboratory__table-td--mnemo-date'); // Ячейка для даты
 const timeCell = document.querySelector('.laboratory__table-td--mnemo-time'); // Ячейка для времени
 const valueCell = document.querySelector('.laboratory__table-td--mnemo-val'); // Ячейка для значения
+
 const errorSpan = document.querySelector('.laboratory__form-error'); // Спан для ошибок
 
 // Функция для блокировки инпутов
@@ -35,13 +38,22 @@ const fetchData = async (url) => {
 };
 
 // Установка данных в ячейки
-const setCellData = (valueCell, timeCell, value, time) => {
-  if (value !== undefined && time !== undefined && value !== null && time !== null) {
+const setCellData = (valueCell, timeCell, dateCell, value, time, date) => {
+  if (
+    value !== undefined &&
+    time !== undefined &&
+    date !== undefined &&
+    value !== null &&
+    time !== null &&
+    date !== null
+  ) {
     valueCell.textContent = value;
     timeCell.textContent = time;
+    dateCell.textContent = date;
   } else {
     valueCell.textContent = 'Нет данных';
     timeCell.textContent = 'Нет данных';
+    dateCell.textContent = 'Нет данных';
   }
 };
 
@@ -49,18 +61,18 @@ const setCellData = (valueCell, timeCell, value, time) => {
 const fetchLastData = async () => {
   try {
     const data = await fetchData('http://169.254.0.156:3000/last');
-    if (data && data.value !== null && data.time !== null) {
-      setCellData(valueCell, timeCell, data.value, data.time);
+    if (data && data.value !== null && data.time !== null && data.date !== null) {
+      setCellData(valueCell, timeCell, dateCell, data.value, data.time, data.date);
     } else {
       // Если данных нет в базе данных
-      setCellData(valueCell, timeCell, 'Нет данных', 'Нет данных');
+      setCellData(valueCell, timeCell, dateCell, 'Нет данных', 'Нет данных', 'Нет данных');
     }
     enableInputs();
     errorSpan.textContent = '';
     errorSpan.classList.remove('active');
   } catch (error) {
     console.error('Ошибка при получении последних данных:', error);
-    setCellData(valueCell, timeCell, 'Нет связи с сервером', 'Нет связи с сервером');
+    setCellData(valueCell, timeCell, dateCell, 'Нет связи', 'Нет связи', 'Нет связи');
     errorSpan.textContent = 'Нет связи с сервером';
     errorSpan.classList.add('active');
     disableInputs();
@@ -69,53 +81,53 @@ const fetchLastData = async () => {
 
 const tableBody = document.querySelector('.laboratory__table-tbody'); // Таблица с данными за сутки
 
+// Функция для создания строки таблицы
+const createTableRow = (dateText, timeText, valueText) => {
+  const row = document.createElement('tr');
+  row.classList.add('table__tr');
+
+  const dateCellElement = document.createElement('td');
+  dateCellElement.classList.add('table__td', 'table__left', 'laboratory__table-td');
+  dateCellElement.textContent = dateText;
+  row.appendChild(dateCellElement);
+
+  const timeCellElement = document.createElement('td');
+  timeCellElement.classList.add('table__td', 'table__left', 'laboratory__table-td');
+  timeCellElement.textContent = timeText;
+  row.appendChild(timeCellElement);
+
+  const valueCellElement = document.createElement('td');
+  valueCellElement.classList.add('table__td', 'table__right', 'laboratory__table-td');
+  valueCellElement.textContent = valueText;
+  row.appendChild(valueCellElement);
+
+  return row;
+};
+
 // Функция для получения данных за последние 24 часа и обновления таблицы
 const fetchLastDayData = async () => {
   try {
     const data = await fetchData('http://169.254.0.156:3000/last-day');
+    tableBody.innerHTML = '';
     if (data && data.length > 0) {
-      tableBody.innerHTML = '';
       data.forEach((item) => {
-        const row = document.createElement('tr');
-        row.classList.add('table__tr');
-
-        const timeCellElement = document.createElement('td');
-        timeCellElement.classList.add('table__td', 'laboratory__table-td', 'laboratory__table-td--time', 'table__left');
-        timeCellElement.textContent = item.time || 'Нет данных';
-        row.appendChild(timeCellElement);
-
-        const valueCellElement = document.createElement('td');
-        valueCellElement.classList.add(
-          'table__td',
-          'laboratory__table-td',
-          'laboratory__table-td--val',
-          'table__right'
-        );
-        valueCellElement.textContent = item.value || 'Нет данных';
-        row.appendChild(valueCellElement);
-
+        const row = createTableRow(item.date || 'Нет данных', item.time || 'Нет данных', item.value || 'Нет данных');
         tableBody.appendChild(row);
       });
     } else {
       // Если данных нет в базе данных
-      tableBody.innerHTML = `
-        <tr class="table__tr">
-          <td class="table__td laboratory__table-td--mnemo table__left">Нет данных</td>
-          <td class="table__td laboratory__table-td--mnemo table__right">Нет данных</td>
-        </tr>`;
+      const row = createTableRow('Нет данных', 'Нет данных', 'Нет данных');
+      tableBody.appendChild(row);
     }
     enableInputs();
     errorSpan.textContent = '';
     errorSpan.classList.remove('active');
   } catch (error) {
     console.error('Ошибка при получении данных за последние сутки:', error);
-    // В случае отсутствия связи с сервером, отображаем две ячейки с текстом 'Нет связи с сервером'
-    tableBody.innerHTML = `
-      <tr class="table__tr">
-        <td class="table__td laboratory__table-td laboratory__table-td--time table__left">Нет связи с сервером</td>
-        <td class="table__td laboratory__table-td laboratory__table-td--val table__right">Нет связи с сервером</td>
-      </tr>`;
-    errorSpan.textContent = 'Нет связи с сервером';
+    // В случае отсутствия связи с сервером, отображаем соответствующие сообщения
+    const row = createTableRow('Нет связи', 'Нет связи', 'Нет связи');
+    tableBody.appendChild(row);
+    errorSpan.textContent = 'Нет связи';
     errorSpan.classList.add('active');
     disableInputs();
   }
@@ -194,7 +206,7 @@ form.addEventListener('submit', (event) => {
       if (!response.ok) throw new Error('Сетевая ошибка');
       return response.json();
     })
-    .then(({ value, time }) => {
+    .then(({ value, time, date }) => {
       // Очистка полей ввода
       input.value = '';
       inputTime.value = '';
@@ -202,9 +214,8 @@ form.addEventListener('submit', (event) => {
       clearErrors(); // Очищаем ошибки
 
       // Обновление значений в таблице
-      if (value !== undefined && time !== undefined) {
-        valueCell.textContent = value;
-        timeCell.textContent = time;
+      if (value !== undefined && time !== undefined && date !== undefined) {
+        setCellData(valueCell, timeCell, dateCell, value, time, date);
       }
       fetchLastDayData(); // Вызов функции для обновления данных за последние сутки
       closeModal('lab-modal'); // Закрываем модалку
@@ -213,7 +224,7 @@ form.addEventListener('submit', (event) => {
       console.error('Ошибка:', error);
       // Если это ошибка сети, то выводим сообщение
       if (error.message.includes('Failed to fetch') || error.message.includes('Сетевая ошибка')) {
-        showError(input, errorSpanValue, 'Нет связи с сервером');
+        showError(input, errorSpanValue, 'Нет связи');
         disableInputs(); // Блокируем ввод
       } else {
         showError(input, errorSpanValue, 'Ошибка при отправке данных');

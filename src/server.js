@@ -19,6 +19,7 @@ mongoose
 const dataSchema = new mongoose.Schema({
   value: String,
   time: String, // Поле для времени
+  date: String, // Новое поле для даты
   createdAt: {
     type: Date,
     default: Date.now,
@@ -37,13 +38,17 @@ app.post('/submit', async (req, res) => {
       return res.status(400).json({ message: 'Необходимо указать значение и время' });
     }
 
+    // Получаем текущую дату в формате 'DD.MM.YYYY'
+    const now = new Date();
+    const date = now.toLocaleDateString('ru-RU');
+
     // Сохранение данных в базе
-    const newData = new DataModel({ value, time });
+    const newData = new DataModel({ value, time, date });
     await newData.save();
 
-    console.log('Полученные данные:', { value, time });
+    console.log('Полученные данные:', { value, time, date });
 
-    res.json({ message: 'Данные успешно сохранены', value, time });
+    res.json({ message: 'Данные успешно сохранены', value, time, date });
   } catch (error) {
     console.error('Ошибка при сохранении данных:', error);
     res.status(500).json({ message: 'Произошла ошибка при сохранении данных' });
@@ -55,10 +60,10 @@ app.get('/last', async (req, res) => {
   try {
     const lastData = await DataModel.findOne().sort({ createdAt: -1 }).exec();
     if (lastData) {
-      res.json({ value: lastData.value, time: lastData.time });
+      res.json({ value: lastData.value, time: lastData.time, date: lastData.date });
     } else {
       // Если данных нет, возвращаем null
-      res.json({ value: null, time: null });
+      res.json({ value: null, time: null, date: null });
     }
   } catch (error) {
     console.error('Ошибка при получении данных:', error);
@@ -83,6 +88,7 @@ app.get('/last-day', async (req, res) => {
         lastDayData.map((item) => ({
           value: item.value,
           time: item.time,
+          date: item.date,
         }))
       );
     } else {

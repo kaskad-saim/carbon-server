@@ -65,7 +65,7 @@ const setCellData = (value, time, date) => {
 // Функция для получения последних данных
 const fetchLastData = async () => {
   try {
-    const data = await fetchData('http://169.254.0.156:3000/last');
+    const data = await fetchData('http://169.254.0.156:3000/pechVr1/last');
     if (data) {
       setCellData(data.value, data.time, data.date);
     } else {
@@ -104,7 +104,7 @@ const createTableRow = (dateText, timeText, valueText) => {
 // Функция для получения данных за последние 24 часа и обновления таблицы
 const fetchLastDayData = async () => {
   try {
-    const data = await fetchData('http://169.254.0.156:3000/last-day');
+    const data = await fetchData('http://169.254.0.156:3000/pechVr1/last-day');
     tableBody.innerHTML = '';
     if (data && data.length > 0) {
       data.forEach((item) => {
@@ -162,7 +162,7 @@ form.addEventListener('submit', async (event) => {
 
   // Отправка данных на сервер
   try {
-    const data = await fetchData('http://169.254.0.156:3000/submit', {
+    const data = await fetchData('http://169.254.0.156:3000/pechVr1/submit', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ value: numericValue.toString(), time }),
@@ -177,7 +177,7 @@ form.addEventListener('submit', async (event) => {
     // Обновление таблиц
     setCellData(data.value, data.time, data.date);
     fetchLastDayData();
-    closeModal('lab-modal');
+    closeModal('lab-modal-1');
   } catch (error) {
     if (error.message.includes('Failed to fetch') || error.message.includes('Сетевая ошибка')) {
       showError(volatileInput, errorSpans.value, 'Нет связи');

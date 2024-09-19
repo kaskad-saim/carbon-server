@@ -2,15 +2,15 @@
 import mongoose from 'mongoose';
 
 // Создание схемы и модели для данных
-const dataSchema = new mongoose.Schema(
+const pechVr2Schema = new mongoose.Schema(
   {
     value: { type: String, required: true },
     time: { type: String, required: true },
     date: { type: String, required: true },
   },
-  { timestamps: true } // Добавляет поля createdAt и updatedAt автоматически
+  { timestamps: true }
 );
 
-const DataModel = mongoose.model('Data', dataSchema);
+const PechVr2Model = mongoose.model('pechVr2', pechVr2Schema);
 
-export default DataModel;
+export default PechVr2Model;

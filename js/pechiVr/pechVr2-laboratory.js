@@ -9,7 +9,6 @@ const passwordInput = document.getElementById('volatile-substances-password');
 const dateCell = document.querySelector('.laboratory__table-td--mnemo-date');
 const timeCell = document.querySelector('.laboratory__table-td--mnemo-time');
 const valueCell = document.querySelector('.laboratory__table-td--mnemo-val');
-
 const errorSpan = document.querySelector('.laboratory__form-error');
 
 const errorSpans = {
@@ -62,9 +61,38 @@ const setCellData = (value, time, date) => {
   dateCell.textContent = date ?? 'Нет данных';
 };
 
+// Функция для показа прелоудера "Данные загружаются"
+const showLoadingMessage = () => {
+  const row = document.createElement('tr');
+  row.classList.add('table__tr');
+
+  const createLoadingCell = () => {
+    const cell = document.createElement('td');
+    cell.textContent = 'Загрузка...';
+    cell.classList.add('table__td', 'table__left', 'laboratory__table-td');
+    return cell;
+  };
+
+  // Добавляем 3 ячейки с текстом "Данные загружаются"
+  row.appendChild(createLoadingCell());
+  row.appendChild(createLoadingCell());
+  row.appendChild(createLoadingCell());
+
+  return row;
+};
+
+// Функция для показа прелоудера для последнего загруженного значения
+const showLastValueLoading = () => {
+  valueCell.textContent = 'Загрузка...';
+  timeCell.textContent = 'Загрузка...';
+  dateCell.textContent = 'Загрузка...';
+};
+
 // Функция для получения последних данных
 const fetchLastData = async () => {
   try {
+    showLastValueLoading(); // Показываем прелоудер для последнего значения
+
     const data = await fetchData('http://169.254.0.156:3000/pechVr2/last');
     if (data) {
       setCellData(data.value, data.time, data.date);
@@ -104,8 +132,12 @@ const createTableRow = (dateText, timeText, valueText) => {
 // Функция для получения данных за последние 24 часа и обновления таблицы
 const fetchLastDayData = async () => {
   try {
+    tableBody.innerHTML = ''; // Очищаем таблицу
+    tableBody.appendChild(showLoadingMessage()); // Показываем прелоудер
+
     const data = await fetchData('http://169.254.0.156:3000/pechVr2/last-day');
-    tableBody.innerHTML = '';
+    tableBody.innerHTML = ''; // Очищаем перед добавлением данных
+
     if (data && data.length > 0) {
       data.forEach((item) => {
         const row = createTableRow(item.date || 'Нет данных', item.time || 'Нет данных', item.value || 'Нет данных');

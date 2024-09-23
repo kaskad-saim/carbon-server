@@ -9,20 +9,20 @@ const sirenAnimation = document.querySelector('.light-alarm__content');
 // условия по параметрам
 const animationRun = (param) => {
   param.style.animationPlayState = 'running';
-  if (sirenVR1mnemo) {
-    if (modeTitle.innerHTML == 'Установившийся режим') {
-      sirenVR1mnemo.play();
-    } else {
-      sirenVR1mnemo.pause();
-    }
-  }
-  if (sirenVR2mnemo) {
-    if (modeTitle.innerHTML == 'Установившийся режим') {
-      sirenVR2mnemo.play();
-    } else {
-      sirenVR2mnemo.pause();
-    }
-  }
+  // if (sirenVR1mnemo) {
+  //   if (modeTitle.innerHTML == 'Установившийся режим') {
+  //     sirenVR1mnemo.play();
+  //   } else {
+  //     sirenVR1mnemo.pause();
+  //   }
+  // }
+  // if (sirenVR2mnemo) {
+  //   if (modeTitle.innerHTML == 'Установившийся режим') {
+  //     sirenVR2mnemo.play();
+  //   } else {
+  //     sirenVR2mnemo.pause();
+  //   }
+  // }
 };
 
 const animationPaused = (param) => {

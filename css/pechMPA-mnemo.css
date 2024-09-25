@@ -653,7 +653,7 @@ body::-webkit-scrollbar-thumb {
 
 .vdl-p-clue {
   width: 200px;
-  top: -69px;
+  top: -45px;
   left: 35px;
 }
 
@@ -664,7 +664,7 @@ body::-webkit-scrollbar-thumb {
 
 .vdp-p-clue {
   width: 200px;
-  top: -13px;
+  top: 11px;
   left: 35px;
 }
 
@@ -686,7 +686,7 @@ body::-webkit-scrollbar-thumb {
 
 .sdl-p-clue {
   width: 200px;
-  top: -67px;
+  top: -44px;
   left: 35px;
 }
 
@@ -697,7 +697,7 @@ body::-webkit-scrollbar-thumb {
 
 .sdp-p-clue {
   width: 200px;
-  top: -13px;
+  top: 11px;
   left: 35px;
 }
 
@@ -708,7 +708,7 @@ body::-webkit-scrollbar-thumb {
 
 .sbl-p-clue {
   width: 200px;
-  top: -67px;
+  top: -44px;
   left: 35px;
 }
 
@@ -719,7 +719,7 @@ body::-webkit-scrollbar-thumb {
 
 .sbp-p-clue {
   width: 200px;
-  top: -13px;
+  top: 11px;
   left: 35px;
 }
 
@@ -740,7 +740,7 @@ body::-webkit-scrollbar-thumb {
 
 .nbl-p-clue {
   width: 200px;
-  top: -67px;
+  top: -44px;
   left: 35px;
 }
 
@@ -751,7 +751,7 @@ body::-webkit-scrollbar-thumb {
 
 .nbp-p-clue {
   width: 200px;
-  top: -13px;
+  top: 11px;
   left: 35px;
 }
 
@@ -934,7 +934,7 @@ body::-webkit-scrollbar-thumb {
 
   .vdl-p-clue {
     width: 175px;
-    top: -74px;
+    top: -51px;
     left: 22px;
   }
 
@@ -945,7 +945,7 @@ body::-webkit-scrollbar-thumb {
 
   .vdp-p-clue {
     width: 175px;
-    top: -28px;
+    top: -5px;
     left: 22px;
   }
 
@@ -966,7 +966,7 @@ body::-webkit-scrollbar-thumb {
 
   .sdl-p-clue {
     width: 175px;
-    top: -74px;
+    top: -51px;
     left: 22px;
   }
 
@@ -977,7 +977,7 @@ body::-webkit-scrollbar-thumb {
 
   .sdp-p-clue {
     width: 175px;
-    top: -28px;
+    top: -5px;
     left: 22px;
   }
 
@@ -988,7 +988,7 @@ body::-webkit-scrollbar-thumb {
 
   .sbl-p-clue {
     width: 175px;
-    top: -74px;
+    top: -51px;
     left: 22px;
   }
 
@@ -999,7 +999,7 @@ body::-webkit-scrollbar-thumb {
 
   .sbp-p-clue {
     width: 175px;
-    top: -28px;
+    top: -5px;
     left: 22px;
   }
 
@@ -1020,7 +1020,7 @@ body::-webkit-scrollbar-thumb {
 
   .nbl-p-clue {
     width: 175px;
-    top: -74px;
+    top: -51px;
     left: 22px;
   }
 
@@ -1031,7 +1031,7 @@ body::-webkit-scrollbar-thumb {
 
   .nbp-p-clue {
     width: 175px;
-    top: -28px;
+    top: -5px;
     left: 22px;
   }
 

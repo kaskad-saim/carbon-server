@@ -1860,6 +1860,7 @@ body::-webkit-scrollbar-thumb {
 }
 
 .object__list {
+  margin-top: 10px;
   display: flex;
   gap: 30px;
 }

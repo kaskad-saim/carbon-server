@@ -32,7 +32,7 @@
             <thead class="table__thead">
               <tr class="table__tr">
                 <th class="table__th table__left">Наименование параметра</th>
-                <th class="table__th ">Значения &#176C</th>
+                <th class="table__th ">Значения</th>
               </tr>
             </thead>
             <tbody>
@@ -40,7 +40,8 @@
                 <td class="table__td table__td--object table__left">Время сервера</td>
                 <td class="table__td table__td--object table__right bot-vr-time" id="server-time">
                   <!-- оставить в слитном виде в строчку -->
-                  <#Date><#Time>
+                  <#Date>
+                    <#Time>
                 </td>
               </tr>
               <tr class="table__tr">
@@ -200,13 +201,13 @@
             <thead class="table__thead">
               <tr class="table__tr">
                 <th class="table__th table__left">Наименование параметра</th>
-                <th class="table__th ">Значения &#176C</th>
+                <th class="table__th ">Значения</th>
               </tr>
             </thead>
             <tbody>
               <tr class="table__tr">
                 <td class="table__td table__td--object table__left">Температура 1-СК</td>
-                <td class="table__td table__td--object table__right bot-vr2-temper-1-skolz">
+                <td class="table__td table__td--object table__right temper-1-skolz-vr2 bot-vr2-temper-1-skolz">
                   <#PasspValue PasspType=1 PasspID=55 Precision=0>
                 </td>
               </tr>

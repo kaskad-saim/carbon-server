@@ -21,6 +21,15 @@ document.querySelectorAll('.modal-btn').forEach((button) => {
   });
 });
 
+document.addEventListener('click', function (event) {
+  const target = event.target;
+  const modalId = target.getAttribute('data-modal-target');
+  if (modalId) {
+    openModal(modalId);
+  }
+});
+
+
 // Обработчик клика по кнопкам закрытия
 document.querySelectorAll('.mnemo__modal-close').forEach((closeButton) => {
   closeButton.addEventListener('click', function () {

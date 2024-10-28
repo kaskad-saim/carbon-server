@@ -40,10 +40,9 @@ const addRowIfRunning = (param, description, modalId) => {
       <td class="table__td table__left ">${description}</td>
       <td class="table__td table__right">${param.innerHTML}</td>
       <td class="table__td table__tr--incorrect-param">
-        <button class="btn-reset" data-modal-target="${modalId}">Подробнее</button>
+        <button class="table__td-btn btn-reset" data-modal-target="${modalId}">Подробнее</button>
       </td>
     `;
-
     // Добавляем строку в таблицу
     tableTbody.appendChild(row);
 
